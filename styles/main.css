@@ -1,0 +1,480 @@
+/* ============================================================
+   MAIN.CSS — Fazi Awan Portfolio (Luxury Edition)
+   Custom styles that extend Tailwind's utility layer.
+   ============================================================ */
+
+/* --- Custom Scrollbar (ultra-thin, glowing) --- */
+::-webkit-scrollbar {
+  width: 3px;
+  height: 3px;
+}
+::-webkit-scrollbar-track {
+  background: #0e0e0e;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #ff5e00, #ffb599);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #ff5e00;
+}
+
+/* --- Hide scrollbar for carousels --- */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* --- Smooth scroll behaviour --- */
+html {
+  scroll-behavior: smooth;
+}
+
+/* =============================================================
+   LUXURY UPGRADE 1: FILM GRAIN NOISE OVERLAY
+   ============================================================= */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 128px 128px;
+  opacity: 0.025;
+  animation: grainShift 0.5s steps(2) infinite;
+}
+
+@keyframes grainShift {
+  0%   { transform: translate(0, 0); }
+  25%  { transform: translate(-2px, 3px); }
+  50%  { transform: translate(3px, -1px); }
+  75%  { transform: translate(-1px, -2px); }
+  100% { transform: translate(2px, 1px); }
+}
+
+/* =============================================================
+   LUXURY UPGRADE 2: MAGNETIC CUSTOM CURSOR
+   ============================================================= */
+* { cursor: none !important; }
+
+#custom-cursor {
+  position: fixed;
+  top: 0; left: 0;
+  width: 12px; height: 12px;
+  background: #ff5e00;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 100000;
+  transform: translate(-50%, -50%);
+  transition: width 0.2s ease, height 0.2s ease, background 0.2s ease, opacity 0.2s ease;
+  mix-blend-mode: normal;
+  will-change: transform;
+}
+
+#custom-cursor-ring {
+  position: fixed;
+  top: 0; left: 0;
+  width: 40px; height: 40px;
+  border: 1px solid rgba(255, 94, 0, 0.5);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99999;
+  transform: translate(-50%, -50%);
+  transition: width 0.4s cubic-bezier(0.23, 1, 0.32, 1),
+              height 0.4s cubic-bezier(0.23, 1, 0.32, 1),
+              border-color 0.3s ease,
+              opacity 0.3s ease;
+  will-change: transform;
+}
+
+#custom-cursor.cursor-hover {
+  width: 6px;
+  height: 6px;
+  background: #ffb599;
+}
+
+#custom-cursor-ring.cursor-hover {
+  width: 60px;
+  height: 60px;
+  border-color: rgba(255, 94, 0, 0.8);
+  background: rgba(255, 94, 0, 0.05);
+}
+
+#custom-cursor.cursor-clicking {
+  transform: translate(-50%, -50%) scale(0.7);
+}
+
+/* =============================================================
+   LUXURY UPGRADE 3: GRADIENT BORDER BEAM ON CARDS
+   ============================================================= */
+.beam-card {
+  position: relative;
+  isolation: isolate;
+}
+.beam-card::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: conic-gradient(
+    from var(--beam-angle, 0deg),
+    transparent 0%,
+    transparent 40%,
+    rgba(255, 94, 0, 0.7) 50%,
+    transparent 60%,
+    transparent 100%
+  );
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.beam-card:hover::before {
+  opacity: 1;
+  animation: beamSpin 2.5s linear infinite;
+}
+.beam-card::after {
+  content: '';
+  position: absolute;
+  inset: 1px;
+  border-radius: inherit;
+  background: #111111;
+  z-index: -1;
+}
+
+@keyframes beamSpin {
+  from { --beam-angle: 0deg; }
+  to   { --beam-angle: 360deg; }
+}
+
+@property --beam-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+/* =============================================================
+   LUXURY UPGRADE 4: SCROLL-DRIVEN TEXT REVEAL
+   ============================================================= */
+.reveal-text {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.23, 1, 0.32, 1),
+              transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.reveal-text.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Clip reveal — text emerges from beneath a mask */
+.clip-reveal {
+  overflow: hidden;
+}
+.clip-reveal span {
+  display: inline-block;
+  transform: translateY(110%);
+  opacity: 0;
+  transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.6s ease;
+}
+.clip-reveal.is-revealed span {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.delay-100 { transition-delay: 100ms; }
+.delay-200 { transition-delay: 200ms; }
+.delay-300 { transition-delay: 300ms; }
+.delay-400 { transition-delay: 400ms; }
+.delay-500 { transition-delay: 500ms; }
+.delay-600 { transition-delay: 600ms; }
+
+/* =============================================================
+   LUXURY UPGRADE 5: GLASSMORPHISM CARDS (ENHANCED)
+   ============================================================= */
+
+/* --- Nav backdrop glass --- */
+.nav-backdrop {
+  background: rgba(10, 10, 10, 0.85);
+  backdrop-filter: blur(32px) saturate(1.5);
+  -webkit-backdrop-filter: blur(32px) saturate(1.5);
+}
+
+/* --- Glass panel (contact, testimonials) --- */
+.glass-panel {
+  background: rgba(12, 12, 12, 0.7);
+  backdrop-filter: blur(32px) saturate(1.8);
+  -webkit-backdrop-filter: blur(32px) saturate(1.8);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 0 0 0.5px rgba(255, 94, 0, 0.1), inset 0 0 80px rgba(255, 94, 0, 0.03);
+}
+
+/* Mouse-tracking glow on cards (JS sets --mx, --my variables) */
+.glow-card {
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+.glow-card::before {
+  content: '';
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(255, 94, 0, 0.12) 0%, transparent 70%);
+  left: var(--mx, -999px);
+  top: var(--my, -999px);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  border-radius: 50%;
+  z-index: 0;
+}
+.glow-card:hover::before {
+  opacity: 1;
+}
+.glow-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* --- Gradient text (orange-to-salmon) --- */
+.gradient-text {
+  background: linear-gradient(90deg, #ffb599, #ff5e00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* --- Gradient border divider --- */
+.gradient-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 94, 0, 0.5), transparent);
+  border: none;
+}
+
+/* --- Neon glow pools (service cards) --- */
+.neon-pool-cyan {
+  background: radial-gradient(circle, rgba(6, 182, 212, 0.18) 0%, rgba(0, 0, 0, 0) 70%);
+}
+.neon-pool-orange {
+  background: radial-gradient(circle, rgba(249, 115, 22, 0.18) 0%, rgba(0, 0, 0, 0) 70%);
+}
+
+/* --- Liquid testimonial card --- */
+.liquid-card {
+  background: linear-gradient(135deg, rgba(32, 31, 31, 0.9), rgba(20, 20, 20, 0.95));
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 94, 0, 0.15);
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  position: relative;
+}
+.liquid-card::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  background: linear-gradient(135deg, rgba(255, 94, 0, 0.35), transparent);
+  z-index: -1;
+  border-radius: inherit;
+  opacity: 0.25;
+  transition: opacity 0.5s ease;
+}
+.liquid-card:hover::before {
+  opacity: 0.55;
+}
+.liquid-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(255, 94, 0, 0.45);
+  box-shadow: 0 0 35px rgba(255, 94, 0, 0.12);
+}
+
+/* --- Grid background pattern --- */
+.grid-pattern {
+  background-image:
+    linear-gradient(to right, rgba(26, 26, 26, 0.5) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(26, 26, 26, 0.5) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(circle at center, black 40%, transparent 80%);
+  -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 80%);
+}
+
+/* --- Nav link hover underline --- */
+.nav-link {
+  position: relative;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 1px;
+  bottom: -2px;
+  left: 0;
+  background: linear-gradient(90deg, transparent, #ffb599, transparent);
+  transform-origin: bottom right;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.nav-link:hover::after,
+.nav-link.active::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+.nav-link.active {
+  color: #ffb599;
+}
+
+/* --- Marquee --- */
+.marquee-wrapper {
+  overflow: hidden;
+  white-space: nowrap;
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+.marquee-content {
+  display: inline-block;
+  animation: marquee 35s linear infinite;
+}
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* --- Float animation --- */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+.animate-float {
+  animation: float 7s ease-in-out infinite;
+}
+.animate-float-delayed {
+  animation: float 9s ease-in-out infinite 1.5s;
+}
+
+/* --- Magnetic Element Transition --- */
+.magnetic {
+  transition: transform 0.1s linear, background-color 0.3s, box-shadow 0.3s, border-color 0.3s;
+  will-change: transform;
+}
+
+/* --- Education / expertise card glow on hover --- */
+.glow-hover:hover {
+  box-shadow: 0 0 36px rgba(255, 94, 0, 0.15);
+  border-color: rgba(255, 94, 0, 0.35);
+}
+
+/* --- Material Symbols default settings --- */
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+/* --- Responsive section padding --- */
+@media (max-width: 767px) {
+  .py-section-gap {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+}
+
+/* --- Modal Scroll Lock --- */
+body.modal-open {
+  overflow: hidden;
+}
+
+/* --- Filterable Grid Animations --- */
+.project-card {
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.4s ease-in-out, border-color 0.3s;
+}
+.project-card.filtered-out {
+  opacity: 0;
+  transform: scale(0.95);
+  pointer-events: none;
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+.filter-btn.active {
+  color: #ff5e00;
+  border-bottom: 1px solid #ff5e00;
+}
+
+/* Typewriter Cursor Blinking */
+.typewriter-text {
+  animation: blink 1s step-end infinite;
+}
+@keyframes blink {
+  0%, 100% { border-color: transparent; }
+  50% { border-color: #ff5e00; }
+}
+
+/* ── Hero nav active underline ── */
+a[href="#hero"].nav-link {
+  color: #e5e2e1;
+  border-bottom: 1px solid #e5e2e1;
+  padding-bottom: 2px;
+}
+
+/* ── Hero Background Slow Zoom ── */
+@keyframes heroBgZoom {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.15); }
+}
+.hero-bg-zoom {
+  animation: heroBgZoom 30s ease-out forwards;
+}
+
+/* =============================================================
+   LUXURY: CANVAS PARTICLE LAYER
+   ============================================================= */
+#nexus-canvas {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.35;
+}
+
+/* --- 3D Tilt Card --- */
+.tilt-card {
+  transform-style: preserve-3d;
+  transition: transform 0.2s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.3s, border-color 0.3s;
+}
+.tilt-card > * {
+  transform-style: preserve-3d;
+}
+
+/* =============================================================
+   EXPERTISE: Luxury Glassmorphism Card Hover
+   ============================================================= */
+.expertise-glass-card {
+  transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1),
+              box-shadow 0.4s ease,
+              border-color 0.4s ease;
+}
+.expertise-glass-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.1);
+}
+
+/* =============================================================
+   CODE SCROLL TRACK (Tamal Sen divider)
+   ============================================================= */
+.code-scroll-track {
+  animation: codeScrollX 30s linear infinite;
+  white-space: nowrap;
+}
+@keyframes codeScrollX {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+

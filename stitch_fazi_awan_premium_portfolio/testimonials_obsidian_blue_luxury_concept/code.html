@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Feedback | Fazi Awan</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;700&amp;family=Inter:wght@400;500;700&amp;family=Jetbrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "secondary-fixed-dim": "#c6c6c7",
+                "primary": "#ffb599",
+                "inverse-surface": "#e5e2e1",
+                "primary-container": "#ff5e00",
+                "surface-variant": "#353534",
+                "secondary-fixed": "#e2e2e2",
+                "surface-container": "#201f1f",
+                "secondary": "#c6c6c7",
+                "on-secondary-fixed-variant": "#454747",
+                "on-background": "#e5e2e1",
+                "on-tertiary": "#313030",
+                "on-tertiary-container": "#2d2c2c",
+                "on-primary-fixed-variant": "#7f2b00",
+                "surface-tint": "#ffb599",
+                "outline": "#ab897d",
+                "inverse-primary": "#a63b00",
+                "surface-dim": "#131313",
+                "on-surface-variant": "#e4bfb1",
+                "surface-container-lowest": "#0e0e0e",
+                "on-primary-container": "#531900",
+                "surface-container-low": "#1c1b1b",
+                "on-tertiary-fixed": "#1c1b1b",
+                "tertiary-fixed": "#e5e2e1",
+                "tertiary": "#c9c6c5",
+                "on-secondary-container": "#b4b5b5",
+                "on-surface": "#e5e2e1",
+                "primary-fixed-dim": "#ffb599",
+                "primary-fixed": "#ffdbce",
+                "on-error-container": "#ffdad6",
+                "tertiary-container": "#959393",
+                "surface": "#131313",
+                "on-error": "#690005",
+                "error-container": "#93000a",
+                "inverse-on-surface": "#313030",
+                "on-primary-fixed": "#370e00",
+                "surface-container-high": "#2a2a2a",
+                "surface-container-highest": "#353534",
+                "tertiary-fixed-dim": "#c9c6c5",
+                "on-secondary": "#2f3131",
+                "outline-variant": "#5b4137",
+                "on-secondary-fixed": "#1a1c1c",
+                "secondary-container": "#454747",
+                "on-tertiary-fixed-variant": "#474646",
+                "on-primary": "#5a1c00",
+                "surface-bright": "#3a3939",
+                "error": "#ffb4ab",
+                "background": "#131313"
+        },
+        "borderRadius": {
+                "DEFAULT": "0.125rem",
+                "lg": "0.25rem",
+                "xl": "0.5rem",
+                "full": "0.75rem"
+        },
+        "spacing": {unit: "8px", "margin-desktop": "64px", gutter: "24px", "container-max": "1280px", "section-gap": "120px", "margin-mobile": "20px"},
+        "fontFamily": {
+                "headline": [
+                        "Hanken Grotesk"
+                ],
+                "display": [
+                        "Hanken Grotesk"
+                ],
+                "body": [
+                        "Inter"
+                ],
+                "label": [
+                        "Jetbrains Mono"
+                ]
+        },
+        "fontSize": {}
+},
+    },
+  }
+</script>
+<style>
+        body {
+            background: linear-gradient(to bottom, #131313, #0a0a0a);
+            color: #e5e2e1;
+            overflow-x: hidden;
+            font-family: 'Hanken Grotesk', sans-serif;
+            min-height: 100vh;
+        }
+        .liquid-card {
+            background: linear-gradient(135deg, rgba(32, 31, 31, 0.9), rgba(20, 20, 20, 0.95));
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 94, 0, 0.2);
+            transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+            position: relative;
+            box-shadow: 0 10px 40px -15px rgba(0, 0, 0, 0.5);
+        }
+        .liquid-card::before {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            background: linear-gradient(135deg, rgba(255, 94, 0, 0.4), transparent);
+            z-index: -1;
+            border-radius: inherit;
+            opacity: 0.3;
+            transition: opacity 0.6s ease;
+        }
+        .liquid-card:hover::before {
+            opacity: 0.6;
+        }
+        .liquid-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(255, 94, 0, 0.6);
+            box-shadow: 0 0 30px rgba(255, 94, 0, 0.15);
+        }
+        .blob-shape-1 { border-radius: 2rem; }
+        .blob-shape-2 { border-radius: 2rem; }
+        .blob-shape-3 { border-radius: 2rem; }
+        
+        .glow-avatar {
+            box-shadow: 0 0 20px rgba(255, 94, 0, 0.2);
+        }
+        
+        .liquid-gradient-text {
+            background: linear-gradient(90deg, #ffb599, #ff5e00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .overlap-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 2rem;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        .animate-float { animation: float 8s ease-in-out infinite; }
+        .animate-float-delayed { animation: float 10s ease-in-out infinite 1s; }
+    </style>
+</head>
+<body class="selection:bg-primary/30 selection:text-white">
+<nav class="fixed top-0 w-full z-50 bg-background/20 backdrop-blur-3xl border-b border-white/5">
+<div class="flex justify-between items-center px-margin-desktop h-20 w-full max-w-container-max mx-auto">
+<div class="font-headline text-headline font-bold text-on-surface tracking-tighter liquid-gradient-text">
+            Fazi Awan
+        </div>
+<div class="hidden md:flex items-center space-x-10">
+<a class="font-label text-[11px] text-secondary hover:text-white transition-colors tracking-widest uppercase" href="#">HERO</a>
+<a class="font-label text-[11px] text-secondary hover:text-white transition-colors tracking-widest uppercase" href="#">SERVICES</a>
+<a class="font-label text-[11px] text-secondary hover:text-white transition-colors tracking-widest uppercase" href="#">NEXUS</a>
+<a class="font-label text-[11px] text-white border-b-2 border-primary pb-1 tracking-widest uppercase" href="#">FEEDBACK</a>
+<a class="font-label text-[11px] text-secondary hover:text-white transition-colors tracking-widest uppercase" href="#">CONTACT</a>
+</div>
+<button class="bg-primary-container text-white px-8 py-2.5 rounded-full font-bold hover:shadow-[0_0_30px_rgba(255,94,0,0.4)] transition-all active:scale-95">
+            Hire Me
+        </button>
+</div>
+</nav>
+<main class="pt-40 pb-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto overflow-visible">
+<header class="mb-24 text-center max-w-4xl mx-auto">
+<span class="font-label text-xs text-primary tracking-[0.4em] block mb-6 opacity-80 uppercase">VALIDATION ECOSYSTEM</span>
+<h1 class="text-6xl md:text-8xl font-black mb-8 leading-[0.9] tracking-tighter">
+            Impact <span class="liquid-gradient-text italic">Validation</span>
+</h1>
+<p class="text-secondary text-xl max-w-2xl mx-auto leading-relaxed">
+            Real-world performance metrics and qualitative feedback from partners operating within the high-frequency Malik Nexus infrastructure.
+        </p>
+</header>
+<div class="relative min-h-[1000px]">
+<!-- Review 1: Alexander Vance -->
+<div class="absolute top-0 left-0 w-full lg:w-[60%] z-10 animate-float">
+<div class="liquid-card blob-shape-1 p-10 md:p-14">
+<div class="flex flex-col md:flex-row items-center gap-8 mb-10">
+<div class="w-24 h-24 rounded-full p-1 bg-gradient-to-br from-primary to-primary-container glow-avatar flex-shrink-0">
+<img alt="Alexander Vance" class="w-full h-full object-cover rounded-full border-4 border-[#131313]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQrliU4xg0RbZIZqfmKpVBXZogmhRWi2PGO31Z3zd42Wjuww3i2BQMuxAr3SlY0JVY4BdRWEsOt4rRs6e4k7AeAu_ljCTW4Nym5yq4goCbuGWlKUHOzBnn_V_l2x5JpQEH7YGEtD9cqPYVZgrzgX39rAMDWQSA9mLOReC2eZef69vuci9UGOwZef-CRBWnsnCmbqzrmAEqXXIFCA7csRpeDUp_GWPljWrUmUFQVmJBQBZwv2oGLR0"/>
+</div>
+<div class="text-center md:text-left">
+<h2 class="text-3xl md:text-4xl font-extrabold text-white mb-2 leading-tight">"A multi-asset operational masterclass."</h2>
+<div class="flex flex-col">
+<span class="text-lg font-bold text-white">Alexander Vance</span>
+<span class="text-sm text-secondary uppercase tracking-widest font-label">Head of Trading, Apex Assets</span>
+</div>
+</div>
+</div>
+<div class="pl-0 md:pl-32">
+<p class="text-secondary leading-relaxed italic border-l-2 border-primary/50 pl-6 font-body">
+                        'Malik Nexus completely transformed our multi-asset operations. The institutional-grade risk controls and real-time data feeds cut execution latency significantly. Absolute masterclass in FinTech software engineering.'
+                    </p>
+<div class="mt-8 inline-flex items-center space-x-3 bg-white/5 px-4 py-2 rounded-full border border-white/10">
+<span class="material-symbols-outlined text-sm text-primary">analytics</span>
+<span class="text-[11px] font-bold text-white/60 tracking-wider font-label uppercase">NEXUSTRADE TERMINAL</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Review 2: Elena Rostova -->
+<div class="absolute top-[450px] right-0 w-full lg:w-[55%] z-20 animate-float-delayed">
+<div class="liquid-card blob-shape-2 p-10 md:p-14 ml-auto">
+<div class="flex flex-col md:flex-row-reverse items-center gap-8 mb-10 text-center md:text-right">
+<div class="w-24 h-24 rounded-full p-1 bg-gradient-to-br from-primary to-primary-container glow-avatar flex-shrink-0">
+<img alt="Elena Rostova" class="w-full h-full object-cover rounded-full border-4 border-[#131313]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWH6d8gDxw8EI27cBbCxb1ez-0Gq27cwNLRz8aWEK-In_plS6nDafVNbTKIyjeo7X5ooSmErOJiZtSxsUXKziI_M2LP4wpaXr3cKZK-hekaSXqUd4zRsv-RrHTKEk8QlglwbighxrVw7qltTaRwAbn3zTa6eL-HDHr1m60I838_MD-ixZGR5DzLHQB8IgQr-UltYGfxBE5EOc3R_hjNMVdl_omgqK5cIpQOuw9k1kmXbgScvi6XsQ"/>
+</div>
+<div>
+<h2 class="text-3xl md:text-4xl font-extrabold text-white mb-2 leading-tight">"Pixel-perfect cloud concurrency."</h2>
+<div class="flex flex-col">
+<span class="text-lg font-bold text-white">Elena Rostova</span>
+<span class="text-sm text-secondary uppercase tracking-widest font-label">CPO, Stratos Cloud</span>
+</div>
+</div>
+</div>
+<div class="pr-0 md:pr-32">
+<p class="text-secondary leading-relaxed italic border-r-2 border-primary/50 pr-6 text-right font-body">
+                        'The cloud-native multi-tenant architecture handles our highest user concurrency spikes without breaking a sweat. Their design-to-code parity is pristine—every UI transition is pixel-perfect.'
+                    </p>
+<div class="mt-8 flex justify-end">
+<div class="inline-flex items-center space-x-3 bg-white/5 px-4 py-2 rounded-full border border-white/10">
+<span class="material-symbols-outlined text-sm text-primary">cloud_done</span>
+<span class="text-[11px] font-bold text-white/60 tracking-wider font-label uppercase">AETHERSAAS MIGRATION</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Review 3: Marcus Thorne -->
+<div class="absolute top-[850px] left-10 w-full lg:w-[50%] z-30 animate-float">
+<div class="liquid-card blob-shape-3 p-10 md:p-12">
+<div class="flex items-center gap-6 mb-8">
+<div class="w-20 h-20 rounded-full p-1 bg-gradient-to-br from-primary to-primary-container glow-avatar flex-shrink-0">
+<img alt="Marcus Thorne" class="w-full h-full object-cover rounded-full border-4 border-[#131313]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD0VbWIpv5mk1r7vX6Tspf3uU7eRJpQh-D8tiYe_9-tntyslDiqBbM1dZeZgbk5cmlRt3TEhit2xpkLzEduDyNoUBXB-gQTn6cl81lHutZlKT65XtPWmEwT6Ub2Tnfqv3DRS1_nbXL1Y2SOyiVfLBWy8FKTJWifW7K2oGh9Td0sgU64rb2Xftwz9rUGjQlATF7dfXGZZyIxb7OV0TtQDoHy8vyqLlNRBWCc6UgIk-I5k0o9B1H-Ew0"/>
+</div>
+<div>
+<h2 class="text-2xl font-extrabold text-white mb-1 leading-tight">"Autonomous AI at scale."</h2>
+<span class="text-sm text-secondary uppercase tracking-widest font-label">Marcus Thorne, VP Vanguard</span>
+</div>
+</div>
+<p class="text-secondary leading-relaxed italic text-sm font-body border-l-2 border-primary/50 pl-6">
+                    'Integrating their autonomous AI pipelines saved our team countless operational hours. Background workers handle complex backend logic flawlessly.'
+                </p>
+</div>
+</div>
+<!-- Stats Card -->
+<div class="absolute top-[1000px] right-20 w-72 h-72 z-0 hidden lg:flex items-center justify-center">
+<div class="liquid-card w-full h-full rounded-full flex flex-col items-center justify-center p-8 text-center border-dashed border-primary/20">
+<span class="text-secondary text-[10px] tracking-[0.3em] uppercase mb-2 font-label">SYSTEM UPTIME</span>
+<div class="text-6xl font-black liquid-gradient-text">99.9%</div>
+<p class="text-[10px] text-secondary mt-2 font-label uppercase">GLOBAL CLUSTER STABILITY</p>
+</div>
+</div>
+</div>
+</main>
+<footer class="bg-black/80 border-t border-white/5 relative z-50">
+<div class="flex flex-col md:flex-row justify-between items-center px-margin-desktop py-20 max-w-container-max mx-auto w-full">
+<div class="mb-12 md:mb-0 text-center md:text-left">
+<div class="font-label text-xs text-white tracking-[0.5em] mb-4 uppercase">MALIK NEXUS</div>
+<p class="font-body text-sm text-secondary">© 2024 Malik Nexus. Designed for the liquid frontier.</p>
+</div>
+<div class="flex space-x-12">
+<a class="text-sm text-secondary hover:text-white transition-colors" href="#">Github</a>
+<a class="text-sm text-secondary hover:text-white transition-colors" href="#">LinkedIn</a>
+<a class="text-sm text-secondary hover:text-white transition-colors" href="#">Architectures</a>
+</div>
+</div>
+</footer>
+<script>
+    // Parallax effect on mouse move
+    document.addEventListener('mousemove', (e) => {
+        const amount = 20;
+        const x = (e.clientX / window.innerWidth - 0.5) * amount;
+        const y = (e.clientY / window.innerHeight - 0.5) * amount;
+        
+        document.querySelectorAll('.animate-float, .animate-float-delayed').forEach(el => {
+            el.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+        });
+    });
+</script>
+</body></html>

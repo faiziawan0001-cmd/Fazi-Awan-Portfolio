@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Portfolio | Interactive Horizontal Carousel</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;family=Hanken+Grotesk:wght@600;700;800&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error": "#690005",
+                        "on-secondary": "#2f3131",
+                        "primary-fixed": "#ffdbce",
+                        "on-surface": "#e5e2e1",
+                        "background": "#131313",
+                        "text-muted": "#888888",
+                        "on-background": "#e5e2e1",
+                        "on-secondary-fixed-variant": "#454747",
+                        "surface-tint": "#ffb599",
+                        "surface-container-lowest": "#0e0e0e",
+                        "surface-container": "#201f1f",
+                        "on-primary-container": "#531900",
+                        "inverse-on-surface": "#313030",
+                        "on-primary-fixed-variant": "#7f2b00",
+                        "on-error-container": "#ffdad6",
+                        "on-secondary-fixed": "#1a1c1c",
+                        "primary-container": "#ff5e00",
+                        "tertiary-fixed-dim": "#c9c6c5",
+                        "surface-container-highest": "#353534",
+                        "inverse-primary": "#a63b00",
+                        "tertiary": "#c9c6c5",
+                        "surface-dim": "#131313",
+                        "inverse-surface": "#e5e2e1",
+                        "error-container": "#93000a",
+                        "on-tertiary-container": "#2d2c2c",
+                        "tertiary-container": "#959393",
+                        "surface-container-low": "#1c1b1b",
+                        "primary-fixed-dim": "#ffb599",
+                        "on-surface-variant": "#e4bfb1",
+                        "on-primary": "#5a1c00",
+                        "surface": "#131313",
+                        "on-primary-fixed": "#370e00",
+                        "secondary-container": "#454747",
+                        "primary": "#ffb599",
+                        "surface-variant": "#353534",
+                        "secondary": "#c6c6c7",
+                        "error": "#ffb4ab",
+                        "surface-bright": "#3a3939",
+                        "on-secondary-container": "#b4b5b5",
+                        "on-tertiary-fixed": "#1c1b1b",
+                        "on-tertiary-fixed-variant": "#474646",
+                        "outline": "#ab897d",
+                        "secondary-fixed-dim": "#c6c6c7",
+                        "tertiary-fixed": "#e5e2e1",
+                        "secondary-fixed": "#e2e2e2",
+                        "on-tertiary": "#313030",
+                        "outline-variant": "#5b4137",
+                        "surface-border": "#1A1A1A",
+                        "accent-glow": "rgba(255, 94, 0, 0.15)",
+                        "surface-container-high": "#2a2a2a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Inter"],
+                        "headline-lg": ["Hanken Grotesk"],
+                        "display": ["Hanken Grotesk"],
+                        "headline-md": ["Hanken Grotesk"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #131313;
+            color: #e5e2e1;
+            overflow: hidden;
+        }
+        .carousel-container {
+            scroll-snap-type: x mandatory;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+        .carousel-container::-webkit-scrollbar {
+            display: none;
+        }
+        .carousel-item {
+            scroll-snap-align: center;
+            flex: 0 0 100vw;
+            height: 100vh;
+            perspective: 1200px;
+        }
+        .project-card {
+            transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.8s ease;
+            transform-style: preserve-3d;
+        }
+        .liquid-blur {
+            filter: blur(80px);
+            opacity: 0.4;
+            mix-blend-mode: screen;
+            pointer-events: none;
+            transition: background-color 1s ease;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="font-body-md selection:bg-primary-container selection:text-on-primary-container">
+<!-- Persistent Global Header (Shared Integrity) -->
+<header class="fixed top-0 left-0 w-full z-50 flex items-center justify-between whitespace-nowrap border-b border-solid border-b-surface-container-high px-10 py-6 bg-background/80 backdrop-blur-md">
+<div class="flex items-center gap-4 text-white">
+<div class="size-6 text-primary">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_6_319)">
+<path d="M8.57829 8.57829C5.52816 11.6284 3.451 15.5145 2.60947 19.7452C1.76794 23.9758 2.19984 28.361 3.85056 32.3462C5.50128 36.3314 8.29667 39.7376 11.8832 42.134C15.4698 44.5305 19.6865 45.8096 24 45.8096C28.3135 45.8096 32.5302 44.5305 36.1168 42.134C39.7033 39.7375 42.4987 36.3314 44.1494 32.3462C45.8002 28.361 46.2321 23.9758 45.3905 19.7452C44.549 15.5145 42.4718 11.6284 39.4217 8.57829L24 24L8.57829 8.57829Z" fill="currentColor"></path>
+</g>
+<defs>
+<clippath id="clip0_6_319"><rect fill="white" height="48" width="48"></rect></clippath>
+</defs>
+</svg>
+</div>
+<h2 class="text-on-background text-lg font-bold leading-tight tracking-[-0.015em] font-headline-md">Portfolio</h2>
+</div>
+<div class="flex flex-1 justify-end gap-8">
+<div class="flex items-center gap-9">
+<a class="text-on-surface text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">Work</a>
+<a class="text-on-surface text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">About</a>
+<a class="text-on-surface text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">Contact</a>
+</div>
+<button class="flex min-w-[100px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-5 bg-primary-container text-white text-sm font-bold leading-normal tracking-[0.015em] hover:scale-105 transition-transform">
+<span class="truncate">Hire Me</span>
+</button>
+</div>
+</header>
+<!-- Background Shader -->
+<div class="fixed inset-0 z-0">
+<webgl-shader class="absolute inset-0 w-full h-full opacity-60" src="{{DATA:ANIMATION:ANIMATION_1}}"></webgl-shader>
+<div class="liquid-blur absolute -top-1/4 -left-1/4 w-[150%] h-[150%] bg-gradient-to-tr from-primary-container/20 via-transparent to-primary/20" id="dynamic-blur"></div>
+</div>
+<!-- Main Interactive Surface -->
+<main class="relative z-10 w-full h-screen">
+<div class="carousel-container flex overflow-x-auto h-full scroll-smooth" id="main-carousel">
+<!-- Project 1 -->
+<section class="carousel-item flex items-center justify-center px-margin-desktop relative" data-theme="#ff5e00">
+<div class="project-card relative w-full max-w-[1100px] grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+<div class="order-2 lg:order-1 flex flex-col gap-6">
+<span class="label-caps text-primary tracking-widest uppercase">Project 01</span>
+<h1 class="font-display text-headline-lg lg:text-display text-on-background leading-none">Liquid Motion Design</h1>
+<p class="text-body-lg text-text-muted max-w-md">An interactive 3D experience exploring the boundaries of digital fluidity and physical interaction. This project leverages custom WebGL kernels to simulate high-fidelity fluid dynamics in real-time.</p>
+<div class="pt-8">
+<button class="group flex items-center gap-4 bg-white text-background px-8 py-4 rounded-full font-bold text-lg hover:bg-primary transition-all duration-300 shadow-2xl">
+<span>Explore Project</span>
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+<div class="order-1 lg:order-2 relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border border-white/10 group">
+<div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent z-10"></div>
+<div class="w-full h-full bg-center bg-cover transform group-hover:scale-110 transition-transform duration-1000" data-alt="A futuristic digital artwork featuring complex liquid metal structures floating in a dark, obsidian-like void. The lighting is dramatic, with orange and teal highlights reflecting off the glossy, viscous surfaces. The style is high-end 3D rendering with deep shadows and cinematic depth of field, evoking a sense of premium technology and artistic innovation." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBkSUbQQ-3qT44uK6VX80-bxmGAWWT0S9fGeDFgOdZlLu4FZwI7AzeF9w7qMceB2WACecT2kSHJzVcGQzFCfpIJrVjtKFPuw8M7jTYy-H3VdOECKJcCgqeJD5jPnzfjPE2H8Q4GgxSn-iByPYJm0IBiuP7NBf-IvbHphM03cmX1onbpd8rDb9TeaguluROD-WGtXGkCXTpgc6bihTIRRXC0F98Y24GjNWNQf4RRFuLGPBvXFmdewXs')"></div>
+</div>
+</div>
+</section>
+<!-- Project 2 -->
+<section class="carousel-item flex items-center justify-center px-margin-desktop relative" data-theme="#7f2b00">
+<div class="project-card relative w-full max-w-[1100px] grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+<div class="order-2 lg:order-1 flex flex-col gap-6">
+<span class="label-caps text-primary tracking-widest uppercase">Project 02</span>
+<h1 class="font-display text-headline-lg lg:text-display text-on-background leading-none">Obsidian UI Kit</h1>
+<p class="text-body-lg text-text-muted max-w-md">A premium dark design system crafted for deep focus and elegance. Obsidian focuses on tactile surfaces, high-contrast typography, and a reduced cognitive load for complex dashboards.</p>
+<div class="pt-8">
+<button class="group flex items-center gap-4 bg-white text-background px-8 py-4 rounded-full font-bold text-lg hover:bg-primary transition-all duration-300 shadow-2xl">
+<span>Explore Project</span>
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+<div class="order-1 lg:order-2 relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border border-white/10 group">
+<div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent z-10"></div>
+<div class="w-full h-full bg-center bg-cover transform group-hover:scale-110 transition-transform duration-1000" data-alt="A clean, minimalist UI dashboard mockup displayed on a sleek glass tablet against a dark obsidian stone background. The interface features elegant copper-colored accents, sharp sans-serif typography, and subtle glowing borders. The lighting is moody and focused, highlighting the premium textures of the hardware and the sophisticated digital layout of the design system." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDNLb4YqoGqAHElcxDysDoDFhVscESHUiPhKJTa_hdrRSvfPSGTwbm9GBJN7xKkLOLwvqUBLDa_EJQ8wjoasqQoncxXLR3OdEPHbHiwoj0impIHj5L1f5T_yRTeGWZqFh5-bKD-5TfhBi3uzecXhslbdN0aXjv_zNrpDfawBugJ0bwNgQJXLgDrdHyxbQ9oKVyDPOenZUIX8c3y9EFfWiJk9zxZkKVN_hqFCLAj2nQEOkefgcf7Ykw')"></div>
+</div>
+</div>
+</section>
+<!-- Project 3 -->
+<section class="carousel-item flex items-center justify-center px-margin-desktop relative" data-theme="#ab897d">
+<div class="project-card relative w-full max-w-[1100px] grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+<div class="order-2 lg:order-1 flex flex-col gap-6">
+<span class="label-caps text-primary tracking-widest uppercase">Project 03</span>
+<h1 class="font-display text-headline-lg lg:text-display text-on-background leading-none">Ethereal Branding</h1>
+<p class="text-body-lg text-text-muted max-w-md">A visual identity system built on transparency and light. We explored the interplay of glass, frost, and refraction to create a brand that feels timeless yet ephemeral.</p>
+<div class="pt-8">
+<button class="group flex items-center gap-4 bg-white text-background px-8 py-4 rounded-full font-bold text-lg hover:bg-primary transition-all duration-300 shadow-2xl">
+<span>Explore Project</span>
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+<div class="order-1 lg:order-2 relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border border-white/10 group">
+<div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent z-10"></div>
+<div class="w-full h-full bg-center bg-cover transform group-hover:scale-110 transition-transform duration-1000" data-alt="A collection of luxury brand collateral, including frosted glass business cards and embossed stationary, floating in a soft, ethereal light. The color palette is dominated by warm neutrals, champagne gold, and soft white glows. The aesthetic is extremely high-end and clean, with a focus on tactile materials and elegant, light-refracting surfaces in a minimalist studio setting." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDheV9zoOUD-ByB7c_sr8Xf9J0sY5Ty7F_pzPkd12we77WBCQ0zzfSCWy7ocTcB0sSlt5aAevq-KvZKB2Njh1uKfJbJbTA_XKLkEd5P7gBU9P030WFGQut3uZ0GVRTK1melRm9wi8qtsXjR1Wc_42A63IkTAJHLfHtteNecsh0H0ubmcyIDm1V1KKBlwr1wmn5KCkcmKsj_KCrw7GQlKCF-bY-K0QotTEecj08x6Iz17OkxcfyLnYQ')"></div>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- Navigation Indicators -->
+<div class="fixed bottom-12 left-1/2 -translate-x-1/2 z-50 flex items-center gap-4">
+<div class="carousel-dot h-1 w-8 bg-primary rounded-full"></div>
+<div class="carousel-dot h-1 w-8 bg-surface-container-highest rounded-full transition-all duration-500"></div>
+<div class="carousel-dot h-1 w-8 bg-surface-container-highest rounded-full transition-all duration-500"></div>
+</div>
+<!-- Mouse Trail Utility -->
+<div class="fixed top-0 left-0 w-64 h-64 rounded-full bg-primary-container/10 pointer-events-none blur-[100px] z-0 -translate-x-1/2 -translate-y-1/2 transition-opacity duration-300 opacity-0" id="cursor-glow"></div>
+<script>
+        const carousel = document.getElementById('main-carousel');
+        const items = document.querySelectorAll('.carousel-item');
+        const cards = document.querySelectorAll('.project-card');
+        const dots = document.querySelectorAll('.carousel-dot');
+        const dynamicBlur = document.getElementById('dynamic-blur');
+        const cursorGlow = document.getElementById('cursor-glow');
+
+        // Carousel Scroll Logic
+        carousel.addEventListener('scroll', () => {
+            const scrollLeft = carousel.scrollLeft;
+            const width = window.innerWidth;
+            const index = Math.round(scrollLeft / width);
+
+            // Update Indicators
+            dots.forEach((dot, i) => {
+                dot.className = `carousel-dot h-1 w-8 rounded-full transition-all duration-500 ${i === index ? 'bg-primary' : 'bg-surface-container-highest'}`;
+            });
+
+            // Parallax & Depth Effect
+            items.forEach((item, i) => {
+                const distance = (scrollLeft - (i * width)) / width;
+                const card = item.querySelector('.project-card');
+                
+                // Tilt card away as it leaves center
+                const rotateY = distance * -20; 
+                const scale = 1 - Math.abs(distance) * 0.2;
+                const opacity = 1 - Math.abs(distance) * 0.5;
+                
+                card.style.transform = `rotateY(${rotateY}deg) scale(${scale})`;
+                card.style.opacity = opacity;
+            });
+
+            // Dynamic background shift
+            const activeColor = items[index].getAttribute('data-theme');
+            dynamicBlur.style.background = `radial-gradient(circle at center, ${activeColor}33, transparent)`;
+        });
+
+        // Interactive Cursor
+        window.addEventListener('mousemove', (e) => {
+            cursorGlow.style.opacity = '1';
+            cursorGlow.style.left = `${e.clientX}px`;
+            cursorGlow.style.top = `${e.clientY}px`;
+        });
+
+        // Initialize first state
+        carousel.dispatchEvent(new Event('scroll'));
+    </script>
+</body></html>

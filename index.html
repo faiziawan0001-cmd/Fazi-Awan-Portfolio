@@ -427,50 +427,77 @@
 
 
   <!-- ============================================================
-       DUMMY CODE DIVIDER (Tamal Sen Style — Dark IDE Code Block)
+       DUMMY CODE DIVIDER — Seamlessly bridging Expertise → Work
+       Inspired by tamalsen.dev's floating IDE aesthetic
   ============================================================ -->
-  <div class="w-full relative overflow-hidden" style="background: #0a0a0a; padding: 60px 0;">
-    <!-- Top/bottom edge fades into neighbouring sections -->
-    <div class="absolute inset-x-0 top-0 h-20 z-20 pointer-events-none" style="background: linear-gradient(to bottom, #0c0c0c, transparent);"></div>
-    <div class="absolute inset-x-0 bottom-0 h-20 z-20 pointer-events-none" style="background: linear-gradient(to top, #0e0e0e, transparent);"></div>
-    <!-- Side edge fades -->
-    <div class="absolute inset-y-0 left-0 w-40 z-20 pointer-events-none" style="background: linear-gradient(to right, #0a0a0a 20%, transparent);"></div>
-    <div class="absolute inset-y-0 right-0 w-40 z-20 pointer-events-none" style="background: linear-gradient(to left, #0a0a0a 20%, transparent);"></div>
+  <div class="relative w-full overflow-hidden" style="background: linear-gradient(180deg, #0c0c0c 0%, #090909 40%, #0b0b0b 60%, #0e0e0e 100%); padding: 100px 0;">
+    <!-- Seamless top blend from expertise (#0c0c0c) -->
+    <div class="absolute inset-x-0 top-0 h-32 z-30 pointer-events-none" style="background: linear-gradient(to bottom, #0c0c0c 0%, rgba(12,12,12,0.6) 40%, transparent 100%);"></div>
+    <!-- Seamless bottom blend into work (#0e0e0e) -->
+    <div class="absolute inset-x-0 bottom-0 h-32 z-30 pointer-events-none" style="background: linear-gradient(to top, #0e0e0e 0%, rgba(14,14,14,0.6) 40%, transparent 100%);"></div>
 
-    <!-- IDE Code Block — centered, large, low-opacity (Tamal Sen reference) -->
-    <div class="relative z-10 flex justify-center items-center px-6">
-      <div class="w-full max-w-3xl relative" style="opacity: 0.15;">
-        <!-- IDE window title bar -->
-        <div class="flex items-center gap-2 rounded-t-xl px-4 py-3" style="background: #1e1e2e; border: 1px solid rgba(255,255,255,0.06); border-bottom: none;">
-          <div class="w-3 h-3 rounded-full" style="background:#ff5f57;"></div>
-          <div class="w-3 h-3 rounded-full" style="background:#ffbd2e;"></div>
-          <div class="w-3 h-3 rounded-full" style="background:#28c840;"></div>
-          <span class="ml-4 font-label-code text-[10px]" style="color: rgba(255,255,255,0.3);">index.html — What do I do</span>
+    <!-- Ambient radial glow — ties both sections together -->
+    <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(ellipse 50% 70% at 50% 50%, rgba(255,94,0,0.03) 0%, transparent 70%);"></div>
+
+    <!-- Floating IDE window — low opacity, slightly tilted for depth -->
+    <div class="relative z-10 flex justify-center items-center px-6" style="perspective: 1200px;">
+      <div class="w-full max-w-2xl relative" style="opacity: 0.12; transform: rotateX(2deg) rotateY(-1deg); filter: blur(0.3px); transition: opacity 0.8s ease, filter 0.8s ease;" onmouseenter="this.style.opacity='0.22'; this.style.filter='blur(0px)';" onmouseleave="this.style.opacity='0.12'; this.style.filter='blur(0.3px)';">
+
+        <!-- Subtle shadow beneath IDE -->
+        <div class="absolute -bottom-10 left-1/2 -translate-x-1/2 w-3/4 h-16 z-0 pointer-events-none" style="background: radial-gradient(ellipse, rgba(0,0,0,0.6) 0%, transparent 70%); filter: blur(16px);"></div>
+
+        <!-- IDE title bar -->
+        <div class="relative flex items-center gap-2.5 rounded-t-xl px-4 py-3 z-10" style="background: #181826; border: 1px solid rgba(255,255,255,0.04); border-bottom: none;">
+          <div class="w-2.5 h-2.5 rounded-full" style="background: #ff5f57; box-shadow: 0 0 4px rgba(255,95,87,0.3);"></div>
+          <div class="w-2.5 h-2.5 rounded-full" style="background: #ffbd2e; box-shadow: 0 0 4px rgba(255,189,46,0.3);"></div>
+          <div class="w-2.5 h-2.5 rounded-full" style="background: #28c840; box-shadow: 0 0 4px rgba(40,200,64,0.3);"></div>
+          <div class="flex items-center gap-2 ml-3">
+            <span class="material-symbols-outlined" style="font-size: 12px; color: rgba(255,255,255,0.15);">description</span>
+            <span class="font-label-code text-[10px] tracking-wide" style="color: rgba(255,255,255,0.2);">index.html</span>
+          </div>
+          <div class="ml-auto flex items-center gap-1.5">
+            <span class="w-1 h-1 rounded-full bg-white/10"></span>
+            <span class="w-1 h-1 rounded-full bg-white/10"></span>
+            <span class="w-1 h-1 rounded-full bg-white/10"></span>
+          </div>
         </div>
-        <!-- Code content -->
-        <div class="rounded-b-xl overflow-hidden" style="background: #1e1e2e; border: 1px solid rgba(255,255,255,0.06); border-top: none;">
-          <!-- Line numbers + code -->
+
+        <!-- IDE code body -->
+        <div class="relative rounded-b-xl overflow-hidden z-10" style="background: #181826; border: 1px solid rgba(255,255,255,0.04); border-top: none; box-shadow: 0 30px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.02);">
           <div class="flex">
-            <!-- Gutter with line numbers -->
-            <div class="flex flex-col items-end font-label-code text-[12px] leading-7 px-4 py-6 select-none" style="color: rgba(255,255,255,0.2); background: #1e1e2e; min-width: 3rem; border-right: 1px solid rgba(255,255,255,0.05);">
-              <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span>
+            <!-- Line numbers gutter -->
+            <div class="flex flex-col items-end font-label-code text-[11px] leading-[1.85rem] px-3 py-5 select-none" style="color: rgba(255,255,255,0.12); background: #181826; min-width: 2.5rem; border-right: 1px solid rgba(255,255,255,0.03);">
+              <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span><span>15</span>
             </div>
-            <!-- Syntax-highlighted code body -->
-            <pre class="font-label-code text-[13px] leading-7 px-6 py-6 overflow-x-auto flex-1" style="color: #d4d4d4; background: #1e1e2e; white-space: pre;"><span style="color:#569cd6">&lt;!DOCTYPE html&gt;</span>
-<span style="color:#569cd6">&lt;html</span> <span style="color:#9cdcfe">lang</span><span style="color:#d4d4d4">=</span><span style="color:#ce9178">"en"</span><span style="color:#569cd6">&gt;</span>
+            <!-- Syntax-highlighted code -->
+            <pre class="font-label-code text-[12px] leading-[1.85rem] px-5 py-5 overflow-x-auto flex-1" style="color: rgba(212,212,212,0.8); background: #181826; white-space: pre; margin: 0;"><span style="color:#569cd6">&lt;html</span> <span style="color:#9cdcfe">lang</span><span style="color:#d4d4d4">=</span><span style="color:#ce9178">"en"</span><span style="color:#569cd6">&gt;</span>
 <span style="color:#569cd6">&lt;head&gt;</span>
-  <span style="color:#569cd6">&lt;meta</span> <span style="color:#9cdcfe">name</span><span style="color:#d4d4d4">=</span><span style="color:#ce9178">"viewport"</span> <span style="color:#9cdcfe">content</span><span style="color:#d4d4d4">=</span><span style="color:#ce9178">"width=device-width, initial-scale=1.0"</span><span style="color:#569cd6">&gt;</span>
+  <span style="color:#569cd6">&lt;meta</span> <span style="color:#9cdcfe">name</span><span style="color:#d4d4d4">=</span><span style="color:#ce9178">"viewport"</span>
+         <span style="color:#9cdcfe">content</span><span style="color:#d4d4d4">=</span><span style="color:#ce9178">"width=device-width, initial-scale=1.0"</span><span style="color:#569cd6">/&gt;</span>
   <span style="color:#569cd6">&lt;title&gt;</span><span style="color:#d4d4d4">What do I do</span><span style="color:#569cd6">&lt;/title&gt;</span>
 <span style="color:#569cd6">&lt;/head&gt;</span>
 <span style="color:#569cd6">&lt;body&gt;</span>
-  <span style="color:#608b4e">/* Things I do to get a perfect background image */</span>
-  <span style="color:#569cd6">&lt;h1&gt;</span><span style="color:#d4d4d4">Maybe I should stop tinkering with VSCode settings</span>
-       <span style="color:#d4d4d4">just to take a screenshot of this dummy html code.</span><span style="color:#569cd6">&lt;/h1&gt;</span>
-  <span style="color:#569cd6">&lt;p&gt;</span>
-  <span style="color:#569cd6">&lt;span&gt;</span><span style="color:#d4d4d4">Oops, Almost forgot to say "Hello World!"</span>
-    <span style="color:#569cd6">&lt;/span&gt;</span>
+  <span style="color:#608b4e">/* things I do to get a perfect background image */</span>
+  <span style="color:#569cd6">&lt;h1&gt;</span><span style="color:#d4d4d4">Maybe I should stop tinkering</span>
+       <span style="color:#d4d4d4">with VSCode settings</span><span style="color:#569cd6">&lt;/h1&gt;</span>
+  <span style="color:#569cd6">&lt;p&gt;</span><span style="color:#d4d4d4">just to take a screenshot</span>
+       <span style="color:#d4d4d4">of this dummy html code.</span><span style="color:#569cd6">&lt;/p&gt;</span>
+  <span style="color:#569cd6">&lt;span&gt;</span><span style="color:#d4d4d4">Oops, Almost forgot</span>
+         <span style="color:#d4d4d4">to say "Hello World!"</span><span style="color:#569cd6">&lt;/span&gt;</span>
 <span style="color:#569cd6">&lt;/body&gt;</span>
 <span style="color:#569cd6">&lt;/html&gt;</span></pre>
+          </div>
+          <!-- Bottom status bar — VS Code style -->
+          <div class="flex items-center justify-between px-4 py-1.5" style="background: #131320; border-top: 1px solid rgba(255,255,255,0.03);">
+            <div class="flex items-center gap-3">
+              <span class="font-label-code text-[9px]" style="color: rgba(255,255,255,0.12);">Ln 15, Col 1</span>
+              <span class="font-label-code text-[9px]" style="color: rgba(255,255,255,0.12);">UTF-8</span>
+              <span class="font-label-code text-[9px]" style="color: rgba(255,255,255,0.12);">HTML</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="font-label-code text-[9px]" style="color: rgba(255,94,0,0.3);">Prettier</span>
+              <span class="font-label-code text-[9px]" style="color: rgba(255,255,255,0.12);">Spaces: 2</span>
+            </div>
           </div>
         </div>
       </div>

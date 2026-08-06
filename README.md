@@ -1,4 +1,4 @@
-# Fazi Awan — Malik Nexus Portfolio
+# Fazi Awan — Portfolio
 
 A premium single-page portfolio website built from Stitch design assets. Optimised for Vercel deployment.
 
@@ -70,4 +70,4 @@ Copy `.env.example` → `.env` and fill in values:
 
 ## 📄 License
 
-© 2025 Fazi Awan — Malik Nexus. All rights reserved.
+© 2025 Fazi Awan. All rights reserved.

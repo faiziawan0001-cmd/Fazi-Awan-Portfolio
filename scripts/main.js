@@ -23,13 +23,13 @@ const modalSolution = document.getElementById('modal-solution');
 const modalImpact  = document.getElementById('modal-impact');
 
 /* =================================================================
-   LUXURY 1: INTERACTIVE NEXUS PARTICLE CANVAS
+   LUXURY 1: INTERACTIVE PARTICLE CANVAS
    - Floating particles that connect when near each other or the mouse
-   - Named "Nexus" to match the brand
+   - Decorative ambient background layer for the portfolio
 ================================================================== */
-(function initNexusCanvas() {
+(function initParticleCanvas() {
   const canvas = document.createElement('canvas');
-  canvas.id = 'nexus-canvas';
+  canvas.id = 'portfolio-canvas';
   document.body.prepend(canvas);
   const ctx = canvas.getContext('2d');
 

@@ -1,20 +1,25 @@
 <!DOCTYPE html>
 <html class="dark" lang="en">
+
 <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-  <meta name="description" content="Fazi Awan — Founder of Malik Nexus. Full-Stack Developer, UI/UX Specialist & AI Implementation Expert. Building premium digital infrastructure."/>
-  <meta name="keywords" content="Fazi Awan, Malik Nexus, Full Stack Developer, UI/UX, AI, Software Engineer, Lahore"/>
-  <title>Fazi Awan — Malik Nexus | Premium Software Solutions</title>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <meta name="description"
+    content="Fazi Awan — Software Developer. Full-Stack Developer, UI/UX Specialist & AI Implementation Expert. Building premium digital experiences." />
+  <meta name="keywords" content="Fazi Awan, Full Stack Developer, UI/UX, AI, Software Engineer, Lahore" />
+  <title>Fazi Awan — Portfolio</title>
 
   <!-- Tailwind CSS v3 CDN -->
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 
   <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+    rel="stylesheet" />
 
   <!-- Tailwind Config (Design Tokens from Stitch) -->
   <script>
@@ -117,80 +122,79 @@
     };
   </script>
 
-  <link rel="stylesheet" href="styles/main.css"/>
+  <link rel="stylesheet" href="styles/main.css" />
 
-  <style>
-    /* Nexus Spotlight: entry fade-ins triggered by IntersectionObserver */
-    @keyframes nexusFadeUp {
-      from { opacity: 0; transform: translateY(28px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    .nexus-fade-in.is-visible {
-      animation: nexusFadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    }
-    /* Hover glow pulse on the spotlight section */
-    #nexus-spotlight:hover #nexus-glow {
-      background: radial-gradient(ellipse 90% 70% at 50% 50%, rgba(255,94,0,0.15) 0%, transparent 70%);
-    }
-    /* Curtain transition is-active state */
-    #nexus-transition.is-active {
-      opacity: 1 !important;
-      visibility: visible !important;
-      pointer-events: all !important;
-    }
-    #nexus-transition.is-active #nexus-curtain {
-      transform: scaleY(1) !important;
-    }
-    #nexus-transition.is-active #nexus-transition-logo {
-      opacity: 1 !important;
-      transform: scale(1) !important;
-    }
-    #nexus-transition.is-active #nexus-loader-bar {
-      width: 100% !important;
-    }
-  </style>
 </head>
-<body class="bg-background text-on-surface font-body-md antialiased selection:bg-primary-container selection:text-white overflow-x-hidden">
+
+<body
+  class="bg-background text-on-surface font-body-md antialiased selection:bg-primary-container selection:text-white overflow-x-hidden">
 
   <!-- Cursor Glow -->
-  <div id="cursor-glow" class="fixed top-0 left-0 w-96 h-96 rounded-full pointer-events-none z-0 opacity-0 transition-opacity duration-500" style="background: radial-gradient(circle, rgba(255,94,0,0.08) 0%, transparent 70%); transform: translate(-50%,-50%);"></div>
+  <div id="cursor-glow"
+    class="fixed top-0 left-0 w-96 h-96 rounded-full pointer-events-none z-0 opacity-0 transition-opacity duration-500"
+    style="background: radial-gradient(circle, rgba(255,94,0,0.08) 0%, transparent 70%); transform: translate(-50%,-50%);">
+  </div>
 
   <!-- ============================================================
        NAVBAR (Exact Stitch Design)
   ============================================================ -->
-  <nav id="navbar" class="fixed top-0 w-full bg-background/70 backdrop-blur-xl border-b border-surface-border z-50 transition-all duration-500">
-    <div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop h-20 w-full max-w-container-max mx-auto">
+  <nav id="navbar"
+    class="fixed top-0 w-full bg-background/70 backdrop-blur-xl border-b border-surface-border z-50 transition-all duration-500">
+    <div
+      class="flex justify-between items-center px-margin-mobile md:px-margin-desktop h-20 w-full max-w-container-max mx-auto">
       <a class="font-headline-md text-headline-md font-bold text-on-surface tracking-tighter" href="#hero">Fazi Awan</a>
-      <div class="hidden md:flex gap-gutter items-center font-label-caps text-label-caps">
+
+      <!-- Desktop Nav links -->
+      <div class="hidden md:flex gap-gutter items-center font-label-caps text-label-caps relative">
         <a class="text-primary border-b border-primary pb-1 transition-all duration-300" href="#hero">Home</a>
         <a class="text-text-muted hover:text-primary transition-all duration-300" href="#expertise">Expertise</a>
         <a class="text-text-muted hover:text-primary transition-all duration-300" href="#work">Work</a>
-        <a class="text-text-muted hover:text-primary transition-all duration-300" href="#contact">Contact</a>\n      </div>
-      <button class="bg-primary-container text-white px-6 py-3 rounded font-label-caps text-label-caps hover:opacity-80 active:scale-95 transition-all hidden md:block" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+        <a class="text-text-muted hover:text-primary transition-all duration-300" href="#experience">Experience</a>
+        <a class="text-text-muted hover:text-primary transition-all duration-300" href="#testimonials">Testimonials</a>
+        <a class="text-text-muted hover:text-primary transition-all duration-300" href="#contact">Contact</a>
+      </div>
+
+      <button
+        class="bg-primary-container text-white px-6 py-3 rounded font-label-caps text-label-caps hover:opacity-80 active:scale-95 transition-all hidden md:block"
+        onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
         Hire Me
       </button>
-      <button id="mobile-menu-btn" class="md:hidden text-on-surface p-2 rounded hover:bg-surface-container transition-colors">
+      <button id="mobile-menu-btn"
+        class="md:hidden text-on-surface p-2 rounded hover:bg-surface-container transition-colors">
         <span class="material-symbols-outlined text-2xl">menu</span>
       </button>
     </div>
+
     <!-- Mobile Menu -->
-    <div id="mobile-menu" class="md:hidden hidden bg-surface-container-lowest border-t border-surface-border px-margin-mobile py-6 flex flex-col gap-4">
-      <a class="font-label-caps text-label-caps text-text-muted hover:text-primary transition-colors py-2" href="#hero" onclick="closeMobileMenu()">Home</a>
-      <a class="font-label-caps text-label-caps text-text-muted hover:text-primary transition-colors py-2" href="#expertise" onclick="closeMobileMenu()">Expertise</a>
-      <a class="font-label-caps text-label-caps text-text-muted hover:text-primary transition-colors py-2" href="#work" onclick="closeMobileMenu()">Work</a>
-      <a href="#contact" onclick="closeMobileMenu()" class="mt-2 bg-primary-container text-white px-6 py-3 rounded font-label-caps text-label-caps text-center">Hire Me</a>
+    <div id="mobile-menu"
+      class="md:hidden hidden bg-surface-container-lowest border-t border-surface-border px-margin-mobile py-6 flex flex-col gap-4">
+      <a class="font-label-caps text-label-caps text-text-muted hover:text-primary transition-colors py-2" href="#hero"
+        onclick="closeMobileMenu()">Home</a>
+      <a class="font-label-caps text-label-caps text-text-muted hover:text-primary transition-colors py-2"
+        href="#expertise" onclick="closeMobileMenu()">Expertise</a>
+      <a class="font-label-caps text-label-caps text-text-muted hover:text-primary transition-colors py-2" href="#work"
+        onclick="closeMobileMenu()">Work</a>
+      <a class="font-label-caps text-label-caps text-text-muted hover:text-primary transition-colors py-2"
+        href="#experience" onclick="closeMobileMenu()">Experience</a>
+      <a class="font-label-caps text-label-caps text-text-muted hover:text-primary transition-colors py-2"
+        href="#testimonials" onclick="closeMobileMenu()">Testimonials</a>
+      <a href="#contact" onclick="closeMobileMenu()"
+        class="mt-2 bg-primary-container text-white px-6 py-3 rounded font-label-caps text-label-caps text-center">Hire
+        Me</a>
     </div>
   </nav>
 
   <!-- ============================================================
        SECTION 1: HERO (Exact Stitch Design)
   ============================================================ -->
-  <section id="hero" class="pt-32 pb-24 px-margin-mobile md:px-margin-desktop w-full max-w-container-max mx-auto flex flex-col items-center justify-center relative min-h-[700px]">
+  <section id="hero"
+    class="pt-32 pb-24 px-margin-mobile md:px-margin-desktop w-full max-w-container-max mx-auto flex flex-col items-center justify-center relative min-h-[700px]">
     <!-- Background Portrait Layer (Full Screen Blend) -->
     <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden bg-background">
       <!-- Immersive Background Image -->
-      <img alt="Background Portrait" class="w-full h-full object-cover opacity-30 hero-bg-zoom" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCncn_xl1vl4ozO8yLi7YV_7Aw-0ZJI0JInP7GWuoJkZ_QyFZyXn2tQPvfAnZYzVMLai8IWIHCYIFzsU0efLP0kEjRkEqA2OJxWzs8PGoBV6qbHc6kL5G9OeQl5Za-4xI-tkp0zCih83r6OWX87aYXKMaGVZitxYcNw5vrMzhkrzUP43LrFZkqZbDfDvXR9xV2gtXml9KvEXeKpf5yPB7gyeHGO3IC98QOpwj2wsxf18LkyCDE1mtE"/>
-      
+      <img alt="Background Portrait" class="w-full h-full object-cover opacity-30 hero-bg-zoom"
+        src="https://lh3.googleusercontent.com/aida-public/AB6AXuCncn_xl1vl4ozO8yLi7YV_7Aw-0ZJI0JInP7GWuoJkZ_QyFZyXn2tQPvfAnZYzVMLai8IWIHCYIFzsU0efLP0kEjRkEqA2OJxWzs8PGoBV6qbHc6kL5G9OeQl5Za-4xI-tkp0zCih83r6OWX87aYXKMaGVZitxYcNw5vrMzhkrzUP43LrFZkqZbDfDvXR9xV2gtXml9KvEXeKpf5yPB7gyeHGO3IC98QOpwj2wsxf18LkyCDE1mtE" />
+
       <!-- Gradient Overlays for Seamless Blending -->
       <!-- Top to Bottom Fade -->
       <div class="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background"></div>
@@ -200,25 +204,33 @@
       <div class="absolute inset-0" style="background: radial-gradient(circle, transparent 30%, #131313 100%);"></div>
     </div>
     <div class="z-10 flex flex-col items-center text-center gap-6 max-w-3xl">
-      <h1 class="font-display text-display text-on-surface flex items-baseline gap-2 hero-anim" style="opacity:0;transform:translateY(30px);">
+      <h1 class="font-display text-display text-on-surface flex items-baseline gap-2 hero-anim"
+        style="opacity:0;transform:translateY(30px);">
         Hello<span class="text-primary text-5xl">.</span>
       </h1>
-      <div class="flex items-center gap-4 text-primary font-label-caps text-label-caps tracking-widest uppercase mt-4 hero-anim" style="opacity:0;transform:translateY(30px);transition-delay:100ms;">
+      <div
+        class="flex items-center gap-4 text-primary font-label-caps text-label-caps tracking-widest uppercase mt-4 hero-anim"
+        style="opacity:0;transform:translateY(30px);transition-delay:100ms;">
         <span class="w-12 h-[1px] bg-primary"></span>
         I'm Fazi Awan
         <span class="w-12 h-[1px] bg-primary"></span>
       </div>
-      <h2 class="font-display text-5xl md:text-6xl text-on-surface font-extrabold mt-2 hero-anim" style="opacity:0;transform:translateY(30px);transition-delay:200ms;">
+      <h2 class="font-display text-5xl md:text-6xl text-on-surface font-extrabold mt-2 hero-anim"
+        style="opacity:0;transform:translateY(30px);transition-delay:200ms;">
         Software Developer
       </h2>
-      <p class="font-body-lg text-body-lg text-text-muted max-w-xl leading-relaxed mt-4 hero-anim" style="opacity:0;transform:translateY(30px);transition-delay:300ms;">
-        Founder of <span class="text-on-surface font-semibold">Malik Nexus</span>. Architecting high-performance digital infrastructure.
+      <p class="font-body-lg text-body-lg text-text-muted max-w-xl leading-relaxed mt-4 hero-anim"
+        style="opacity:0;transform:translateY(30px);transition-delay:300ms;">
+        Architecting high-performance digital experiences — from scalable web platforms to intelligent AI
+        integrations.
       </p>
       <div class="flex gap-4 mt-4 hero-anim" style="opacity:0;transform:translateY(30px);transition-delay:400ms;">
-        <a href="#contact" class="magnetic bg-primary-container text-white px-8 py-4 rounded font-label-caps text-label-caps hover:bg-primary hover:opacity-90 hover:shadow-[0_0_30px_rgba(255,94,0,0.4)] transition-all">
+        <a href="#contact"
+          class="magnetic bg-primary-container text-white px-8 py-4 rounded font-label-caps text-label-caps hover:bg-primary hover:opacity-90 hover:shadow-[0_0_30px_rgba(255,94,0,0.4)] transition-all">
           Got a project?
         </a>
-        <a href="assets/resume.pdf" download="Fazi_Awan_Resume.pdf" class="magnetic border border-surface-border text-on-surface px-8 py-4 rounded font-label-caps text-label-caps hover:bg-surface-container hover:border-primary/50 transition-all">
+        <a href="assets/resume.pdf" download="Fazi_Awan_Resume.pdf"
+          class="magnetic border border-surface-border text-on-surface px-8 py-4 rounded font-label-caps text-label-caps hover:bg-surface-container hover:border-primary/50 transition-all">
           My resume
         </a>
       </div>
@@ -263,15 +275,19 @@
   <!-- ============================================================
        SECTION 3: EXPERTISE — Luxury Glassmorphism (Tamal Sen Style)
   ============================================================ -->
-  <section id="expertise" class="w-full py-32 px-margin-mobile md:px-margin-desktop relative overflow-hidden" style="background: #0c0c0c;">
+  <section id="expertise" class="w-full py-32 px-margin-mobile md:px-margin-desktop relative overflow-hidden"
+    style="background: #0c0c0c;">
 
     <!-- Ambient glow orbs -->
-    <div class="absolute top-0 left-1/4 w-[600px] h-[600px] rounded-full pointer-events-none" style="background: radial-gradient(circle, rgba(255,94,0,0.06) 0%, transparent 70%); filter: blur(80px);"></div>
-    <div class="absolute bottom-0 right-1/4 w-[500px] h-[500px] rounded-full pointer-events-none" style="background: radial-gradient(circle, rgba(100,60,255,0.05) 0%, transparent 70%); filter: blur(80px);"></div>
+    <div class="absolute top-0 left-1/4 w-[600px] h-[600px] rounded-full pointer-events-none"
+      style="background: radial-gradient(circle, rgba(255,94,0,0.07) 0%, transparent 70%); filter: blur(80px);"></div>
+    <div class="absolute bottom-0 right-1/4 w-[500px] h-[500px] rounded-full pointer-events-none"
+      style="background: radial-gradient(circle, rgba(255,170,0,0.05) 0%, transparent 70%); filter: blur(80px);"></div>
 
     <!-- Low-opacity ambient code background (Tamal Sen style) -->
     <div class="absolute inset-0 pointer-events-none select-none overflow-hidden z-0 flex items-center justify-center">
-      <pre class="font-label-code text-[11px] leading-6 text-left" style="opacity: 0.045; color: #ff5e00; white-space: pre;"><code><span style="color:#569cd6">&lt;html</span> <span style="color:#9cdcfe">lang</span><span style="color:#d4d4d4">=</span><span style="color:#ce9178">"en"</span><span style="color:#569cd6">&gt;</span>
+      <pre class="font-label-code text-[11px] leading-6 text-left"
+        style="opacity: 0.045; color: #ff5e00; white-space: pre;"><code><span style="color:#569cd6">&lt;html</span> <span style="color:#9cdcfe">lang</span><span style="color:#d4d4d4">=</span><span style="color:#ce9178">"en"</span><span style="color:#569cd6">&gt;</span>
 <span style="color:#569cd6">&lt;head&gt;</span>
   <span style="color:#569cd6">&lt;meta</span> <span style="color:#9cdcfe">name</span><span style="color:#d4d4d4">=</span><span style="color:#ce9178">"viewport"</span> <span style="color:#9cdcfe">content</span><span style="color:#d4d4d4">=</span><span style="color:#ce9178">"width=device-width, initial-scale=1.0"</span><span style="color:#569cd6">&gt;</span>
   <span style="color:#569cd6">&lt;title&gt;</span><span style="color:#d4d4d4">What do I do</span><span style="color:#569cd6">&lt;/title&gt;</span>
@@ -288,221 +304,158 @@
     <div class="relative z-10 flex flex-col items-center w-full max-w-container-max mx-auto">
       <!-- Section header -->
       <div class="text-center mb-20">
-        <span class="font-label-caps text-label-caps text-primary tracking-[0.25em] uppercase block mb-4">What I Do</span>
-        <h2 class="font-display text-5xl md:text-6xl text-white font-bold tracking-tight">My <span class="gradient-text">Expertise</span></h2>
+        <span class="font-label-caps text-label-caps text-primary tracking-[0.25em] uppercase block mb-4">What I
+          Do</span>
+        <h2 class="font-display text-5xl md:text-6xl text-white font-bold tracking-tight">My
+          Expertise</h2>
       </div>
-      
-      <!-- Luxury Glassmorphism Cards Grid -->
+
+      <!-- Expertise Cards -->
       <div class="w-full grid grid-cols-1 md:grid-cols-3 gap-6" style="perspective: 1200px;">
-        
+
         <!-- Card 1: Full Stack Development -->
-        <div class="expertise-glass-card tilt-card group relative rounded-2xl overflow-hidden cursor-default" style="background: linear-gradient(145deg, rgba(22,18,26,0.92) 0%, rgba(14,12,18,0.96) 100%); backdrop-filter: blur(40px) saturate(1.8); -webkit-backdrop-filter: blur(40px) saturate(1.8); border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 8px 60px rgba(0,0,0,0.7), 0 0 0 0.5px rgba(255,94,0,0.12), inset 0 1px 0 rgba(255,255,255,0.09), inset 0 -1px 0 rgba(0,0,0,0.3);">
-          <!-- Noise texture overlay -->
-          <div class="absolute inset-0 pointer-events-none" style="background-image: url('data:image/svg+xml,%3Csvg viewBox=\'0 0 256 256\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'n\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.9\' numOctaves=\'4\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23n)\' opacity=\'1\'/%3E%3C/svg%3E'); opacity: 0.02; background-size: 128px;"></div>
-          <!-- Top spectrum shimmer line -->
-          <div class="absolute top-0 left-0 w-full h-[1.5px]" style="background: linear-gradient(90deg, transparent 0%, rgba(255,94,0,0.3) 20%, rgba(255,94,0,1) 50%, rgba(255,181,153,0.8) 70%, transparent 100%);"></div>
-          <!-- Animated shimmer sweep -->
-          <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none overflow-hidden rounded-2xl">
-            <div style="position:absolute;top:-100%;left:-60%;width:40%;height:300%;background:linear-gradient(105deg,transparent,rgba(255,255,255,0.04),transparent);transform:skewX(-20deg);animation:none;" class="group-hover:shimmer-sweep"></div>
+        <div class="expertise-glass-card tilt-card glow-card group relative rounded-2xl overflow-hidden cursor-default"
+          style="background: linear-gradient(165deg, rgba(30,24,18,0.92) 0%, rgba(14,12,10,0.97) 55%, rgba(26,19,13,0.94) 100%); border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 12px 50px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.06); min-height: 420px;">
+          <!-- Shimmer sweep on hover -->
+          <div class="shimmer-sweep"></div>
+          <!-- Top brand gradient accent -->
+          <div class="absolute top-0 left-0 w-full h-[2px]"
+            style="background: linear-gradient(90deg, transparent, rgba(255,170,0,0.9) 35%, #ffb599 55%, transparent);">
           </div>
-          <!-- Radial glow on hover -->
-          <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" style="background: radial-gradient(circle at 50% -20%, rgba(255,94,0,0.14) 0%, transparent 65%);"></div>
-          <!-- Bottom inner glow ring -->
-          <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-3/4 h-px opacity-0 group-hover:opacity-100 transition-opacity duration-500" style="background: linear-gradient(90deg, transparent, rgba(255,94,0,0.4), transparent);"></div>
-          <!-- Corner accent -->
-          <div class="absolute top-4 right-4 w-6 h-6 opacity-20 group-hover:opacity-70 transition-all duration-300">
-            <div class="absolute top-0 right-0 w-full h-[1px] bg-primary"></div>
-            <div class="absolute top-0 right-0 w-[1px] h-full bg-primary"></div>
-          </div>
-          
-          <div class="p-8 md:p-10 flex flex-col h-full">
-            <!-- Icon & Title -->
-            <div class="flex items-start gap-5 mb-8">
-              <div class="flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center" style="background: rgba(255,94,0,0.1); border: 1px solid rgba(255,94,0,0.2);">
-                <span class="material-symbols-outlined text-2xl" style="color: #ff5e00;">desktop_windows</span>
+          <!-- Ghost index number -->
+          <div
+            class="absolute top-2 right-4 font-display font-extrabold leading-none text-white opacity-[0.07] pointer-events-none select-none"
+            style="font-size: 3.5rem;">01</div>
+          <!-- Hover radial glow -->
+          <div
+            class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"
+            style="background: radial-gradient(circle at 50% -20%, rgba(255,170,0,0.16) 0%, transparent 65%);"></div>
+
+          <div class="relative p-8 md:p-10 flex flex-col h-full">
+            <!-- Icon chip + title -->
+            <div class="flex items-center gap-4 mb-8">
+              <div
+                class="flex-shrink-0 w-14 h-14 rounded-xl flex items-center justify-center transition-transform duration-500 group-hover:scale-105"
+                style="background: linear-gradient(135deg, rgba(255,170,0,0.18), rgba(255,170,0,0.05)); border: 1px solid rgba(255,170,0,0.3); box-shadow: 0 0 24px rgba(255,170,0,0.15), inset 0 1px 0 rgba(255,255,255,0.08);">
+                <span class="material-symbols-outlined text-2xl" style="color: #ffaa00;">desktop_windows</span>
               </div>
-              <h3 class="font-display text-2xl text-white font-bold leading-tight pt-1">
-                Full Stack<br/>
-                <span class="relative inline-block">
-                  Development
-                  <span class="absolute -bottom-1 left-0 h-[2px] w-0 group-hover:w-full transition-all duration-500" style="background: linear-gradient(90deg, #ff5e00, #ffb599);"></span>
-                </span>
-              </h3>
+              <h3 class="font-display text-2xl text-white font-bold leading-tight tracking-tight">Full Stack<br />Development</h3>
             </div>
-            <!-- Code-style label -->
-            <div class="font-label-code text-xs mb-3" style="color: rgba(255,94,0,0.4);">&lt;h3&gt;</div>
             <!-- Description -->
-            <div class="pl-4 flex-grow" style="border-left: 2px solid rgba(255,94,0,0.15);">
-              <p class="font-label-code text-sm leading-7" style="color: rgba(255,255,255,0.45);">End-to-end scalable web solutions built with robust backend architectures and reactive, seamless frontend experiences.</p>
-            </div>
-            <div class="font-label-code text-xs mt-3" style="color: rgba(255,94,0,0.4);">&lt;/h3&gt;</div>
-            <!-- Skills tags -->
-            <div class="flex flex-wrap gap-2 mt-8">
-              <span class="px-3 py-1 rounded-full text-[10px] font-label-caps tracking-widest uppercase" style="background: rgba(255,94,0,0.08); border: 1px solid rgba(255,94,0,0.2); color: rgba(255,150,80,0.8);">React</span>
-              <span class="px-3 py-1 rounded-full text-[10px] font-label-caps tracking-widest uppercase" style="background: rgba(255,94,0,0.08); border: 1px solid rgba(255,94,0,0.2); color: rgba(255,150,80,0.8);">Node.js</span>
-              <span class="px-3 py-1 rounded-full text-[10px] font-label-caps tracking-widest uppercase" style="background: rgba(255,94,0,0.08); border: 1px solid rgba(255,94,0,0.2); color: rgba(255,150,80,0.8);">Next.js</span>
+            <p class="font-body-md text-sm leading-relaxed flex-grow" style="color: rgba(255,255,255,0.55);">
+              End-to-end scalable web solutions built with robust backend architectures and reactive, seamless
+              frontend experiences.
+            </p>
+            <!-- Skill tags -->
+            <div class="flex flex-wrap gap-2 mt-6 pt-5"
+              style="border-top: 1px solid rgba(255,255,255,0.08);">
+              <span class="px-3 py-1.5 rounded-full text-[10px] font-label-caps tracking-widest uppercase"
+                style="background: rgba(255,170,0,0.1); border: 1px solid rgba(255,170,0,0.25); color: #ffc266;">HTML</span>
+              <span class="px-3 py-1.5 rounded-full text-[10px] font-label-caps tracking-widest uppercase"
+                style="background: rgba(255,170,0,0.1); border: 1px solid rgba(255,170,0,0.25); color: #ffc266;">CSS</span>
+              <span class="px-3 py-1.5 rounded-full text-[10px] font-label-caps tracking-widest uppercase"
+                style="background: rgba(255,170,0,0.1); border: 1px solid rgba(255,170,0,0.25); color: #ffc266;">JS</span>
+              <span class="px-3 py-1.5 rounded-full text-[10px] font-label-caps tracking-widest uppercase"
+                style="background: rgba(255,170,0,0.1); border: 1px solid rgba(255,170,0,0.25); color: #ffc266;">React</span>
+              <span class="px-3 py-1.5 rounded-full text-[10px] font-label-caps tracking-widest uppercase"
+                style="background: rgba(255,170,0,0.1); border: 1px solid rgba(255,170,0,0.25); color: #ffc266;">Node.js</span>
             </div>
           </div>
+          <!-- Bottom separation line -->
+          <div class="absolute bottom-0 left-0 w-full h-[1px]" style="background: linear-gradient(90deg, transparent, rgba(255,255,255,0.10) 35%, rgba(255,255,255,0.10) 65%, transparent);"></div>
         </div>
 
         <!-- Card 2: UI/UX Specialist -->
-        <div class="expertise-glass-card tilt-card group relative rounded-2xl overflow-hidden cursor-default" style="background: linear-gradient(145deg, rgba(18,18,28,0.92) 0%, rgba(12,12,20,0.96) 100%); backdrop-filter: blur(40px) saturate(1.8); -webkit-backdrop-filter: blur(40px) saturate(1.8); border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 8px 60px rgba(0,0,0,0.7), 0 0 0 0.5px rgba(100,100,255,0.12), inset 0 1px 0 rgba(255,255,255,0.09), inset 0 -1px 0 rgba(0,0,0,0.3);">
-          <div class="absolute inset-0 pointer-events-none" style="background-image: url('data:image/svg+xml,%3Csvg viewBox=\'0 0 256 256\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'n\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.9\' numOctaves=\'4\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23n)\' opacity=\'1\'/%3E%3C/svg%3E'); opacity: 0.02; background-size: 128px;"></div>
-          <div class="absolute top-0 left-0 w-full h-[1.5px]" style="background: linear-gradient(90deg, transparent 0%, rgba(100,100,255,0.3) 20%, rgba(136,136,255,1) 50%, rgba(180,180,255,0.8) 70%, transparent 100%);"></div>
-          <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" style="background: radial-gradient(circle at 50% -20%, rgba(100,100,255,0.13) 0%, transparent 65%);"></div>
-          <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-3/4 h-px opacity-0 group-hover:opacity-100 transition-opacity duration-500" style="background: linear-gradient(90deg, transparent, rgba(136,136,255,0.4), transparent);"></div>
-          <div class="absolute top-4 right-4 w-6 h-6 opacity-20 group-hover:opacity-70 transition-all duration-300">
-            <div class="absolute top-0 right-0 w-full h-[1px]" style="background: #8888ff;"></div>
-            <div class="absolute top-0 right-0 w-[1px] h-full" style="background: #8888ff;"></div>
+        <div class="expertise-glass-card tilt-card glow-card group relative rounded-2xl overflow-hidden cursor-default"
+          style="background: linear-gradient(165deg, rgba(30,24,18,0.92) 0%, rgba(14,12,10,0.97) 55%, rgba(26,19,13,0.94) 100%); border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 12px 50px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.06); min-height: 420px;">
+          <!-- Shimmer sweep on hover -->
+          <div class="shimmer-sweep"></div>
+          <div class="absolute top-0 left-0 w-full h-[2px]"
+            style="background: linear-gradient(90deg, transparent, rgba(255,170,0,0.9) 35%, #ffb599 55%, transparent);">
           </div>
-          
-          <div class="p-8 md:p-10 flex flex-col h-full">
-            <div class="flex items-start gap-5 mb-8">
-              <div class="flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center" style="background: rgba(100,100,255,0.1); border: 1px solid rgba(100,100,255,0.2);">
-                <span class="material-symbols-outlined text-2xl" style="color: #8888ff;">design_services</span>
+          <div
+            class="absolute top-2 right-4 font-display font-extrabold leading-none text-white opacity-[0.07] pointer-events-none select-none"
+            style="font-size: 3.5rem;">02</div>
+          <div
+            class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"
+            style="background: radial-gradient(circle at 50% -20%, rgba(255,170,0,0.16) 0%, transparent 65%);"></div>
+
+          <div class="relative p-8 md:p-10 flex flex-col h-full">
+            <div class="flex items-center gap-4 mb-8">
+              <div
+                class="flex-shrink-0 w-14 h-14 rounded-xl flex items-center justify-center transition-transform duration-500 group-hover:scale-105"
+                style="background: linear-gradient(135deg, rgba(255,170,0,0.18), rgba(255,170,0,0.05)); border: 1px solid rgba(255,170,0,0.3); box-shadow: 0 0 24px rgba(255,170,0,0.15), inset 0 1px 0 rgba(255,255,255,0.08);">
+                <span class="material-symbols-outlined text-2xl" style="color: #ffaa00;">design_services</span>
               </div>
-              <h3 class="font-display text-2xl text-white font-bold leading-tight pt-1">
-                UI/UX<br/>
-                <span class="relative inline-block">
-                  Specialist
-                  <span class="absolute -bottom-1 left-0 h-[2px] w-0 group-hover:w-full transition-all duration-500" style="background: linear-gradient(90deg, #6464ff, #aaaaff);"></span>
-                </span>
-              </h3>
+              <h3 class="font-display text-2xl text-white font-bold leading-tight tracking-tight">UI/UX<br />Specialist</h3>
             </div>
-            <div class="font-label-code text-xs mb-3" style="color: rgba(100,100,255,0.4);">&lt;h3&gt;</div>
-            <div class="pl-4 flex-grow" style="border-left: 2px solid rgba(100,100,255,0.15);">
-              <p class="font-label-code text-sm leading-7" style="color: rgba(255,255,255,0.45);">Minimalist, highly functional interfaces. From wireframing to high-fidelity prototypes, crafting interactive user journeys.</p>
-            </div>
-            <div class="font-label-code text-xs mt-3" style="color: rgba(100,100,255,0.4);">&lt;/h3&gt;</div>
-            <div class="flex flex-wrap gap-2 mt-8">
-              <span class="px-3 py-1 rounded-full text-[10px] font-label-caps tracking-widest uppercase" style="background: rgba(100,100,255,0.08); border: 1px solid rgba(100,100,255,0.2); color: rgba(160,160,255,0.8);">Figma</span>
-              <span class="px-3 py-1 rounded-full text-[10px] font-label-caps tracking-widest uppercase" style="background: rgba(100,100,255,0.08); border: 1px solid rgba(100,100,255,0.2); color: rgba(160,160,255,0.8);">Prototyping</span>
-              <span class="px-3 py-1 rounded-full text-[10px] font-label-caps tracking-widest uppercase" style="background: rgba(100,100,255,0.08); border: 1px solid rgba(100,100,255,0.2); color: rgba(160,160,255,0.8);">Motion</span>
+            <p class="font-body-md text-sm leading-relaxed flex-grow" style="color: rgba(255,255,255,0.55);">
+              Minimalist, highly functional interfaces. From wireframing to high-fidelity prototypes, crafting
+              interactive user journeys.
+            </p>
+            <div class="flex flex-wrap gap-2 mt-6 pt-5"
+              style="border-top: 1px solid rgba(255,255,255,0.08);">
+              <span class="px-3 py-1.5 rounded-full text-[10px] font-label-caps tracking-widest uppercase"
+                style="background: rgba(255,170,0,0.1); border: 1px solid rgba(255,170,0,0.25); color: #ffc266;">Figma</span>
+              <span class="px-3 py-1.5 rounded-full text-[10px] font-label-caps tracking-widest uppercase"
+                style="background: rgba(255,170,0,0.1); border: 1px solid rgba(255,170,0,0.25); color: #ffc266;">Design Systems</span>
+              <span class="px-3 py-1.5 rounded-full text-[10px] font-label-caps tracking-widest uppercase"
+                style="background: rgba(255,170,0,0.1); border: 1px solid rgba(255,170,0,0.25); color: #ffc266;">Motion</span>
             </div>
           </div>
+          <!-- Bottom separation line -->
+          <div class="absolute bottom-0 left-0 w-full h-[1px]" style="background: linear-gradient(90deg, transparent, rgba(255,255,255,0.10) 35%, rgba(255,255,255,0.10) 65%, transparent);"></div>
         </div>
 
         <!-- Card 3: App Development -->
-        <div class="expertise-glass-card tilt-card group relative rounded-2xl overflow-hidden cursor-default" style="background: linear-gradient(145deg, rgba(14,22,20,0.92) 0%, rgba(10,16,14,0.96) 100%); backdrop-filter: blur(40px) saturate(1.8); -webkit-backdrop-filter: blur(40px) saturate(1.8); border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 8px 60px rgba(0,0,0,0.7), 0 0 0 0.5px rgba(0,220,140,0.12), inset 0 1px 0 rgba(255,255,255,0.09), inset 0 -1px 0 rgba(0,0,0,0.3);">
-          <div class="absolute inset-0 pointer-events-none" style="background-image: url('data:image/svg+xml,%3Csvg viewBox=\'0 0 256 256\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'n\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.9\' numOctaves=\'4\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23n)\' opacity=\'1\'/%3E%3C/svg%3E'); opacity: 0.02; background-size: 128px;"></div>
-          <div class="absolute top-0 left-0 w-full h-[1.5px]" style="background: linear-gradient(90deg, transparent 0%, rgba(0,220,140,0.3) 20%, rgba(0,220,140,1) 50%, rgba(0,255,180,0.8) 70%, transparent 100%);"></div>
-          <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" style="background: radial-gradient(circle at 50% -20%, rgba(0,220,140,0.12) 0%, transparent 65%);"></div>
-          <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-3/4 h-px opacity-0 group-hover:opacity-100 transition-opacity duration-500" style="background: linear-gradient(90deg, transparent, rgba(0,220,140,0.4), transparent);"></div>
-          <div class="absolute top-4 right-4 w-6 h-6 opacity-20 group-hover:opacity-70 transition-all duration-300">
-            <div class="absolute top-0 right-0 w-full h-[1px]" style="background: #00dc8c;"></div>
-            <div class="absolute top-0 right-0 w-[1px] h-full" style="background: #00dc8c;"></div>
+        <div class="expertise-glass-card tilt-card glow-card group relative rounded-2xl overflow-hidden cursor-default"
+          style="background: linear-gradient(165deg, rgba(30,24,18,0.92) 0%, rgba(14,12,10,0.97) 55%, rgba(26,19,13,0.94) 100%); border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 12px 50px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.06); min-height: 420px;">
+          <!-- Shimmer sweep on hover -->
+          <div class="shimmer-sweep"></div>
+          <div class="absolute top-0 left-0 w-full h-[2px]"
+            style="background: linear-gradient(90deg, transparent, rgba(255,170,0,0.9) 35%, #ffb599 55%, transparent);">
           </div>
-          
-          <div class="p-8 md:p-10 flex flex-col h-full">
-            <div class="flex items-start gap-5 mb-8">
-              <div class="flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center" style="background: rgba(0,220,140,0.1); border: 1px solid rgba(0,220,140,0.2);">
-                <span class="material-symbols-outlined text-2xl" style="color: #00dc8c;">phone_iphone</span>
+          <div
+            class="absolute top-2 right-4 font-display font-extrabold leading-none text-white opacity-[0.07] pointer-events-none select-none"
+            style="font-size: 3.5rem;">03</div>
+          <div
+            class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"
+            style="background: radial-gradient(circle at 50% -20%, rgba(255,170,0,0.16) 0%, transparent 65%);"></div>
+
+          <div class="relative p-8 md:p-10 flex flex-col h-full">
+            <div class="flex items-center gap-4 mb-8">
+              <div
+                class="flex-shrink-0 w-14 h-14 rounded-xl flex items-center justify-center transition-transform duration-500 group-hover:scale-105"
+                style="background: linear-gradient(135deg, rgba(255,170,0,0.18), rgba(255,170,0,0.05)); border: 1px solid rgba(255,170,0,0.3); box-shadow: 0 0 24px rgba(255,170,0,0.15), inset 0 1px 0 rgba(255,255,255,0.08);">
+                <span class="material-symbols-outlined text-2xl" style="color: #ffaa00;">phone_iphone</span>
               </div>
-              <h3 class="font-display text-2xl text-white font-bold leading-tight pt-1">
-                App<br/>
-                <span class="relative inline-block">
-                  Development
-                  <span class="absolute -bottom-1 left-0 h-[2px] w-0 group-hover:w-full transition-all duration-500" style="background: linear-gradient(90deg, #00dc8c, #00ffb3);"></span>
-                </span>
-              </h3>
+              <h3 class="font-display text-2xl text-white font-bold leading-tight tracking-tight">App<br />Development</h3>
             </div>
-            <div class="font-label-code text-xs mb-3" style="color: rgba(0,220,140,0.4);">&lt;h3&gt;</div>
-            <div class="pl-4 flex-grow" style="border-left: 2px solid rgba(0,220,140,0.15);">
-              <p class="font-label-code text-sm leading-7" style="color: rgba(255,255,255,0.45);">Native-level cross-platform mobile apps combining powerful functionalities with beautiful screen transitions and responsive layouts.</p>
-            </div>
-            <div class="font-label-code text-xs mt-3" style="color: rgba(0,220,140,0.4);">&lt;/h3&gt;</div>
-            <div class="flex flex-wrap gap-2 mt-8">
-              <span class="px-3 py-1 rounded-full text-[10px] font-label-caps tracking-widest uppercase" style="background: rgba(0,220,140,0.08); border: 1px solid rgba(0,220,140,0.2); color: rgba(0,200,120,0.8);">React Native</span>
-              <span class="px-3 py-1 rounded-full text-[10px] font-label-caps tracking-widest uppercase" style="background: rgba(0,220,140,0.08); border: 1px solid rgba(0,220,140,0.2); color: rgba(0,200,120,0.8);">Flutter</span>
-              <span class="px-3 py-1 rounded-full text-[10px] font-label-caps tracking-widest uppercase" style="background: rgba(0,220,140,0.08); border: 1px solid rgba(0,220,140,0.2); color: rgba(0,200,120,0.8);">iOS / Android</span>
+            <p class="font-body-md text-sm leading-relaxed flex-grow" style="color: rgba(255,255,255,0.55);">
+              Native-level cross-platform mobile apps combining powerful functionalities with beautiful screen
+              transitions and responsive layouts.
+            </p>
+            <div class="flex flex-wrap gap-2 mt-6 pt-5"
+              style="border-top: 1px solid rgba(255,255,255,0.08);">
+              <span class="px-3 py-1.5 rounded-full text-[10px] font-label-caps tracking-widest uppercase"
+                style="background: rgba(255,170,0,0.1); border: 1px solid rgba(255,170,0,0.25); color: #ffc266;">React
+                Native</span>
+              <span class="px-3 py-1.5 rounded-full text-[10px] font-label-caps tracking-widest uppercase"
+                style="background: rgba(255,170,0,0.1); border: 1px solid rgba(255,170,0,0.25); color: #ffc266;">Flutter</span>
+              <span class="px-3 py-1.5 rounded-full text-[10px] font-label-caps tracking-widest uppercase"
+                style="background: rgba(255,170,0,0.1); border: 1px solid rgba(255,170,0,0.25); color: #ffc266;">iOS
+                / Android</span>
             </div>
           </div>
+          <!-- Bottom separation line -->
+          <div class="absolute bottom-0 left-0 w-full h-[1px]" style="background: linear-gradient(90deg, transparent, rgba(255,255,255,0.10) 35%, rgba(255,255,255,0.10) 65%, transparent);"></div>
         </div>
-        
+
       </div>
     </div>
   </section>
 
 
-
-
-  <!-- ============================================================
-       DUMMY CODE DIVIDER — Seamlessly bridging Expertise → Work
-       Inspired by tamalsen.dev's floating IDE aesthetic
-  ============================================================ -->
-  <div class="relative w-full overflow-hidden" style="background: linear-gradient(180deg, #0c0c0c 0%, #090909 40%, #0b0b0b 60%, #0e0e0e 100%); padding: 100px 0;">
-    <!-- Seamless top blend from expertise (#0c0c0c) -->
-    <div class="absolute inset-x-0 top-0 h-32 z-30 pointer-events-none" style="background: linear-gradient(to bottom, #0c0c0c 0%, rgba(12,12,12,0.6) 40%, transparent 100%);"></div>
-    <!-- Seamless bottom blend into work (#0e0e0e) -->
-    <div class="absolute inset-x-0 bottom-0 h-32 z-30 pointer-events-none" style="background: linear-gradient(to top, #0e0e0e 0%, rgba(14,14,14,0.6) 40%, transparent 100%);"></div>
-
-    <!-- Ambient radial glow — ties both sections together -->
-    <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(ellipse 50% 70% at 50% 50%, rgba(255,94,0,0.03) 0%, transparent 70%);"></div>
-
-    <!-- Floating IDE window — low opacity, slightly tilted for depth -->
-    <div class="relative z-10 flex justify-center items-center px-6" style="perspective: 1200px;">
-      <div class="w-full max-w-2xl relative" style="opacity: 0.12; transform: rotateX(2deg) rotateY(-1deg); filter: blur(0.3px); transition: opacity 0.8s ease, filter 0.8s ease;" onmouseenter="this.style.opacity='0.22'; this.style.filter='blur(0px)';" onmouseleave="this.style.opacity='0.12'; this.style.filter='blur(0.3px)';">
-
-        <!-- Subtle shadow beneath IDE -->
-        <div class="absolute -bottom-10 left-1/2 -translate-x-1/2 w-3/4 h-16 z-0 pointer-events-none" style="background: radial-gradient(ellipse, rgba(0,0,0,0.6) 0%, transparent 70%); filter: blur(16px);"></div>
-
-        <!-- IDE title bar -->
-        <div class="relative flex items-center gap-2.5 rounded-t-xl px-4 py-3 z-10" style="background: #181826; border: 1px solid rgba(255,255,255,0.04); border-bottom: none;">
-          <div class="w-2.5 h-2.5 rounded-full" style="background: #ff5f57; box-shadow: 0 0 4px rgba(255,95,87,0.3);"></div>
-          <div class="w-2.5 h-2.5 rounded-full" style="background: #ffbd2e; box-shadow: 0 0 4px rgba(255,189,46,0.3);"></div>
-          <div class="w-2.5 h-2.5 rounded-full" style="background: #28c840; box-shadow: 0 0 4px rgba(40,200,64,0.3);"></div>
-          <div class="flex items-center gap-2 ml-3">
-            <span class="material-symbols-outlined" style="font-size: 12px; color: rgba(255,255,255,0.15);">description</span>
-            <span class="font-label-code text-[10px] tracking-wide" style="color: rgba(255,255,255,0.2);">index.html</span>
-          </div>
-          <div class="ml-auto flex items-center gap-1.5">
-            <span class="w-1 h-1 rounded-full bg-white/10"></span>
-            <span class="w-1 h-1 rounded-full bg-white/10"></span>
-            <span class="w-1 h-1 rounded-full bg-white/10"></span>
-          </div>
-        </div>
-
-        <!-- IDE code body -->
-        <div class="relative rounded-b-xl overflow-hidden z-10" style="background: #181826; border: 1px solid rgba(255,255,255,0.04); border-top: none; box-shadow: 0 30px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.02);">
-          <div class="flex">
-            <!-- Line numbers gutter -->
-            <div class="flex flex-col items-end font-label-code text-[11px] leading-[1.85rem] px-3 py-5 select-none" style="color: rgba(255,255,255,0.12); background: #181826; min-width: 2.5rem; border-right: 1px solid rgba(255,255,255,0.03);">
-              <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span><span>15</span>
-            </div>
-            <!-- Syntax-highlighted code -->
-            <pre class="font-label-code text-[12px] leading-[1.85rem] px-5 py-5 overflow-x-auto flex-1" style="color: rgba(212,212,212,0.8); background: #181826; white-space: pre; margin: 0;"><span style="color:#569cd6">&lt;html</span> <span style="color:#9cdcfe">lang</span><span style="color:#d4d4d4">=</span><span style="color:#ce9178">"en"</span><span style="color:#569cd6">&gt;</span>
-<span style="color:#569cd6">&lt;head&gt;</span>
-  <span style="color:#569cd6">&lt;meta</span> <span style="color:#9cdcfe">name</span><span style="color:#d4d4d4">=</span><span style="color:#ce9178">"viewport"</span>
-         <span style="color:#9cdcfe">content</span><span style="color:#d4d4d4">=</span><span style="color:#ce9178">"width=device-width, initial-scale=1.0"</span><span style="color:#569cd6">/&gt;</span>
-  <span style="color:#569cd6">&lt;title&gt;</span><span style="color:#d4d4d4">What do I do</span><span style="color:#569cd6">&lt;/title&gt;</span>
-<span style="color:#569cd6">&lt;/head&gt;</span>
-<span style="color:#569cd6">&lt;body&gt;</span>
-  <span style="color:#608b4e">/* things I do to get a perfect background image */</span>
-  <span style="color:#569cd6">&lt;h1&gt;</span><span style="color:#d4d4d4">Maybe I should stop tinkering</span>
-       <span style="color:#d4d4d4">with VSCode settings</span><span style="color:#569cd6">&lt;/h1&gt;</span>
-  <span style="color:#569cd6">&lt;p&gt;</span><span style="color:#d4d4d4">just to take a screenshot</span>
-       <span style="color:#d4d4d4">of this dummy html code.</span><span style="color:#569cd6">&lt;/p&gt;</span>
-  <span style="color:#569cd6">&lt;span&gt;</span><span style="color:#d4d4d4">Oops, Almost forgot</span>
-         <span style="color:#d4d4d4">to say "Hello World!"</span><span style="color:#569cd6">&lt;/span&gt;</span>
-<span style="color:#569cd6">&lt;/body&gt;</span>
-<span style="color:#569cd6">&lt;/html&gt;</span></pre>
-          </div>
-          <!-- Bottom status bar — VS Code style -->
-          <div class="flex items-center justify-between px-4 py-1.5" style="background: #131320; border-top: 1px solid rgba(255,255,255,0.03);">
-            <div class="flex items-center gap-3">
-              <span class="font-label-code text-[9px]" style="color: rgba(255,255,255,0.12);">Ln 15, Col 1</span>
-              <span class="font-label-code text-[9px]" style="color: rgba(255,255,255,0.12);">UTF-8</span>
-              <span class="font-label-code text-[9px]" style="color: rgba(255,255,255,0.12);">HTML</span>
-            </div>
-            <div class="flex items-center gap-3">
-              <span class="font-label-code text-[9px]" style="color: rgba(255,94,0,0.3);">Prettier</span>
-              <span class="font-label-code text-[9px]" style="color: rgba(255,255,255,0.12);">Spaces: 2</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 
   <!-- ============================================================
        SECTION 4: MY WORK — Tamal Sen Style
@@ -514,30 +467,38 @@
       <!-- Subtle bg grid -->
       <div class="absolute inset-0 grid-pattern opacity-[0.06] pointer-events-none"></div>
       <!-- Radial glow -->
-      <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(ellipse 70% 60% at 60% 50%, rgba(255,94,0,0.05) 0%, transparent 70%);"></div>
+      <div class="absolute inset-0 pointer-events-none"
+        style="background: radial-gradient(ellipse 70% 60% at 60% 50%, rgba(255,94,0,0.05) 0%, transparent 70%);"></div>
 
       <div class="w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop relative z-10">
         <div class="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-0">
 
           <!-- Left: Text block -->
           <div class="lg:w-[42%] flex flex-col gap-6">
-            <h2 class="font-display font-extrabold tracking-tighter text-white leading-none" style="font-size: clamp(3.5rem, 8vw, 6rem);">My<br/>Work</h2>
-            <p class="font-body-lg text-body-lg leading-relaxed" style="color: rgba(255,255,255,0.45); max-width: 380px;">Built scalable web platforms and cross-platform mobile apps. Collaborated across 50+ clients worldwide. Engineered high-performance solutions with modern stacks and AI integrations.</p>
+            <h2 class="font-display font-extrabold tracking-tighter text-white leading-none"
+              style="font-size: clamp(3.5rem, 8vw, 6rem);">My<br />Work</h2>
+            <p class="font-body-lg text-body-lg leading-relaxed"
+              style="color: rgba(255,255,255,0.45); max-width: 380px;">Built scalable web platforms and cross-platform
+              mobile apps. Collaborated across 50+ clients worldwide. Engineered high-performance solutions with modern
+              stacks and AI integrations.</p>
             <!-- Stats row -->
             <div class="flex gap-10 mt-2">
               <div class="flex flex-col">
                 <span class="font-display text-3xl text-white font-bold">50+</span>
-                <span class="font-label-caps text-[10px] tracking-widest uppercase" style="color: rgba(255,255,255,0.3);">Clients</span>
+                <span class="font-label-caps text-[10px] tracking-widest uppercase"
+                  style="color: rgba(255,255,255,0.3);">Clients</span>
               </div>
               <div class="w-px bg-white/10"></div>
               <div class="flex flex-col">
                 <span class="font-display text-3xl text-white font-bold">120+</span>
-                <span class="font-label-caps text-[10px] tracking-widest uppercase" style="color: rgba(255,255,255,0.3);">Projects</span>
+                <span class="font-label-caps text-[10px] tracking-widest uppercase"
+                  style="color: rgba(255,255,255,0.3);">Projects</span>
               </div>
               <div class="w-px bg-white/10"></div>
               <div class="flex flex-col">
                 <span class="font-display text-3xl text-white font-bold">5+</span>
-                <span class="font-label-caps text-[10px] tracking-widest uppercase" style="color: rgba(255,255,255,0.3);">Years</span>
+                <span class="font-label-caps text-[10px] tracking-widest uppercase"
+                  style="color: rgba(255,255,255,0.3);">Years</span>
               </div>
             </div>
           </div>
@@ -545,39 +506,64 @@
           <!-- Right: Featured project mockup -->
           <div class="lg:w-[52%] flex items-center justify-center relative" style="min-height: 500px;">
             <!-- Glow behind mockup -->
-            <div class="absolute w-96 h-96 rounded-full pointer-events-none" style="background: radial-gradient(circle, rgba(255,94,0,0.22) 0%, transparent 70%); filter: blur(60px); right: 5%; top: 50%; transform: translateY(-50%);"></div>
+            <div class="absolute w-96 h-96 rounded-full pointer-events-none"
+              style="background: radial-gradient(circle, rgba(255,94,0,0.22) 0%, transparent 70%); filter: blur(60px); right: 5%; top: 50%; transform: translateY(-50%);">
+            </div>
 
             <!-- Arrow annotation -->
             <div class="absolute z-10 hidden lg:flex flex-col items-center" style="left: 5%; top: 52%;">
               <svg width="90" height="70" viewBox="0 0 90 70" fill="none" style="opacity:0.55;">
-                <path d="M10 60 Q45 10 78 30" stroke="#ff5e00" stroke-width="1.5" fill="none" stroke-dasharray="5 3"/>
-                <path d="M72 24 L80 34 L68 32" stroke="#ff5e00" stroke-width="1.5" fill="none"/>
+                <path d="M10 60 Q45 10 78 30" stroke="#ff5e00" stroke-width="1.5" fill="none" stroke-dasharray="5 3" />
+                <path d="M72 24 L80 34 L68 32" stroke="#ff5e00" stroke-width="1.5" fill="none" />
               </svg>
               <div class="text-left" style="margin-top: -14px; margin-left: 30px;">
-                <p class="font-label-caps text-[10px] tracking-widest uppercase" style="color: rgba(255,255,255,0.35);">Featured Project</p>
+                <p class="font-label-caps text-[10px] tracking-widest uppercase" style="color: rgba(255,255,255,0.35);">
+                  Featured Project</p>
                 <p class="font-display text-2xl text-white font-bold mt-1">Flight Local</p>
-                <a href="#" class="inline-flex items-center gap-2 mt-3 px-5 py-2.5 rounded font-label-caps text-[10px] tracking-widest uppercase transition-all hover:opacity-80" style="background: #ff5e00; color: white;" onclick="document.querySelector('[data-project=flight-local]').click(); return false;">View Project</a>
+                <a href="#"
+                  class="inline-flex items-center gap-2 mt-3 px-5 py-2.5 rounded font-label-caps text-[10px] tracking-widest uppercase transition-all hover:opacity-80"
+                  style="background: #ff5e00; color: white;"
+                  onclick="document.querySelector('[data-project=flight-local]').click(); return false;">View
+                  Project</a>
               </div>
             </div>
 
             <!-- Phone Mockup wrapper — positioned right, slightly tilted -->
-            <div class="relative flex-shrink-0" style="width: 240px; height: 460px; margin-left: auto; margin-right: 5%; transform: perspective(800px) rotateY(-8deg) rotateX(3deg); transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);" onmouseenter="this.style.transform='perspective(800px) rotateY(-4deg) rotateX(1deg) scale(1.03)'" onmouseleave="this.style.transform='perspective(800px) rotateY(-8deg) rotateX(3deg)'">
+            <div class="relative flex-shrink-0"
+              style="width: 240px; height: 460px; margin-left: auto; margin-right: 5%; transform: perspective(800px) rotateY(-8deg) rotateX(3deg); transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);"
+              onmouseenter="this.style.transform='perspective(800px) rotateY(-4deg) rotateX(1deg) scale(1.03)'"
+              onmouseleave="this.style.transform='perspective(800px) rotateY(-8deg) rotateX(3deg)'">
               <!-- Drop shadow / ambient glow -->
-              <div class="absolute -bottom-8 left-1/2 -translate-x-1/2 w-48 h-8" style="background: radial-gradient(ellipse, rgba(255,94,0,0.3) 0%, transparent 70%); filter: blur(12px);"></div>
+              <div class="absolute -bottom-8 left-1/2 -translate-x-1/2 w-48 h-8"
+                style="background: radial-gradient(ellipse, rgba(255,94,0,0.3) 0%, transparent 70%); filter: blur(12px);">
+              </div>
               <!-- Phone frame -->
-              <div class="absolute inset-0 rounded-[2.8rem]" style="background: linear-gradient(160deg, #2a2a2a 0%, #0d0d0d 60%, #1a1a1a 100%); border: 1px solid rgba(255,255,255,0.12); box-shadow: 0 40px 100px rgba(0,0,0,0.8), 0 8px 30px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.04), inset 0 2px 0 rgba(255,255,255,0.1), inset 0 -2px 0 rgba(0,0,0,0.4);"></div>
+              <div class="absolute inset-0 rounded-[2.8rem]"
+                style="background: linear-gradient(160deg, #2a2a2a 0%, #0d0d0d 60%, #1a1a1a 100%); border: 1px solid rgba(255,255,255,0.12); box-shadow: 0 40px 100px rgba(0,0,0,0.8), 0 8px 30px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.04), inset 0 2px 0 rgba(255,255,255,0.1), inset 0 -2px 0 rgba(0,0,0,0.4);">
+              </div>
               <!-- Notch / Dynamic island -->
-              <div class="absolute top-[16px] left-1/2 -translate-x-1/2 w-[90px] h-[28px] rounded-full flex items-center justify-center gap-2" style="background: #080808; border: 1px solid rgba(255,255,255,0.07);">
-                <div class="w-2 h-2 rounded-full" style="background: #1a1a1a; border: 1px solid rgba(255,255,255,0.1);"></div>
-                <div class="w-3 h-3 rounded-full" style="background: radial-gradient(circle at 35% 35%, #2a2a2a, #111); border: 1px solid rgba(255,255,255,0.06);"></div>
+              <div
+                class="absolute top-[16px] left-1/2 -translate-x-1/2 w-[90px] h-[28px] rounded-full flex items-center justify-center gap-2"
+                style="background: #080808; border: 1px solid rgba(255,255,255,0.07);">
+                <div class="w-2 h-2 rounded-full" style="background: #1a1a1a; border: 1px solid rgba(255,255,255,0.1);">
+                </div>
+                <div class="w-3 h-3 rounded-full"
+                  style="background: radial-gradient(circle at 35% 35%, #2a2a2a, #111); border: 1px solid rgba(255,255,255,0.06);">
+                </div>
               </div>
               <!-- Screen -->
-              <div class="absolute rounded-[2.2rem] overflow-hidden" style="inset: 8px; background: #111; top: 12px; bottom: 10px;">
-                <div class="w-full h-full bg-cover bg-top" style="background-image: url('https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=400&q=80');"></div>
+              <div class="absolute rounded-[2.2rem] overflow-hidden"
+                style="inset: 8px; background: #111; top: 12px; bottom: 10px;">
+                <div class="w-full h-full bg-cover bg-top"
+                  style="background-image: url('https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=400&q=80');">
+                </div>
                 <!-- Screen overlay shimmer -->
-                <div class="absolute inset-0" style="background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, transparent 45%, rgba(0,0,0,0.2) 100%);"></div>
+                <div class="absolute inset-0"
+                  style="background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, transparent 45%, rgba(0,0,0,0.2) 100%);">
+                </div>
                 <!-- Status bar -->
-                <div class="absolute top-0 left-0 right-0 h-8 flex items-center justify-between px-4" style="background: linear-gradient(to bottom, rgba(0,0,0,0.6), transparent);">
+                <div class="absolute top-0 left-0 right-0 h-8 flex items-center justify-between px-4"
+                  style="background: linear-gradient(to bottom, rgba(0,0,0,0.6), transparent);">
                   <span class="text-white text-[9px] font-bold">9:41</span>
                   <div class="flex items-center gap-1">
                     <div class="w-3 h-1.5 rounded-sm" style="background: rgba(255,255,255,0.7);"></div>
@@ -586,17 +572,25 @@
                   </div>
                 </div>
                 <!-- Floating UI card on screen -->
-                <div class="absolute bottom-5 left-3 right-3 rounded-2xl p-3" style="background: rgba(8,8,8,0.88); backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 8px 24px rgba(0,0,0,0.5);">
-                  <p class="font-label-caps text-[9px] tracking-widest uppercase" style="color: rgba(255,94,0,0.9);">Live Project</p>
+                <div class="absolute bottom-5 left-3 right-3 rounded-2xl p-3"
+                  style="background: rgba(8,8,8,0.88); backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 8px 24px rgba(0,0,0,0.5);">
+                  <p class="font-label-caps text-[9px] tracking-widest uppercase" style="color: rgba(255,94,0,0.9);">
+                    Live Project</p>
                   <p class="text-white font-bold text-[12px] mt-0.5">Flight Local</p>
-                  <p class="font-label-code text-[9px] mt-1" style="color: rgba(255,255,255,0.35);">Travel Web Platform</p>
+                  <p class="font-label-code text-[9px] mt-1" style="color: rgba(255,255,255,0.35);">Travel Web Platform
+                  </p>
                 </div>
               </div>
               <!-- Physical side buttons -->
-              <div class="absolute right-[-3px] top-28 w-[4px] h-12 rounded-l-md" style="background: linear-gradient(to bottom, #2a2a2a, #1a1a1a); box-shadow: inset -1px 0 0 rgba(0,0,0,0.5);"></div>
-              <div class="absolute left-[-3px] top-24 w-[4px] h-8 rounded-r-md" style="background: linear-gradient(to bottom, #2a2a2a, #1a1a1a);"></div>
-              <div class="absolute left-[-3px] top-36 w-[4px] h-6 rounded-r-md" style="background: linear-gradient(to bottom, #2a2a2a, #1a1a1a);"></div>
-              <div class="absolute left-[-3px] top-44 w-[4px] h-6 rounded-r-md" style="background: linear-gradient(to bottom, #2a2a2a, #1a1a1a);"></div>
+              <div class="absolute right-[-3px] top-28 w-[4px] h-12 rounded-l-md"
+                style="background: linear-gradient(to bottom, #2a2a2a, #1a1a1a); box-shadow: inset -1px 0 0 rgba(0,0,0,0.5);">
+              </div>
+              <div class="absolute left-[-3px] top-24 w-[4px] h-8 rounded-r-md"
+                style="background: linear-gradient(to bottom, #2a2a2a, #1a1a1a);"></div>
+              <div class="absolute left-[-3px] top-36 w-[4px] h-6 rounded-r-md"
+                style="background: linear-gradient(to bottom, #2a2a2a, #1a1a1a);"></div>
+              <div class="absolute left-[-3px] top-44 w-[4px] h-6 rounded-r-md"
+                style="background: linear-gradient(to bottom, #2a2a2a, #1a1a1a);"></div>
             </div>
           </div>
 
@@ -605,196 +599,476 @@
     </div>
 
     <!-- ── FILTER BAR ── -->
-    <div class="w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-6 relative z-10" style="border-top: 1px solid rgba(255,255,255,0.05);">
-      <div class="flex flex-wrap gap-x-6 gap-y-3 items-center text-sm font-label-code" style="color: rgba(255,255,255,0.35);">
-        <span class="text-xs uppercase tracking-widest font-semibold" style="color: rgba(255,255,255,0.2);">Filter by</span>
-        <button class="filter-btn active hover:text-white transition-colors pb-1 flex items-center gap-2 font-semibold uppercase tracking-wider" data-filter="all">All <span class="text-[10px] opacity-50">09</span></button>
+    <div class="w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-6 relative z-10"
+      style="border-top: 1px solid rgba(255,255,255,0.05);">
+      <div class="flex flex-wrap gap-x-6 gap-y-3 items-center text-sm font-label-code"
+        style="color: rgba(255,255,255,0.35);">
+        <span class="text-xs uppercase tracking-widest font-semibold" style="color: rgba(255,255,255,0.2);">Filter
+          by</span>
+        <button
+          class="filter-btn active hover:text-white transition-colors pb-1 flex items-center gap-2 font-semibold uppercase tracking-wider"
+          data-filter="all">All <span class="text-[10px] opacity-50">09</span></button>
         <span style="opacity:0.15;">/</span>
-        <button class="filter-btn hover:text-white transition-colors pb-1 flex items-center gap-2 font-semibold uppercase tracking-wider" data-filter="web">Web Dev <span class="text-[10px] opacity-50">05</span></button>
+        <button
+          class="filter-btn hover:text-white transition-colors pb-1 flex items-center gap-2 font-semibold uppercase tracking-wider"
+          data-filter="web">Web Dev <span class="text-[10px] opacity-50">05</span></button>
         <span style="opacity:0.15;">/</span>
-        <button class="filter-btn hover:text-white transition-colors pb-1 flex items-center gap-2 font-semibold uppercase tracking-wider" data-filter="mobile">Mobile App <span class="text-[10px] opacity-50">01</span></button>
+        <button
+          class="filter-btn hover:text-white transition-colors pb-1 flex items-center gap-2 font-semibold uppercase tracking-wider"
+          data-filter="mobile">Mobile App <span class="text-[10px] opacity-50">01</span></button>
         <span style="opacity:0.15;">/</span>
-        <button class="filter-btn hover:text-white transition-colors pb-1 flex items-center gap-2 font-semibold uppercase tracking-wider" data-filter="ai">AI Integration <span class="text-[10px] opacity-50">02</span></button>
+        <button
+          class="filter-btn hover:text-white transition-colors pb-1 flex items-center gap-2 font-semibold uppercase tracking-wider"
+          data-filter="ai">AI Integration <span class="text-[10px] opacity-50">02</span></button>
         <span style="opacity:0.15;">/</span>
-        <button class="filter-btn hover:text-white transition-colors pb-1 flex items-center gap-2 font-semibold uppercase tracking-wider" data-filter="design">Design <span class="text-[10px] opacity-50">01</span></button>
+        <button
+          class="filter-btn hover:text-white transition-colors pb-1 flex items-center gap-2 font-semibold uppercase tracking-wider"
+          data-filter="design">Design <span class="text-[10px] opacity-50">01</span></button>
       </div>
     </div>
 
     <!-- ── PROJECT GRID ── -->
     <div class="px-margin-mobile md:px-margin-desktop w-full max-w-container-max mx-auto pb-20 relative z-10">
       <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 transition-all duration-500">
-        
+
         <!-- Project 1: Flight Local -->
-        <div class="project-card group relative rounded-xl overflow-hidden cursor-pointer" data-category="web" data-project="flight-local" style="background: #111; border: 1px solid rgba(255,255,255,0.06);">
+        <div class="project-card group relative rounded-xl overflow-hidden cursor-pointer" data-category="web"
+          data-project="flight-local" style="background: #111; border: 1px solid rgba(255,255,255,0.06);">
           <div class="relative overflow-hidden" style="aspect-ratio: 4/3;">
-            <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style="background-image: url('https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=800&q=80');"></div>
-            <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" style="background: linear-gradient(135deg, rgba(6,182,212,0.15) 0%, transparent 60%);"></div>
+            <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+              style="background-image: url('https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=800&q=80');">
+            </div>
+            <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+              style="background: linear-gradient(135deg, rgba(6,182,212,0.15) 0%, transparent 60%);"></div>
             <!-- Hover overlay label -->
-            <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
-              <span class="font-label-caps text-[10px] tracking-widest uppercase px-4 py-2 rounded-full" style="background: rgba(6,182,212,0.2); border: 1px solid rgba(6,182,212,0.4); color: #06b6d4; backdrop-filter: blur(8px);">View Case Study</span>
+            <div
+              class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
+              <span class="font-label-caps text-[10px] tracking-widest uppercase px-4 py-2 rounded-full"
+                style="background: rgba(6,182,212,0.2); border: 1px solid rgba(6,182,212,0.4); color: #06b6d4; backdrop-filter: blur(8px);">View
+                Case Study</span>
             </div>
           </div>
           <div class="p-5 flex flex-col gap-1" style="background: #111;">
             <div class="flex items-center justify-between">
               <h3 class="text-white font-bold text-base group-hover:text-primary transition-colors">Flight Local</h3>
-              <span class="material-symbols-outlined text-base opacity-0 group-hover:opacity-100 transition-all group-hover:translate-x-1 duration-300" style="color: #ff5e00;">arrow_outward</span>
+              <span
+                class="material-symbols-outlined text-base opacity-0 group-hover:opacity-100 transition-all group-hover:translate-x-1 duration-300"
+                style="color: #ff5e00;">arrow_outward</span>
             </div>
-            <p class="font-label-caps text-[10px] tracking-widest uppercase" style="color: rgba(255,255,255,0.3);">Web Development</p>
+            <p class="font-label-caps text-[10px] tracking-widest uppercase" style="color: rgba(255,255,255,0.3);">Web
+              Development</p>
           </div>
           <!-- Bottom accent line -->
-          <div class="absolute bottom-0 left-0 w-0 h-[2px] group-hover:w-full transition-all duration-500" style="background: linear-gradient(90deg, #06b6d4, transparent);"></div>
+          <div class="absolute bottom-0 left-0 w-0 h-[2px] group-hover:w-full transition-all duration-500"
+            style="background: linear-gradient(90deg, #06b6d4, transparent);"></div>
         </div>
 
         <!-- Project 2: AI Lab Granada -->
-        <div class="project-card group relative rounded-xl overflow-hidden cursor-pointer" data-category="ai" data-project="ai-granada" style="background: #111; border: 1px solid rgba(255,255,255,0.06);">
+        <div class="project-card group relative rounded-xl overflow-hidden cursor-pointer" data-category="ai"
+          data-project="ai-granada" style="background: #111; border: 1px solid rgba(255,255,255,0.06);">
           <div class="relative overflow-hidden" style="aspect-ratio: 4/3;">
-            <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style="background-image: url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80');"></div>
-            <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" style="background: linear-gradient(135deg, rgba(139,92,246,0.15) 0%, transparent 60%);"></div>
-            <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
-              <span class="font-label-caps text-[10px] tracking-widest uppercase px-4 py-2 rounded-full" style="background: rgba(139,92,246,0.2); border: 1px solid rgba(139,92,246,0.4); color: #a78bfa; backdrop-filter: blur(8px);">View Case Study</span>
+            <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+              style="background-image: url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80');">
+            </div>
+            <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+              style="background: linear-gradient(135deg, rgba(139,92,246,0.15) 0%, transparent 60%);"></div>
+            <div
+              class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
+              <span class="font-label-caps text-[10px] tracking-widest uppercase px-4 py-2 rounded-full"
+                style="background: rgba(139,92,246,0.2); border: 1px solid rgba(139,92,246,0.4); color: #a78bfa; backdrop-filter: blur(8px);">View
+                Case Study</span>
             </div>
           </div>
           <div class="p-5 flex flex-col gap-1" style="background: #111;">
             <div class="flex items-center justify-between">
               <h3 class="text-white font-bold text-base group-hover:text-primary transition-colors">AI Lab Granada</h3>
-              <span class="material-symbols-outlined text-base opacity-0 group-hover:opacity-100 transition-all group-hover:translate-x-1 duration-300" style="color: #ff5e00;">arrow_outward</span>
+              <span
+                class="material-symbols-outlined text-base opacity-0 group-hover:opacity-100 transition-all group-hover:translate-x-1 duration-300"
+                style="color: #ff5e00;">arrow_outward</span>
             </div>
-            <p class="font-label-caps text-[10px] tracking-widest uppercase" style="color: rgba(255,255,255,0.3);">AI Integration</p>
+            <p class="font-label-caps text-[10px] tracking-widest uppercase" style="color: rgba(255,255,255,0.3);">AI
+              Integration</p>
           </div>
-          <div class="absolute bottom-0 left-0 w-0 h-[2px] group-hover:w-full transition-all duration-500" style="background: linear-gradient(90deg, #8b5cf6, transparent);"></div>
+          <div class="absolute bottom-0 left-0 w-0 h-[2px] group-hover:w-full transition-all duration-500"
+            style="background: linear-gradient(90deg, #8b5cf6, transparent);"></div>
         </div>
 
         <!-- Project 3: Khora Urban Thinkers -->
-        <div class="project-card group relative rounded-xl overflow-hidden cursor-pointer" data-category="web" data-project="khora" style="background: #111; border: 1px solid rgba(255,255,255,0.06);">
+        <div class="project-card group relative rounded-xl overflow-hidden cursor-pointer" data-category="web"
+          data-project="khora" style="background: #111; border: 1px solid rgba(255,255,255,0.06);">
           <div class="relative overflow-hidden" style="aspect-ratio: 4/3;">
-            <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style="background-image: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80');"></div>
-            <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" style="background: linear-gradient(135deg, rgba(6,182,212,0.15) 0%, transparent 60%);"></div>
-            <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
-              <span class="font-label-caps text-[10px] tracking-widest uppercase px-4 py-2 rounded-full" style="background: rgba(6,182,212,0.2); border: 1px solid rgba(6,182,212,0.4); color: #06b6d4; backdrop-filter: blur(8px);">View Case Study</span>
+            <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+              style="background-image: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80');">
+            </div>
+            <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+              style="background: linear-gradient(135deg, rgba(6,182,212,0.15) 0%, transparent 60%);"></div>
+            <div
+              class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
+              <span class="font-label-caps text-[10px] tracking-widest uppercase px-4 py-2 rounded-full"
+                style="background: rgba(6,182,212,0.2); border: 1px solid rgba(6,182,212,0.4); color: #06b6d4; backdrop-filter: blur(8px);">View
+                Case Study</span>
             </div>
           </div>
           <div class="p-5 flex flex-col gap-1" style="background: #111;">
             <div class="flex items-center justify-between">
-              <h3 class="text-white font-bold text-base group-hover:text-primary transition-colors">Khora – Urban Thinkers</h3>
-              <span class="material-symbols-outlined text-base opacity-0 group-hover:opacity-100 transition-all group-hover:translate-x-1 duration-300" style="color: #ff5e00;">arrow_outward</span>
+              <h3 class="text-white font-bold text-base group-hover:text-primary transition-colors">Khora – Urban
+                Thinkers</h3>
+              <span
+                class="material-symbols-outlined text-base opacity-0 group-hover:opacity-100 transition-all group-hover:translate-x-1 duration-300"
+                style="color: #ff5e00;">arrow_outward</span>
             </div>
-            <p class="font-label-caps text-[10px] tracking-widest uppercase" style="color: rgba(255,255,255,0.3);">Web Development</p>
+            <p class="font-label-caps text-[10px] tracking-widest uppercase" style="color: rgba(255,255,255,0.3);">Web
+              Development</p>
           </div>
-          <div class="absolute bottom-0 left-0 w-0 h-[2px] group-hover:w-full transition-all duration-500" style="background: linear-gradient(90deg, #06b6d4, transparent);"></div>
+          <div class="absolute bottom-0 left-0 w-0 h-[2px] group-hover:w-full transition-all duration-500"
+            style="background: linear-gradient(90deg, #06b6d4, transparent);"></div>
         </div>
 
         <!-- Project 4: Crown Cafe App -->
-        <div class="project-card group relative rounded-xl overflow-hidden cursor-pointer" data-category="web" data-project="crown-cafe" style="background: #111; border: 1px solid rgba(255,255,255,0.06);">
+        <div class="project-card group relative rounded-xl overflow-hidden cursor-pointer" data-category="web"
+          data-project="crown-cafe" style="background: #111; border: 1px solid rgba(255,255,255,0.06);">
           <div class="relative overflow-hidden" style="aspect-ratio: 4/3;">
-            <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style="background-image: url('https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=800&q=80');"></div>
-            <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" style="background: linear-gradient(135deg, rgba(255,94,0,0.15) 0%, transparent 60%);"></div>
-            <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
-              <span class="font-label-caps text-[10px] tracking-widest uppercase px-4 py-2 rounded-full" style="background: rgba(255,94,0,0.2); border: 1px solid rgba(255,94,0,0.4); color: #ff5e00; backdrop-filter: blur(8px);">View Case Study</span>
+            <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+              style="background-image: url('https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=800&q=80');">
+            </div>
+            <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+              style="background: linear-gradient(135deg, rgba(255,94,0,0.15) 0%, transparent 60%);"></div>
+            <div
+              class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
+              <span class="font-label-caps text-[10px] tracking-widest uppercase px-4 py-2 rounded-full"
+                style="background: rgba(255,94,0,0.2); border: 1px solid rgba(255,94,0,0.4); color: #ff5e00; backdrop-filter: blur(8px);">View
+                Case Study</span>
             </div>
           </div>
           <div class="p-5 flex flex-col gap-1" style="background: #111;">
             <div class="flex items-center justify-between">
               <h3 class="text-white font-bold text-base group-hover:text-primary transition-colors">Crown Cafe App</h3>
-              <span class="material-symbols-outlined text-base opacity-0 group-hover:opacity-100 transition-all group-hover:translate-x-1 duration-300" style="color: #ff5e00;">arrow_outward</span>
+              <span
+                class="material-symbols-outlined text-base opacity-0 group-hover:opacity-100 transition-all group-hover:translate-x-1 duration-300"
+                style="color: #ff5e00;">arrow_outward</span>
             </div>
-            <p class="font-label-caps text-[10px] tracking-widest uppercase" style="color: rgba(255,255,255,0.3);">Web Development</p>
+            <p class="font-label-caps text-[10px] tracking-widest uppercase" style="color: rgba(255,255,255,0.3);">Web
+              Development</p>
           </div>
-          <div class="absolute bottom-0 left-0 w-0 h-[2px] group-hover:w-full transition-all duration-500" style="background: linear-gradient(90deg, #ff5e00, transparent);"></div>
+          <div class="absolute bottom-0 left-0 w-0 h-[2px] group-hover:w-full transition-all duration-500"
+            style="background: linear-gradient(90deg, #ff5e00, transparent);"></div>
         </div>
 
         <!-- Project 5: AeroQuest -->
-        <div class="project-card group relative rounded-xl overflow-hidden cursor-pointer" data-category="mobile" data-project="aeroquest" style="background: #111; border: 1px solid rgba(255,255,255,0.06);">
+        <div class="project-card group relative rounded-xl overflow-hidden cursor-pointer" data-category="mobile"
+          data-project="aeroquest" style="background: #111; border: 1px solid rgba(255,255,255,0.06);">
           <div class="relative overflow-hidden" style="aspect-ratio: 4/3;">
-            <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80');"></div>
-            <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" style="background: linear-gradient(135deg, rgba(255,94,0,0.15) 0%, transparent 60%);"></div>
-            <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
-              <span class="font-label-caps text-[10px] tracking-widest uppercase px-4 py-2 rounded-full" style="background: rgba(255,94,0,0.2); border: 1px solid rgba(255,94,0,0.4); color: #ff5e00; backdrop-filter: blur(8px);">View Case Study</span>
+            <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+              style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80');">
+            </div>
+            <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+              style="background: linear-gradient(135deg, rgba(255,94,0,0.15) 0%, transparent 60%);"></div>
+            <div
+              class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
+              <span class="font-label-caps text-[10px] tracking-widest uppercase px-4 py-2 rounded-full"
+                style="background: rgba(255,94,0,0.2); border: 1px solid rgba(255,94,0,0.4); color: #ff5e00; backdrop-filter: blur(8px);">View
+                Case Study</span>
             </div>
           </div>
           <div class="p-5 flex flex-col gap-1" style="background: #111;">
             <div class="flex items-center justify-between">
-              <h3 class="text-white font-bold text-base group-hover:text-primary transition-colors">AeroQuest Flight Engine</h3>
-              <span class="material-symbols-outlined text-base opacity-0 group-hover:opacity-100 transition-all group-hover:translate-x-1 duration-300" style="color: #ff5e00;">arrow_outward</span>
+              <h3 class="text-white font-bold text-base group-hover:text-primary transition-colors">AeroQuest Flight
+                Engine</h3>
+              <span
+                class="material-symbols-outlined text-base opacity-0 group-hover:opacity-100 transition-all group-hover:translate-x-1 duration-300"
+                style="color: #ff5e00;">arrow_outward</span>
             </div>
-            <p class="font-label-caps text-[10px] tracking-widest uppercase" style="color: rgba(255,255,255,0.3);">Mobile App</p>
+            <p class="font-label-caps text-[10px] tracking-widest uppercase" style="color: rgba(255,255,255,0.3);">
+              Mobile App</p>
           </div>
-          <div class="absolute bottom-0 left-0 w-0 h-[2px] group-hover:w-full transition-all duration-500" style="background: linear-gradient(90deg, #ff5e00, transparent);"></div>
+          <div class="absolute bottom-0 left-0 w-0 h-[2px] group-hover:w-full transition-all duration-500"
+            style="background: linear-gradient(90deg, #ff5e00, transparent);"></div>
         </div>
 
         <!-- Project 6: Obsidian UI Kit -->
-        <div class="project-card group relative rounded-xl overflow-hidden cursor-pointer" data-category="design" data-project="obsidian" style="background: #111; border: 1px solid rgba(255,255,255,0.06);">
+        <div class="project-card group relative rounded-xl overflow-hidden cursor-pointer" data-category="design"
+          data-project="obsidian" style="background: #111; border: 1px solid rgba(255,255,255,0.06);">
           <div class="relative overflow-hidden" style="aspect-ratio: 4/3;">
-            <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style="background-image: url('https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=800&q=80');"></div>
-            <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" style="background: linear-gradient(135deg, rgba(255,94,0,0.15) 0%, transparent 60%);"></div>
-            <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
-              <span class="font-label-caps text-[10px] tracking-widest uppercase px-4 py-2 rounded-full" style="background: rgba(255,94,0,0.2); border: 1px solid rgba(255,94,0,0.4); color: #ff5e00; backdrop-filter: blur(8px);">View Case Study</span>
+            <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+              style="background-image: url('https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=800&q=80');">
+            </div>
+            <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+              style="background: linear-gradient(135deg, rgba(255,94,0,0.15) 0%, transparent 60%);"></div>
+            <div
+              class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
+              <span class="font-label-caps text-[10px] tracking-widest uppercase px-4 py-2 rounded-full"
+                style="background: rgba(255,94,0,0.2); border: 1px solid rgba(255,94,0,0.4); color: #ff5e00; backdrop-filter: blur(8px);">View
+                Case Study</span>
             </div>
           </div>
           <div class="p-5 flex flex-col gap-1" style="background: #111;">
             <div class="flex items-center justify-between">
               <h3 class="text-white font-bold text-base group-hover:text-primary transition-colors">Obsidian UI Kit</h3>
-              <span class="material-symbols-outlined text-base opacity-0 group-hover:opacity-100 transition-all group-hover:translate-x-1 duration-300" style="color: #ff5e00;">arrow_outward</span>
+              <span
+                class="material-symbols-outlined text-base opacity-0 group-hover:opacity-100 transition-all group-hover:translate-x-1 duration-300"
+                style="color: #ff5e00;">arrow_outward</span>
             </div>
-            <p class="font-label-caps text-[10px] tracking-widest uppercase" style="color: rgba(255,255,255,0.3);">Design</p>
+            <p class="font-label-caps text-[10px] tracking-widest uppercase" style="color: rgba(255,255,255,0.3);">
+              Design</p>
           </div>
-          <div class="absolute bottom-0 left-0 w-0 h-[2px] group-hover:w-full transition-all duration-500" style="background: linear-gradient(90deg, #ff5e00, transparent);"></div>
+          <div class="absolute bottom-0 left-0 w-0 h-[2px] group-hover:w-full transition-all duration-500"
+            style="background: linear-gradient(90deg, #ff5e00, transparent);"></div>
         </div>
 
         <!-- Project 7: PrismColor API -->
-        <div class="project-card group relative rounded-xl overflow-hidden cursor-pointer" data-category="web" data-project="prismcolor" style="background: #111; border: 1px solid rgba(255,255,255,0.06);">
+        <div class="project-card group relative rounded-xl overflow-hidden cursor-pointer" data-category="web"
+          data-project="prismcolor" style="background: #111; border: 1px solid rgba(255,255,255,0.06);">
           <div class="relative overflow-hidden" style="aspect-ratio: 4/3;">
-            <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style="background-image: url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=80');"></div>
-            <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" style="background: linear-gradient(135deg, rgba(6,182,212,0.15) 0%, transparent 60%);"></div>
-            <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
-              <span class="font-label-caps text-[10px] tracking-widest uppercase px-4 py-2 rounded-full" style="background: rgba(6,182,212,0.2); border: 1px solid rgba(6,182,212,0.4); color: #06b6d4; backdrop-filter: blur(8px);">View Case Study</span>
+            <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+              style="background-image: url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=80');">
+            </div>
+            <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+              style="background: linear-gradient(135deg, rgba(6,182,212,0.15) 0%, transparent 60%);"></div>
+            <div
+              class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
+              <span class="font-label-caps text-[10px] tracking-widest uppercase px-4 py-2 rounded-full"
+                style="background: rgba(6,182,212,0.2); border: 1px solid rgba(6,182,212,0.4); color: #06b6d4; backdrop-filter: blur(8px);">View
+                Case Study</span>
             </div>
           </div>
           <div class="p-5 flex flex-col gap-1" style="background: #111;">
             <div class="flex items-center justify-between">
-              <h3 class="text-white font-bold text-base group-hover:text-primary transition-colors">PrismColor API & SDK</h3>
-              <span class="material-symbols-outlined text-base opacity-0 group-hover:opacity-100 transition-all group-hover:translate-x-1 duration-300" style="color: #ff5e00;">arrow_outward</span>
+              <h3 class="text-white font-bold text-base group-hover:text-primary transition-colors">PrismColor API & SDK
+              </h3>
+              <span
+                class="material-symbols-outlined text-base opacity-0 group-hover:opacity-100 transition-all group-hover:translate-x-1 duration-300"
+                style="color: #ff5e00;">arrow_outward</span>
             </div>
-            <p class="font-label-caps text-[10px] tracking-widest uppercase" style="color: rgba(255,255,255,0.3);">Web Development</p>
+            <p class="font-label-caps text-[10px] tracking-widest uppercase" style="color: rgba(255,255,255,0.3);">Web
+              Development</p>
           </div>
-          <div class="absolute bottom-0 left-0 w-0 h-[2px] group-hover:w-full transition-all duration-500" style="background: linear-gradient(90deg, #06b6d4, transparent);"></div>
+          <div class="absolute bottom-0 left-0 w-0 h-[2px] group-hover:w-full transition-all duration-500"
+            style="background: linear-gradient(90deg, #06b6d4, transparent);"></div>
         </div>
 
         <!-- Project 8: NexusTalent -->
-        <div class="project-card group relative rounded-xl overflow-hidden cursor-pointer" data-category="web" data-project="nexustalent" style="background: #111; border: 1px solid rgba(255,255,255,0.06);">
+        <div class="project-card group relative rounded-xl overflow-hidden cursor-pointer" data-category="web"
+          data-project="nexustalent" style="background: #111; border: 1px solid rgba(255,255,255,0.06);">
           <div class="relative overflow-hidden" style="aspect-ratio: 4/3;">
-            <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style="background-image: url('https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=800&q=80');"></div>
-            <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" style="background: linear-gradient(135deg, rgba(6,182,212,0.15) 0%, transparent 60%);"></div>
-            <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
-              <span class="font-label-caps text-[10px] tracking-widest uppercase px-4 py-2 rounded-full" style="background: rgba(6,182,212,0.2); border: 1px solid rgba(6,182,212,0.4); color: #06b6d4; backdrop-filter: blur(8px);">View Case Study</span>
+            <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+              style="background-image: url('https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=800&q=80');">
+            </div>
+            <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+              style="background: linear-gradient(135deg, rgba(6,182,212,0.15) 0%, transparent 60%);"></div>
+            <div
+              class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
+              <span class="font-label-caps text-[10px] tracking-widest uppercase px-4 py-2 rounded-full"
+                style="background: rgba(6,182,212,0.2); border: 1px solid rgba(6,182,212,0.4); color: #06b6d4; backdrop-filter: blur(8px);">View
+                Case Study</span>
             </div>
           </div>
           <div class="p-5 flex flex-col gap-1" style="background: #111;">
             <div class="flex items-center justify-between">
-              <h3 class="text-white font-bold text-base group-hover:text-primary transition-colors">NexusTalent Marketplace</h3>
-              <span class="material-symbols-outlined text-base opacity-0 group-hover:opacity-100 transition-all group-hover:translate-x-1 duration-300" style="color: #ff5e00;">arrow_outward</span>
+              <h3 class="text-white font-bold text-base group-hover:text-primary transition-colors">NexusTalent
+                Marketplace</h3>
+              <span
+                class="material-symbols-outlined text-base opacity-0 group-hover:opacity-100 transition-all group-hover:translate-x-1 duration-300"
+                style="color: #ff5e00;">arrow_outward</span>
             </div>
-            <p class="font-label-caps text-[10px] tracking-widest uppercase" style="color: rgba(255,255,255,0.3);">Web Development</p>
+            <p class="font-label-caps text-[10px] tracking-widest uppercase" style="color: rgba(255,255,255,0.3);">Web
+              Development</p>
           </div>
-          <div class="absolute bottom-0 left-0 w-0 h-[2px] group-hover:w-full transition-all duration-500" style="background: linear-gradient(90deg, #06b6d4, transparent);"></div>
+          <div class="absolute bottom-0 left-0 w-0 h-[2px] group-hover:w-full transition-all duration-500"
+            style="background: linear-gradient(90deg, #06b6d4, transparent);"></div>
         </div>
 
         <!-- Project 9: SmartChat AI -->
-        <div class="project-card group relative rounded-xl overflow-hidden cursor-pointer" data-category="ai" data-project="smartchat-ai" style="background: #111; border: 1px solid rgba(255,255,255,0.06);">
+        <div class="project-card group relative rounded-xl overflow-hidden cursor-pointer" data-category="ai"
+          data-project="smartchat-ai" style="background: #111; border: 1px solid rgba(255,255,255,0.06);">
           <div class="relative overflow-hidden" style="aspect-ratio: 4/3;">
-            <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style="background-image: url('https://images.unsplash.com/photo-1677442136019-21780efad99a?auto=format&fit=crop&w=800&q=80');"></div>
-            <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" style="background: linear-gradient(135deg, rgba(139,92,246,0.15) 0%, transparent 60%);"></div>
-            <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
-              <span class="font-label-caps text-[10px] tracking-widest uppercase px-4 py-2 rounded-full" style="background: rgba(139,92,246,0.2); border: 1px solid rgba(139,92,246,0.4); color: #a78bfa; backdrop-filter: blur(8px);">View Case Study</span>
+            <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+              style="background-image: url('https://images.unsplash.com/photo-1677442136019-21780efad99a?auto=format&fit=crop&w=800&q=80');">
+            </div>
+            <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+              style="background: linear-gradient(135deg, rgba(139,92,246,0.15) 0%, transparent 60%);"></div>
+            <div
+              class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
+              <span class="font-label-caps text-[10px] tracking-widest uppercase px-4 py-2 rounded-full"
+                style="background: rgba(139,92,246,0.2); border: 1px solid rgba(139,92,246,0.4); color: #a78bfa; backdrop-filter: blur(8px);">View
+                Case Study</span>
             </div>
           </div>
           <div class="p-5 flex flex-col gap-1" style="background: #111;">
             <div class="flex items-center justify-between">
-              <h3 class="text-white font-bold text-base group-hover:text-primary transition-colors">SmartChat AI Agent</h3>
-              <span class="material-symbols-outlined text-base opacity-0 group-hover:opacity-100 transition-all group-hover:translate-x-1 duration-300" style="color: #ff5e00;">arrow_outward</span>
+              <h3 class="text-white font-bold text-base group-hover:text-primary transition-colors">SmartChat AI Agent
+              </h3>
+              <span
+                class="material-symbols-outlined text-base opacity-0 group-hover:opacity-100 transition-all group-hover:translate-x-1 duration-300"
+                style="color: #ff5e00;">arrow_outward</span>
             </div>
-            <p class="font-label-caps text-[10px] tracking-widest uppercase" style="color: rgba(255,255,255,0.3);">AI Integration</p>
+            <p class="font-label-caps text-[10px] tracking-widest uppercase" style="color: rgba(255,255,255,0.3);">AI
+              Integration</p>
           </div>
-          <div class="absolute bottom-0 left-0 w-0 h-[2px] group-hover:w-full transition-all duration-500" style="background: linear-gradient(90deg, #8b5cf6, transparent);"></div>
+          <div class="absolute bottom-0 left-0 w-0 h-[2px] group-hover:w-full transition-all duration-500"
+            style="background: linear-gradient(90deg, #8b5cf6, transparent);"></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- ============================================================
+       SECTION 5: EXPERIENCE (Tamal Sen Style — Website Colors)
+  ============================================================ -->
+  <section id="experience" class="w-full relative overflow-hidden" style="background: #0e0e0e;">
+
+    <!-- Ambient glow orbs -->
+    <div class="absolute top-0 right-1/4 w-[500px] h-[500px] rounded-full pointer-events-none"
+      style="background: radial-gradient(circle, rgba(255,94,0,0.05) 0%, transparent 70%); filter: blur(80px);"></div>
+    <div class="absolute bottom-0 left-1/4 w-[400px] h-[400px] rounded-full pointer-events-none"
+      style="background: radial-gradient(circle, rgba(255,181,153,0.04) 0%, transparent 70%); filter: blur(80px);">
+    </div>
+
+    <div class="w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-32 relative z-10">
+
+      <!-- Section header -->
+      <div class="mb-20">
+        <h2 class="font-display font-extrabold tracking-tighter text-white leading-none"
+          style="font-size: clamp(2.5rem, 6vw, 4.5rem);">Professional<br />Experience
+        </h2>
+      </div>
+
+      <!-- Experience Cards -->
+      <div class="flex flex-col">
+
+        <!-- Experience 1: Softech Systems -->
+        <div
+          class="experience-card group relative flex flex-col lg:flex-row items-start justify-between gap-8 py-12 transition-all duration-500"
+          style="border-top: 1px solid rgba(255,255,255,0.06);">
+
+          <!-- Left: Details -->
+          <div class="flex-1 lg:max-w-[60%] flex flex-col gap-4 relative z-10">
+            <h6 class="font-headline-md text-xl md:text-2xl text-white font-bold leading-tight">
+              Senior Lead Software Engineer <span class="text-primary">@ Softech Systems</span>
+            </h6>
+            <span class="font-label-code text-sm" style="color: rgba(255,255,255,0.35);">2023 — 2026</span>
+            <div class="flex flex-wrap items-center gap-4 mt-1">
+              <span class="flex items-center gap-1.5 font-label-code text-xs" style="color: rgba(255,255,255,0.4);">
+                <span class="material-symbols-outlined text-sm" style="color: rgba(255,94,0,0.5);">location_on</span>
+                Lahore, Pakistan
+              </span>
+              <a href="https://softechsystems.com" target="_blank"
+                class="flex items-center gap-1.5 font-label-code text-xs transition-colors hover:text-primary"
+                style="color: rgba(255,255,255,0.4);">
+                <span class="material-symbols-outlined text-sm" style="color: rgba(255,94,0,0.5);">link</span>
+                softechsystems.com
+              </a>
+            </div>
+            <p class="font-body-md text-sm leading-relaxed mt-2"
+              style="color: rgba(255,255,255,0.45); max-width: 600px;">
+              Led a frontend team to design and develop robust B2C and B2B Travel Tech solutions, utilizing
+              React/Next.js for web applications and Flutter SDK for cross-platform mobile apps, with a focus on
+              responsive design, scalability, and enhanced user experience.
+            </p>
+            <!-- Tech tags -->
+            <div class="flex flex-wrap gap-2 mt-4">
+              <span class="experience-tag">JS</span>
+              <span class="experience-tag">TS</span>
+              <span class="experience-tag">Dart</span>
+              <span class="experience-tag">React</span>
+              <span class="experience-tag">NextJS</span>
+              <span class="experience-tag">Flutter</span>
+            </div>
+          </div>
+
+          <!-- Right: Company Logo -->
+          <div
+            class="flex-shrink-0 w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 flex items-center justify-center relative opacity-60 group-hover:opacity-100 transition-opacity duration-500">
+            <img src="assets/Softech logo.png" alt="Softech Systems Logo"
+              class="w-full h-full object-contain rounded-2xl" loading="lazy" />
+          </div>
+        </div>
+
+        <!-- Experience 2: influenceTHIS Canada -->
+        <div
+          class="experience-card group relative flex flex-col lg:flex-row items-start justify-between gap-8 py-12 transition-all duration-500"
+          style="border-top: 1px solid rgba(255,255,255,0.06);">
+
+          <div class="flex-1 lg:max-w-[60%] flex flex-col gap-4 relative z-10">
+            <h6 class="font-headline-md text-xl md:text-2xl text-white font-bold leading-tight">
+              Web Developer <span class="text-primary">@ influenceTHIS Canada</span>
+            </h6>
+            <span class="font-label-code text-sm" style="color: rgba(255,255,255,0.35);">2022 — 2023</span>
+            <div class="flex flex-wrap items-center gap-4 mt-1">
+              <span class="flex items-center gap-1.5 font-label-code text-xs" style="color: rgba(255,255,255,0.4);">
+                <span class="material-symbols-outlined text-sm" style="color: rgba(255,94,0,0.5);">location_on</span>
+                Remote (Toronto, Canada)
+              </span>
+              <a href="https://www.influencethis.ca/" target="_blank"
+                class="flex items-center gap-1.5 font-label-code text-xs transition-colors hover:text-primary"
+                style="color: rgba(255,255,255,0.4);">
+                <span class="material-symbols-outlined text-sm" style="color: rgba(255,94,0,0.5);">link</span>
+                influencethis.ca
+              </a>
+            </div>
+            <p class="font-body-md text-sm leading-relaxed mt-2"
+              style="color: rgba(255,255,255,0.45); max-width: 600px;">
+              Developed the UI and UX eco-system for a conference event platform using modular component structures with
+              JS, SCSS, Gulp on Node.
+            </p>
+            <div class="flex flex-wrap gap-2 mt-4">
+              <span class="experience-tag">JS</span>
+              <span class="experience-tag">Gulp</span>
+              <span class="experience-tag">SCSS</span>
+              <span class="experience-tag">Nodejs</span>
+            </div>
+          </div>
+
+          <div
+            class="flex-shrink-0 w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 flex items-center justify-center relative opacity-60 group-hover:opacity-100 transition-opacity duration-500">
+            <img src="assets/influence this.png" alt="influenceTHIS Logo"
+              class="w-full h-full object-contain rounded-2xl" loading="lazy" />
+          </div>
+        </div>
+
+        <!-- Experience 3: Upwork Inc. -->
+        <div
+          class="experience-card group relative flex flex-col lg:flex-row items-start justify-between gap-8 py-12 transition-all duration-500"
+          style="border-top: 1px solid rgba(255,255,255,0.06); border-bottom: 1px solid rgba(255,255,255,0.06);">
+
+          <div class="flex-1 lg:max-w-[60%] flex flex-col gap-4 relative z-10">
+            <h6 class="font-headline-md text-xl md:text-2xl text-white font-bold leading-tight">
+              Top Rated Web Developer <span class="text-primary">@ Upwork Inc.</span>
+            </h6>
+            <span class="font-label-code text-sm" style="color: rgba(255,255,255,0.35);">2022 — Present</span>
+            <div class="flex flex-wrap items-center gap-4 mt-1">
+              <span class="flex items-center gap-1.5 font-label-code text-xs" style="color: rgba(255,255,255,0.4);">
+                <span class="material-symbols-outlined text-sm" style="color: rgba(255,94,0,0.5);">location_on</span>
+                Remote
+              </span>
+              <a href="https://www.upwork.com/" target="_blank"
+                class="flex items-center gap-1.5 font-label-code text-xs transition-colors hover:text-primary"
+                style="color: rgba(255,255,255,0.4);">
+                <span class="material-symbols-outlined text-sm" style="color: rgba(255,94,0,0.5);">link</span>
+                upwork.com
+              </a>
+            </div>
+            <p class="font-body-md text-sm leading-relaxed mt-2"
+              style="color: rgba(255,255,255,0.45); max-width: 600px;">
+              Top-Rated developer on Upwork specializing in Front-end (React, WordPress) technologies with a 100% job
+              success rate and client satisfaction rating (based on 150+ Jobs, 2500+ hours).
+            </p>
+            <div class="flex flex-wrap gap-2 mt-4">
+              <span class="experience-tag">Javascript</span>
+              <span class="experience-tag">PHP</span>
+              <span class="experience-tag">HTML</span>
+              <span class="experience-tag">CSS</span>
+              <span class="experience-tag">Figma</span>
+            </div>
+          </div>
+
+          <div
+            class="flex-shrink-0 w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 flex items-center justify-center relative opacity-60 group-hover:opacity-100 transition-opacity duration-500">
+            <img src="assets/upwork-logo.webp" alt="Upwork Logo" class="w-full h-full object-contain rounded-2xl"
+              loading="lazy" />
+          </div>
         </div>
 
       </div>
@@ -802,115 +1076,130 @@
   </section>
 
   <!-- ============================================================
-       MALIK NEXUS CINEMATIC SPOTLIGHT BLOCK
+       TESTIMONIALS
   ============================================================ -->
-  <section id="nexus-spotlight" class="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-black cursor-pointer group" onclick="triggerNexusTransition()">
+  <section id="testimonials" class="py-32 px-margin-mobile md:px-margin-desktop bg-[#0a0a0a]">
+    <div class="w-full max-w-container-max mx-auto">
 
-    <!-- Animated background layers -->
-    <div class="absolute inset-0 z-0">
-      <!-- Deep noise grain texture -->
-      <div class="absolute inset-0 opacity-[0.04]" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/9/9f/Noise_texture.PNG'); background-size: 150px;"></div>
-      <!-- Radial gradient pulse -->
-      <div id="nexus-glow" class="absolute inset-0 transition-all duration-1000" style="background: radial-gradient(ellipse 80% 60% at 50% 50%, rgba(255,94,0,0.08) 0%, transparent 70%);"></div>
-      <!-- Animated grid lines -->
-      <div class="absolute inset-0 opacity-[0.06]" style="background-image: linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px); background-size: 80px 80px;"></div>
-      <!-- Top & bottom edge fades -->
-      <div class="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-black to-transparent z-10"></div>
-      <div class="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-black to-transparent z-10"></div>
-    </div>
-
-    <!-- Floating orbs -->
-    <div class="absolute top-1/4 left-1/4 w-72 h-72 rounded-full pointer-events-none z-0 animate-pulse" style="background: radial-gradient(circle, rgba(255,94,0,0.12) 0%, transparent 70%); filter: blur(40px);"></div>
-    <div class="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full pointer-events-none z-0" style="background: radial-gradient(circle, rgba(6,182,212,0.08) 0%, transparent 70%); filter: blur(60px); animation: pulse 4s ease-in-out infinite 2s;"></div>
-
-    <!-- Main content -->
-    <div class="relative z-20 flex flex-col items-center text-center gap-8 px-6 max-w-5xl mx-auto select-none">
-
-      <!-- Eyebrow label -->
-      <div class="flex items-center gap-3 opacity-0 nexus-fade-in" style="animation-delay: 0.2s;">
-        <span class="w-8 h-px bg-[#ff5e00]"></span>
-        <span class="font-label-caps text-label-caps text-[#ff5e00] tracking-[0.3em] uppercase">The Company Behind the Work</span>
-        <span class="w-8 h-px bg-[#ff5e00]"></span>
+      <div class="mb-20 text-center">
+        <span class="font-label-caps text-label-caps text-primary tracking-[0.3em] uppercase block mb-4">Social
+          Proof</span>
+        <h2 class="font-display text-4xl md:text-5xl text-white font-bold tracking-tight">What Clients
+          Say</h2>
       </div>
 
-      <!-- Giant wordmark -->
-      <h2 class="font-display font-extrabold tracking-tighter text-white leading-none opacity-0 nexus-fade-in" style="font-size: clamp(4rem, 14vw, 11rem); animation-delay: 0.4s;">
-        Malik<br/>
-        <span class="text-transparent" style="
-          -webkit-text-stroke: 1px rgba(255,255,255,0.2);
-          background: linear-gradient(135deg, #ff5e00 0%, #ffaa00 50%, #ff5e00 100%);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          background-clip: text;
-          filter: drop-shadow(0 0 60px rgba(255,94,0,0.4));
-        ">Nexus</span>
-      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
-      <!-- Tagline -->
-      <p class="font-body-lg text-body-lg text-white/40 max-w-2xl leading-relaxed opacity-0 nexus-fade-in" style="animation-delay: 0.6s;">
-        An elite digital agency where technical precision meets visual luxury — engineering the software that moves markets.
-      </p>
+        <!-- Testimonial 1 -->
+        <div class="testimonial-card reveal-text">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-[#ff5e00] to-[#ffaa00] flex items-center justify-center text-white font-bold text-sm">MG</div>
+            <div>
+              <p class="text-white font-semibold text-sm">Mark Greenspan</p>
+              <p class="text-white/40 text-xs">Founder — influenceTHIS Canada</p>
+            </div>
+          </div>
+          <div class="flex gap-1 mb-4">
+            <span class="text-primary text-sm">★★★★★</span>
+          </div>
+          <p class="text-white/60 text-sm leading-relaxed">Since 2018, responsible for the development of our website which has been instrumental to the growth of our company. Highly responsive, organized, and strategic in his thinking.</p>
+        </div>
 
-      <!-- Stats row -->
-      <div class="flex gap-12 md:gap-20 mt-4 opacity-0 nexus-fade-in" style="animation-delay: 0.8s;">
-        <div class="flex flex-col items-center gap-1">
-          <span class="font-display text-4xl text-white font-bold">120+</span>
-          <span class="font-label-caps text-[10px] text-white/30 uppercase tracking-widest">Projects</span>
+        <!-- Testimonial 2 -->
+        <div class="testimonial-card reveal-text">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-[#06b6d4] to-[#0088ff] flex items-center justify-center text-white font-bold text-sm">WH</div>
+            <div>
+              <p class="text-white font-semibold text-sm">Wilfried Hajek</p>
+              <p class="text-white/40 text-xs">Agile Coach | Speaker | Trainer</p>
+            </div>
+          </div>
+          <div class="flex gap-1 mb-4">
+            <span class="text-primary text-sm">★★★★★</span>
+          </div>
+          <p class="text-white/60 text-sm leading-relaxed">AMAZING! If you have any doubt about hiring Fazi, ask me — I am really impressed by his work. Delivered results far beyond my expectations.</p>
         </div>
-        <div class="w-px h-10 bg-white/10 self-center"></div>
-        <div class="flex flex-col items-center gap-1">
-          <span class="font-display text-4xl text-white font-bold">5+</span>
-          <span class="font-label-caps text-[10px] text-white/30 uppercase tracking-widest">Years</span>
+
+        <!-- Testimonial 3 -->
+        <div class="testimonial-card reveal-text">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-[#8b5cf6] to-[#ff5e00] flex items-center justify-center text-white font-bold text-sm">JC</div>
+            <div>
+              <p class="text-white font-semibold text-sm">Jonathan Castro</p>
+              <p class="text-white/40 text-xs">CEO & Founder — The Cliff</p>
+            </div>
+          </div>
+          <div class="flex gap-1 mb-4">
+            <span class="text-primary text-sm">★★★★★</span>
+          </div>
+          <p class="text-white/60 text-sm leading-relaxed">One of the best professionals in web development. Good communication, accuracy with planning in complex projects. I wouldn't choose any other developer.</p>
         </div>
+
+        <!-- Testimonial 4 -->
+        <div class="testimonial-card reveal-text">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-[#10b981] to-[#06b6d4] flex items-center justify-center text-white font-bold text-sm">SA</div>
+            <div>
+              <p class="text-white font-semibold text-sm">Sarah Ahmed</p>
+              <p class="text-white/40 text-xs">Product Director — TechFlow</p>
+            </div>
+          </div>
+          <div class="flex gap-1 mb-4">
+            <span class="text-primary text-sm">★★★★★</span>
+          </div>
+          <p class="text-white/60 text-sm leading-relaxed">Fazi rebuilt our entire SaaS platform from scratch in 3 months. Performance improved by 4x. The architecture he designed is something we're proud to scale on.</p>
+        </div>
+
+        <!-- Testimonial 5 -->
+        <div class="testimonial-card reveal-text">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-[#f59e0b] to-[#ff5e00] flex items-center justify-center text-white font-bold text-sm">RK</div>
+            <div>
+              <p class="text-white font-semibold text-sm">Rajan Kumar</p>
+              <p class="text-white/40 text-xs">Startup Founder — PayEase</p>
+            </div>
+          </div>
+          <div class="flex gap-1 mb-4">
+            <span class="text-primary text-sm">★★★★★</span>
+          </div>
+          <p class="text-white/60 text-sm leading-relaxed">Built our fintech payment system with impeccable security. His blockchain integration knowledge is genuine world-class. Zero downtime after launch.</p>
+        </div>
+
+        <!-- Testimonial 6 -->
+        <div class="testimonial-card reveal-text">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-[#ec4899] to-[#8b5cf6] flex items-center justify-center text-white font-bold text-sm">LM</div>
+            <div>
+              <p class="text-white font-semibold text-sm">Leila Moreau</p>
+              <p class="text-white/40 text-xs">Creative Director — Lumino Studio</p>
+            </div>
+          </div>
+          <div class="flex gap-1 mb-4">
+            <span class="text-primary text-sm">★★★★★</span>
+          </div>
+          <p class="text-white/60 text-sm leading-relaxed">The UI/UX work he delivered was breathtaking. Our conversion rate jumped 68% after the redesign. He understands brand as much as he understands code.</p>
+        </div>
+
       </div>
-
-      <!-- CTA button -->
-      <button onclick="event.stopPropagation(); triggerNexusTransition();"
-        class="group/btn mt-6 flex items-center gap-3 border border-white/20 rounded-full px-8 py-4 text-white font-label-caps text-label-caps tracking-widest uppercase hover:border-[#ff5e00]/60 hover:bg-[#ff5e00]/10 transition-all duration-300 opacity-0 nexus-fade-in"
-        style="animation-delay: 1s;">
-        <span>Explore Malik Nexus</span>
-        <span class="material-symbols-outlined text-sm group-hover/btn:translate-x-1 transition-transform">arrow_forward</span>
-      </button>
-
-      <!-- Bottom hint -->
-      <p class="text-white/15 font-label-caps text-[10px] tracking-widest mt-2 opacity-0 nexus-fade-in" style="animation-delay:1.2s;">CLICK ANYWHERE TO ENTER</p>
-
     </div>
   </section>
 
-  <!-- ============================================================
-       PAGE TRANSITION OVERLAY (Cinema-style)
-  ============================================================ -->
-  <div id="nexus-transition" class="fixed inset-0 z-[999] pointer-events-none flex flex-col items-center justify-center" style="opacity:0; visibility:hidden;">
-    <!-- Black curtain -->
-    <div id="nexus-curtain" class="absolute inset-0 bg-black" style="transform: scaleY(0); transform-origin: bottom; transition: transform 0.6s cubic-bezier(0.76, 0, 0.24, 1);"></div>
-    <!-- Logo reveal on curtain -->
-    <div id="nexus-transition-logo" class="relative z-10 flex flex-col items-center gap-4" style="opacity:0; transform: scale(0.85); transition: opacity 0.5s ease 0.5s, transform 0.5s ease 0.5s;">
-      <h1 class="font-display font-extrabold tracking-tighter text-white" style="font-size: clamp(3rem,10vw,8rem);">
-        Malik <span style="background: linear-gradient(135deg,#ff5e00,#ffaa00); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">Nexus</span>
-      </h1>
-      <div class="flex items-center gap-2">
-        <span class="w-16 h-px bg-white/20"></span>
-        <span class="font-label-caps text-[10px] text-white/40 tracking-[0.3em] uppercase">Elite Digital Agency</span>
-        <span class="w-16 h-px bg-white/20"></span>
-      </div>
-      <!-- Loading bar -->
-      <div class="w-48 h-px bg-white/10 mt-6 overflow-hidden rounded-full">
-        <div id="nexus-loader-bar" class="h-full bg-gradient-to-r from-[#ff5e00] to-[#ffaa00]" style="width:0%; transition: width 0.8s ease 0.7s;"></div>
-      </div>
-    </div>
-  </div>
+
 
   <!-- ============================================================
        CASE STUDY MODAL (NEW FEATURE)
   ============================================================ -->
   <div id="case-study-modal" class="fixed inset-0 z-[100] hidden opacity-0 transition-opacity duration-300">
     <div class="absolute inset-0 bg-black/80 backdrop-blur-md" id="modal-backdrop"></div>
-    <div class="absolute inset-y-0 right-0 w-full max-w-3xl bg-surface-container-lowest border-l border-surface-border shadow-2xl transform translate-x-full transition-transform duration-500 ease-out flex flex-col h-full overflow-y-auto" id="modal-panel">
-      
-      <div class="sticky top-0 bg-surface-container-lowest/90 backdrop-blur border-b border-surface-border px-8 py-6 flex justify-between items-center z-10">
+    <div
+      class="absolute inset-y-0 right-0 w-full max-w-3xl bg-surface-container-lowest border-l border-surface-border shadow-2xl transform translate-x-full transition-transform duration-500 ease-out flex flex-col h-full overflow-y-auto"
+      id="modal-panel">
+
+      <div
+        class="sticky top-0 bg-surface-container-lowest/90 backdrop-blur border-b border-surface-border px-8 py-6 flex justify-between items-center z-10">
         <span class="font-label-caps text-primary tracking-widest uppercase">Case Study</span>
-        <button id="close-modal" class="text-text-muted hover:text-white transition-colors p-2 bg-surface-container rounded-full flex items-center justify-center">
+        <button id="close-modal"
+          class="text-text-muted hover:text-white transition-colors p-2 bg-surface-container rounded-full flex items-center justify-center">
           <span class="material-symbols-outlined">close</span>
         </button>
       </div>
@@ -921,7 +1210,7 @@
           <div class="flex flex-wrap gap-2 mb-8" id="modal-tags">
             <!-- Tags injected here -->
           </div>
-          
+
           <h3 class="font-headline-md text-2xl text-primary mb-3">The Challenge</h3>
           <p id="modal-problem" class="text-text-muted leading-relaxed mb-8">Problem text goes here...</p>
 
@@ -941,36 +1230,47 @@
   <!-- ============================================================
        SECTION 7: CONTACT (Stitch Design)
   ============================================================ -->
-  <section id="contact" class="py-section-gap relative overflow-hidden bg-background" style="background: radial-gradient(circle at right top, rgb(10, 11, 30) 0%, rgb(5, 5, 5) 100%);">
+  <section id="contact" class="py-section-gap relative overflow-hidden bg-background"
+    style="background: radial-gradient(circle at right top, rgb(10, 11, 30) 0%, rgb(5, 5, 5) 100%);">
     <!-- Background decorative elements -->
     <div class="absolute inset-0 z-0 grid-pattern opacity-30 pointer-events-none"></div>
-    <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-primary-container rounded-full mix-blend-screen filter blur-[150px] opacity-10 pointer-events-none"></div>
-    
-    <div class="w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
+    <div
+      class="absolute top-1/4 left-1/4 w-96 h-96 bg-primary-container rounded-full mix-blend-screen filter blur-[150px] opacity-10 pointer-events-none">
+    </div>
+
+    <div
+      class="w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
       <!-- Left Column: Context & Info -->
       <div class="col-span-1 lg:col-span-5 flex flex-col gap-8">
         <div>
           <span class="font-label-caps text-label-caps text-primary tracking-widest uppercase block mb-6">Contact</span>
-          <h1 class="font-display text-display text-on-surface mb-6">Let's build<br/><span class="text-primary-container">something.</span></h1>
+          <h1 class="font-display text-display text-on-surface mb-6">Let's build<br /><span
+              class="text-primary-container">something.</span></h1>
           <p class="font-body-lg text-body-lg text-text-muted max-w-md">
-            Open for select freelance opportunities and technical consultations. Fill out the form or reach out directly via email to discuss your next vision.
+            Open for select freelance opportunities and technical consultations. Fill out the form or reach out directly
+            via email to discuss your next vision.
           </p>
         </div>
         <div class="flex flex-col gap-6 mt-8">
           <!-- Contact Detail Card -->
-          <div class="glass-panel p-6 rounded-lg group hover:border-primary-container transition-colors duration-300 flex items-start gap-4 cursor-pointer">
-            <span class="material-symbols-outlined text-text-muted group-hover:text-primary-container transition-colors">mail</span>
+          <div
+            class="glass-panel p-6 rounded-lg group hover:border-primary-container transition-colors duration-300 flex items-start gap-4 cursor-pointer">
+            <span
+              class="material-symbols-outlined text-text-muted group-hover:text-primary-container transition-colors">mail</span>
             <div>
               <p class="font-label-caps text-label-caps text-text-muted mb-1">Direct Email</p>
               <p class="font-body-md text-body-md text-on-surface">hello@faziawan.dev</p>
             </div>
           </div>
           <!-- Location Detail Card -->
-          <div class="glass-panel p-6 rounded-lg group hover:border-primary-container transition-colors duration-300 flex items-start gap-4">
-            <span class="material-symbols-outlined text-text-muted group-hover:text-primary-container transition-colors">location_on</span>
+          <div
+            class="glass-panel p-6 rounded-lg group hover:border-primary-container transition-colors duration-300 flex items-start gap-4">
+            <span
+              class="material-symbols-outlined text-text-muted group-hover:text-primary-container transition-colors">location_on</span>
             <div>
               <p class="font-label-caps text-label-caps text-text-muted mb-1">Location</p>
-              <p class="font-body-md text-body-md text-on-surface">San Francisco, CA<br/><span class="text-text-muted text-sm mt-1 inline-block">Available Worldwide (Remote)</span></p>
+              <p class="font-body-md text-body-md text-on-surface">San Francisco, CA<br /><span
+                  class="text-text-muted text-sm mt-1 inline-block">Available Worldwide (Remote)</span></p>
             </div>
           </div>
         </div>
@@ -987,7 +1287,7 @@
           </a>
         </div>
       </div>
-      
+
       <!-- Right Column: Form -->
       <div class="col-span-1 lg:col-span-6 lg:col-start-7 mt-12 lg:mt-0">
         <div class="glass-panel p-8 md:p-12 rounded-xl relative overflow-hidden">
@@ -998,28 +1298,40 @@
               <!-- Name Input -->
               <div class="flex flex-col gap-2">
                 <label class="font-label-caps text-label-caps text-text-muted" for="contact-name">Name</label>
-                <input class="border border-surface-border rounded text-on-surface px-4 py-3 font-body-md focus:ring-0 focus:border-primary-container transition-all duration-200 placeholder:text-surface-variant bg-surface-container-lowest" id="contact-name" name="name" placeholder="John Doe" type="text" required/>
+                <input
+                  class="border border-surface-border rounded text-on-surface px-4 py-3 font-body-md focus:ring-0 focus:border-primary-container transition-all duration-200 placeholder:text-surface-variant bg-surface-container-lowest"
+                  id="contact-name" name="name" placeholder="John Doe" type="text" required />
               </div>
               <!-- Email Input -->
               <div class="flex flex-col gap-2">
                 <label class="font-label-caps text-label-caps text-text-muted" for="contact-email">Email</label>
-                <input class="border border-surface-border rounded text-on-surface px-4 py-3 font-body-md focus:ring-0 focus:border-primary-container transition-all duration-200 placeholder:text-surface-variant bg-surface-container-lowest" id="contact-email" name="email" placeholder="john@company.com" type="email" required/>
+                <input
+                  class="border border-surface-border rounded text-on-surface px-4 py-3 font-body-md focus:ring-0 focus:border-primary-container transition-all duration-200 placeholder:text-surface-variant bg-surface-container-lowest"
+                  id="contact-email" name="email" placeholder="john@company.com" type="email" required />
               </div>
             </div>
             <!-- Subject Input -->
             <div class="flex flex-col gap-2">
               <label class="font-label-caps text-label-caps text-text-muted" for="contact-subject">Subject</label>
-              <input class="border border-surface-border rounded text-on-surface px-4 py-3 font-body-md focus:ring-0 focus:border-primary-container transition-all duration-200 placeholder:text-surface-variant bg-surface-container-lowest" id="contact-subject" name="subject" placeholder="Project Inquiry" type="text"/>
+              <input
+                class="border border-surface-border rounded text-on-surface px-4 py-3 font-body-md focus:ring-0 focus:border-primary-container transition-all duration-200 placeholder:text-surface-variant bg-surface-container-lowest"
+                id="contact-subject" name="subject" placeholder="Project Inquiry" type="text" />
             </div>
             <!-- Message Input -->
             <div class="flex flex-col gap-2">
               <label class="font-label-caps text-label-caps text-text-muted" for="contact-message">Message</label>
-              <textarea class="border border-surface-border rounded text-on-surface px-4 py-3 font-body-md focus:ring-0 focus:border-primary-container transition-all duration-200 placeholder:text-surface-variant resize-none bg-surface-container-lowest" id="contact-message" name="message" placeholder="Tell me about your project..." rows="5" required></textarea>
+              <textarea
+                class="border border-surface-border rounded text-on-surface px-4 py-3 font-body-md focus:ring-0 focus:border-primary-container transition-all duration-200 placeholder:text-surface-variant resize-none bg-surface-container-lowest"
+                id="contact-message" name="message" placeholder="Tell me about your project..." rows="5"
+                required></textarea>
             </div>
             <!-- Submit Button -->
-            <button class="mt-4 bg-primary-container text-white px-8 py-4 rounded font-label-caps text-label-caps hover:bg-inverse-primary transition-colors flex items-center justify-center gap-2 group magnetic" type="submit">
+            <button
+              class="mt-4 bg-primary-container text-white px-8 py-4 rounded font-label-caps text-label-caps hover:bg-inverse-primary transition-colors flex items-center justify-center gap-2 group magnetic"
+              type="submit">
               Send Message
-              <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+              <span
+                class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
             </button>
           </form>
         </div>
@@ -1029,48 +1341,23 @@
 
   <!-- Footer -->
   <footer class="bg-surface-container-lowest w-full py-20 border-t border-surface-border mt-auto">
-    <div class="flex flex-col md:flex-row justify-between items-center px-margin-desktop max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop gap-6">
+    <div
+      class="flex flex-col md:flex-row justify-between items-center px-margin-desktop max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop gap-6">
       <div class="flex flex-col items-center md:items-start gap-2">
         <span class="font-label-caps text-label-caps text-on-surface">Fazi Awan</span>
-        <span class="font-body-md text-body-md text-text-muted">© 2024 Malik Nexus. Built by Fazi Awan.</span>
+        <span class="font-body-md text-body-md text-text-muted">© Fazi Awan. All rights reserved.</span>
       </div>
       <div class="flex gap-8 font-label-caps text-label-caps">
         <a class="font-body-md text-body-md text-text-muted hover:text-on-surface transition-colors" href="#">Github</a>
-        <a class="font-body-md text-body-md text-text-muted hover:text-on-surface transition-colors" href="#">LinkedIn</a>
-        <a class="font-body-md text-body-md text-text-muted hover:text-on-surface transition-colors" href="#">Source Code</a>
+        <a class="font-body-md text-body-md text-text-muted hover:text-on-surface transition-colors"
+          href="#">LinkedIn</a>
+        <a class="font-body-md text-body-md text-text-muted hover:text-on-surface transition-colors" href="#">Source
+          Code</a>
       </div>
     </div>
   </footer>
 
   <script src="scripts/main.js"></script>
-
-  <script>
-    // ── Nexus Spotlight: IntersectionObserver fade-in ──────────────
-    const nexusFadeEls = document.querySelectorAll('.nexus-fade-in');
-    const nexusObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          nexusObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.15 });
-    nexusFadeEls.forEach(el => nexusObserver.observe(el));
-
-    // ── Cinematic page transition to nexus.html ─────────────────────
-    function triggerNexusTransition() {
-      const overlay = document.getElementById('nexus-transition');
-      if (!overlay || overlay.dataset.triggered) return;
-      overlay.dataset.triggered = 'true';
-
-      // Step 1: Make overlay visible
-      overlay.classList.add('is-active');
-
-      // Step 2: After curtain + logo + loader are done (~1.6s), navigate
-      setTimeout(() => {
-        window.location.href = 'nexus.html';
-      }, 1700);
-    }
-  </script>
 </body>
+
 </html>

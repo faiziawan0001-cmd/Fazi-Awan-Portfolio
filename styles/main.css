@@ -329,20 +329,67 @@ body::before {
   color: #ffb599;
 }
 
-/* --- Marquee --- */
+/* --- Tech stack marquee (premium logo strip) --- */
+.tech-strip-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: #777777;
+  text-align: center;
+  margin-bottom: 26px;
+}
+.tech-strip-label .ts-dot {
+  color: rgba(255, 170, 0, 0.5);
+  font-size: 8px;
+  margin: 0 12px;
+  vertical-align: 1px;
+}
 .marquee-wrapper {
   overflow: hidden;
   white-space: nowrap;
-  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
 }
 .marquee-content {
   display: inline-block;
-  animation: marquee 35s linear infinite;
+  animation: marquee 38s linear infinite;
+}
+.marquee-wrapper:hover .marquee-content {
+  animation-play-state: paused;
+}
+.marquee-item {
+  display: inline-flex;
+  align-items: center;
+  color: #8f8f8f;
+  opacity: 0.55;
+  cursor: default;
+  transition: color 0.35s ease, opacity 0.35s ease, transform 0.35s ease;
+}
+.marquee-item svg {
+  display: block;
+  width: 30px;
+  height: 30px;
+}
+.marquee-item:hover {
+  color: var(--brand, #ffaa00);
+  opacity: 1;
+  transform: translateY(-3px);
+}
+.marquee-sep {
+  font-size: 9px;
+  line-height: 1;
+  color: rgba(255, 170, 0, 0.35);
 }
 @keyframes marquee {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee-content {
+    animation: none;
+  }
 }
 
 /* --- Float animation --- */

@@ -213,9 +213,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const heroAnims = document.querySelectorAll('.hero-anim');
   setTimeout(() => {
     heroAnims.forEach(el => {
+      const existingDelay = el.style.transitionDelay || '0ms';
       el.style.opacity = '1';
       el.style.transform = 'translateY(0)';
-      el.style.transition = 'opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)';
+      el.style.transition = `opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1) ${existingDelay}, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) ${existingDelay}`;
     });
   }, 200);
 

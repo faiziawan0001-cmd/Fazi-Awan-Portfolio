@@ -440,6 +440,14 @@ a[href="#hero"].nav-link {
 /* =============================================================
    EXPERTISE: Luxury Glassmorphism Card Hover
    ============================================================= */
+.expertise-reveal.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1),
+              box-shadow 0.4s ease,
+              border-color 0.4s ease;
+}
 .expertise-glass-card {
   transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1),
               box-shadow 0.4s ease,
@@ -452,21 +460,23 @@ a[href="#hero"].nav-link {
     0 0 45px rgba(255, 170, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
-/* Shimmer sweep across expertise cards on hover */
-.shimmer-sweep {
-  position: absolute;
-  top: -100%;
-  left: -80%;
-  width: 40%;
-  height: 300%;
-  background: linear-gradient(105deg, transparent, rgba(255, 255, 255, 0.06), transparent);
-  transform: skewX(-20deg);
-  pointer-events: none;
-  z-index: 0;
-  transition: transform 0.9s cubic-bezier(0.23, 1, 0.32, 1);
+/* ── Entrance reveal (matches preview A1: blur-in, no stagger) ── */
+.expertise-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  filter: blur(8px);
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.9s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.group:hover .shimmer-sweep {
-  transform: translateX(420%) skewX(-20deg);
+
+/* ── Mono index number (// 01) ── */
+.exp-index {
+  transition: color 0.4s ease, text-shadow 0.4s ease;
+}
+.expertise-glass-card:hover .exp-index {
+  color: #ffaa00;
+  text-shadow: 0 0 12px rgba(255, 170, 0, 0.5);
 }
 
 /* =============================================================

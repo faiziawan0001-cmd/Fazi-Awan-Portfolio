@@ -192,7 +192,7 @@ const modalGallery = document.getElementById('modal-gallery');
    LUXURY 4: SCROLL-DRIVEN TEXT REVEAL (IntersectionObserver)
 ================================================================== */
 (function initScrollReveal() {
-  const revealEls = document.querySelectorAll('.reveal-text, .clip-reveal');
+  const revealEls = document.querySelectorAll('.reveal-text, .clip-reveal, .expertise-reveal');
   if (!revealEls.length) return;
 
   const observer = new IntersectionObserver((entries) => {
@@ -247,7 +247,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Initial reveal for static reveal-text elements already in viewport
   setTimeout(() => {
-    document.querySelectorAll('.reveal-text').forEach(el => {
+    document.querySelectorAll('.reveal-text, .expertise-reveal').forEach(el => {
       const rect = el.getBoundingClientRect();
       if (rect.top < window.innerHeight) el.classList.add('is-revealed');
     });

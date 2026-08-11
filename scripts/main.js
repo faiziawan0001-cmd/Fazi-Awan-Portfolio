@@ -21,6 +21,7 @@ const modalTags    = document.getElementById('modal-tags');
 const modalProblem = document.getElementById('modal-problem');
 const modalSolution = document.getElementById('modal-solution');
 const modalImpact  = document.getElementById('modal-impact');
+const modalGallery = document.getElementById('modal-gallery');
 
 /* =================================================================
    LUXURY 1: INTERACTIVE PARTICLE CANVAS
@@ -341,12 +342,13 @@ const projectData = {
     solution: 'I designed a GraphQL aggregator on top of a Redis-cached database layer. The front-end queries only what it needs, and the backend handles concurrent API fetch parallelization via Node.js cluster processes.',
     impact: 'Reduced overall search page query time by 80%, decreasing reservation timeouts to nearly 0% and improving agency booking output.'
   },
-  'ai-granada': {
-    title: 'AI Lab Granada',
-    tags: ['Python', 'PyTorch', 'Docker', 'React'],
-    problem: 'Early-stage startups in Andalusia lacked standardized setups to host, run, and experiment with local open-source LLMs and computer vision models.',
-    solution: 'Rebuilt the platform as a containerized environment (Docker) managed by a lightweight Python FastAPI backend. Front-end dashboard gives real-time hardware benchmarking and model parameter adjustment sliders.',
-    impact: 'Successfully onboarded 12 startups; cut model environment configuration times from days to a single one-click dashboard deploy.'
+  'crypto-bot': {
+    title: 'Crypto Arbitrage Bot',
+    tags: ['Python', 'Binance API', 'WebSockets', 'Redis'],
+    problem: 'Cross-exchange price gaps across crypto markets last only fractions of a second. Manually chasing these spreads was impossible, and off-the-shelf tools were too slow and opaque.',
+    solution: 'Built a real-time arbitrage engine that streams order books over WebSockets, normalizes fees across exchanges, and executes spread trades through the Binance API while persisting opportunities to a Redis-backed scoring layer.',
+    impact: 'Detected over 200,000 arbitrage windows in a 30-day backtest and reduced average detection-to-execution latency to under 300ms.',
+    images: ['assets/crypto bot/Arbitrage bot Dashboard.png', 'assets/crypto bot/Arbitrage bot 2.png', 'assets/crypto bot/Pic 3.png']
   },
   'khora': {
     title: 'Khora – Urban Thinkers',
@@ -413,6 +415,20 @@ function openModal(projectId) {
     span.textContent = tag;
     modalTags.appendChild(span);
   });
+  modalGallery.innerHTML = '';
+  if (data.images && data.images.length) {
+    data.images.forEach(src => {
+      const img = document.createElement('img');
+      img.src = src;
+      img.alt = data.title;
+      img.className = 'w-full rounded-lg object-cover border border-surface-border';
+      img.style.aspectRatio = '16 / 10';
+      modalGallery.appendChild(img);
+    });
+    modalGallery.classList.remove('hidden');
+  } else {
+    modalGallery.classList.add('hidden');
+  }
   caseStudyModal.classList.remove('hidden');
   document.body.classList.add('modal-open');
   setTimeout(() => {

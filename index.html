@@ -958,12 +958,12 @@
             style="background: linear-gradient(90deg, #06b6d4, transparent);"></div>
         </div>
 
-        <!-- Project 2: AI Lab Granada -->
+        <!-- Project 2: Crypto Arbitrage Bot -->
         <div class="project-card group relative rounded-xl overflow-hidden cursor-pointer" data-category="ai"
-          data-project="ai-granada" style="background: #111; border: 1px solid rgba(255,255,255,0.06);">
+          data-project="crypto-bot" style="background: #111; border: 1px solid rgba(255,255,255,0.06);">
           <div class="relative overflow-hidden" style="aspect-ratio: 4/3;">
             <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
-              style="background-image: url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80');">
+              style="background-image: url('assets/crypto bot/Arbitrage bot Dashboard.png');">
             </div>
             <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
               style="background: linear-gradient(135deg, rgba(139,92,246,0.15) 0%, transparent 60%);"></div>
@@ -976,7 +976,7 @@
           </div>
           <div class="p-5 flex flex-col gap-1" style="background: #111;">
             <div class="flex items-center justify-between">
-              <h3 class="text-white font-bold text-base group-hover:text-primary transition-colors">AI Lab Granada</h3>
+              <h3 class="text-white font-bold text-base group-hover:text-primary transition-colors">Crypto Arbitrage Bot</h3>
               <span
                 class="material-symbols-outlined text-base opacity-0 group-hover:opacity-100 transition-all group-hover:translate-x-1 duration-300"
                 style="color: #ff5e00;">arrow_outward</span>
@@ -1177,7 +1177,7 @@
           data-project="smartchat-ai" style="background: #111; border: 1px solid rgba(255,255,255,0.06);">
           <div class="relative overflow-hidden" style="aspect-ratio: 4/3;">
             <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
-              style="background-image: url('https://images.unsplash.com/photo-1677442136019-21780efad99a?auto=format&fit=crop&w=800&q=80');">
+              style="background-image: url('assets/smartchat-thumbnail.png');">
             </div>
             <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
               style="background: linear-gradient(135deg, rgba(139,92,246,0.15) 0%, transparent 60%);"></div>
@@ -1224,10 +1224,33 @@
     <div class="w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-32 relative z-10">
 
       <!-- Section header -->
-      <div class="mb-20">
-        <h2 class="font-display font-extrabold tracking-tighter text-white leading-none"
-          style="font-size: clamp(2.5rem, 6vw, 4.5rem);">Professional<br />Experience
-        </h2>
+      <div class="mb-20 flex flex-col md:flex-row items-center justify-between gap-10">
+        <div>
+          <h2 class="font-display font-extrabold tracking-tighter text-white leading-none"
+            style="font-size: clamp(2.5rem, 6vw, 4.5rem);">Professional<br />Experience
+          </h2>
+        </div>
+        <!-- 3D Globe -->
+        <div id="experience-globe" class="w-[260px] h-[260px] sm:w-[300px] sm:h-[300px] lg:w-[340px] lg:h-[340px] relative flex-shrink-0">
+          <div class="globe-b-wrap flex items-center justify-center w-full h-full">
+            <div class="globe-b w-full h-full">
+              <div class="ring sphere"></div>
+              <div class="ring meridian" style="--ry: 0deg"></div>
+              <div class="ring meridian" style="--ry: 30deg"></div>
+              <div class="ring meridian" style="--ry: 60deg"></div>
+              <div class="ring meridian" style="--ry: 90deg"></div>
+              <div class="ring lat" style="inset: 12%;"></div>
+              <div class="ring lat" style="inset: 28%;"></div>
+              <div class="ring lat" style="inset: 44%;"></div>
+              <div class="dot" style="left: 34%; top: 30%;"></div>
+              <div class="dot" style="left: 62%; top: 56%;"></div>
+              <div class="dot small" style="left: 48%; top: 44%;"></div>
+              <div class="dot small" style="left: 24%; top: 58%;"></div>
+              <div class="dot small" style="left: 72%; top: 34%;"></div>
+              <div class="orbit"></div>
+            </div>
+          </div>
+        </div>
       </div>
 
       <!-- Experience Cards -->
@@ -1377,10 +1400,8 @@
     <div class="w-full max-w-container-max mx-auto">
 
       <div class="mb-20 text-center">
-        <span class="font-label-caps text-label-caps text-primary tracking-[0.3em] uppercase block mb-4">Social
-          Proof</span>
-        <h2 class="font-display text-4xl md:text-5xl text-white font-bold tracking-tight">What Clients
-          Say</h2>
+        <span class="font-label-caps text-label-caps text-primary tracking-[0.3em] uppercase block mb-4">Social Proof</span>
+        <h2 class="font-display text-4xl md:text-5xl text-white font-bold tracking-tight">What Clients Say</h2>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -1388,52 +1409,7 @@
         <!-- Testimonial 1 -->
         <div class="testimonial-card reveal-text">
           <div class="flex items-center gap-3 mb-6">
-            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-[#ff5e00] to-[#ffaa00] flex items-center justify-center text-white font-bold text-sm">MG</div>
-            <div>
-              <p class="text-white font-semibold text-sm">Mark Greenspan</p>
-              <p class="text-white/40 text-xs">Founder — influenceTHIS Canada</p>
-            </div>
-          </div>
-          <div class="flex gap-1 mb-4">
-            <span class="text-primary text-sm">★★★★★</span>
-          </div>
-          <p class="text-white/60 text-sm leading-relaxed">Since 2018, responsible for the development of our website which has been instrumental to the growth of our company. Highly responsive, organized, and strategic in his thinking.</p>
-        </div>
-
-        <!-- Testimonial 2 -->
-        <div class="testimonial-card reveal-text">
-          <div class="flex items-center gap-3 mb-6">
-            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-[#06b6d4] to-[#0088ff] flex items-center justify-center text-white font-bold text-sm">WH</div>
-            <div>
-              <p class="text-white font-semibold text-sm">Wilfried Hajek</p>
-              <p class="text-white/40 text-xs">Agile Coach | Speaker | Trainer</p>
-            </div>
-          </div>
-          <div class="flex gap-1 mb-4">
-            <span class="text-primary text-sm">★★★★★</span>
-          </div>
-          <p class="text-white/60 text-sm leading-relaxed">AMAZING! If you have any doubt about hiring Fazi, ask me — I am really impressed by his work. Delivered results far beyond my expectations.</p>
-        </div>
-
-        <!-- Testimonial 3 -->
-        <div class="testimonial-card reveal-text">
-          <div class="flex items-center gap-3 mb-6">
-            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-[#8b5cf6] to-[#ff5e00] flex items-center justify-center text-white font-bold text-sm">JC</div>
-            <div>
-              <p class="text-white font-semibold text-sm">Jonathan Castro</p>
-              <p class="text-white/40 text-xs">CEO & Founder — The Cliff</p>
-            </div>
-          </div>
-          <div class="flex gap-1 mb-4">
-            <span class="text-primary text-sm">★★★★★</span>
-          </div>
-          <p class="text-white/60 text-sm leading-relaxed">One of the best professionals in web development. Good communication, accuracy with planning in complex projects. I wouldn't choose any other developer.</p>
-        </div>
-
-        <!-- Testimonial 4 -->
-        <div class="testimonial-card reveal-text">
-          <div class="flex items-center gap-3 mb-6">
-            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-[#10b981] to-[#06b6d4] flex items-center justify-center text-white font-bold text-sm">SA</div>
+            <div class="w-10 h-10 rounded-full bg-[#06b6d4] flex items-center justify-center text-white font-bold text-sm">SA</div>
             <div>
               <p class="text-white font-semibold text-sm">Sarah Ahmed</p>
               <p class="text-white/40 text-xs">Product Director — TechFlow</p>
@@ -1443,36 +1419,108 @@
             <span class="text-primary text-sm">★★★★★</span>
           </div>
           <p class="text-white/60 text-sm leading-relaxed">Fazi rebuilt our entire SaaS platform from scratch in 3 months. Performance improved by 4x. The architecture he designed is something we're proud to scale on.</p>
+          <hr class="border-t border-[#1A1A1A] mt-6 mb-4" />
+          <div class="flex items-center gap-1.5 text-xs text-white/40">
+            <span class="material-symbols-outlined text-[16px] text-primary" style="font-variation-settings: 'FILL' 0;">verified</span>
+            <span>Verified client via Upwork</span>
+          </div>
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div class="testimonial-card reveal-text">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-10 h-10 rounded-full bg-[#10b981] flex items-center justify-center text-white font-bold text-sm">NJ</div>
+            <div>
+              <p class="text-white font-semibold text-sm">Natalia Jeans</p>
+              <p class="text-white/40 text-xs">Owner — Lumen & Bean Café</p>
+            </div>
+          </div>
+          <div class="flex gap-1 mb-4">
+            <span class="text-primary text-sm">★★★★☆</span>
+          </div>
+          <p class="text-white/60 text-sm leading-relaxed">He rebuilt our cafe's website and added an online ordering system. Within two months, online orders tripled and regulars started booking our private events through the site. Communication was clear throughout.</p>
+          <hr class="border-t border-[#1A1A1A] mt-6 mb-4" />
+          <div class="flex items-center gap-1.5 text-xs text-white/40">
+            <span>Client review via email</span>
+          </div>
+        </div>
+
+        <!-- Testimonial 3 -->
+        <div class="testimonial-card reveal-text">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-10 h-10 rounded-full bg-[#0088ff] flex items-center justify-center text-white font-bold text-sm">WH</div>
+            <div>
+              <p class="text-white font-semibold text-sm">Wilfried Hajek</p>
+              <p class="text-white/40 text-xs">Agile Coach | Speaker | Trainer</p>
+            </div>
+          </div>
+          <div class="flex gap-1 mb-4">
+            <span class="text-primary text-sm">★★★★★</span>
+          </div>
+          <p class="text-white/60 text-sm leading-relaxed">AMAZING! If you have any doubt about hiring Fazi, ask me — I am really impressed by his work. Delivered results far beyond my expectations.</p>
+          <hr class="border-t border-[#1A1A1A] mt-6 mb-4" />
+          <div class="flex items-center gap-1.5 text-xs text-white/40">
+            <span class="material-symbols-outlined text-[16px] text-primary" style="font-variation-settings: 'FILL' 0;">verified</span>
+            <span>Verified client via LinkedIn</span>
+          </div>
+        </div>
+
+        <!-- Testimonial 4 -->
+        <div class="testimonial-card reveal-text">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-10 h-10 rounded-full bg-[#8b5cf6] flex items-center justify-center text-white font-bold text-sm">JC</div>
+            <div>
+              <p class="text-white font-semibold text-sm">Jonathan Castro</p>
+              <p class="text-white/40 text-xs">CEO & Founder — The Cliff</p>
+            </div>
+          </div>
+          <div class="flex gap-1 mb-4">
+            <span class="text-primary text-sm">★★★★★</span>
+          </div>
+          <p class="text-white/60 text-sm leading-relaxed">One of the best professionals in web development. Good communication, accuracy with planning in complex projects. I wouldn't choose any other developer.</p>
+          <hr class="border-t border-[#1A1A1A] mt-6 mb-4" />
+          <div class="flex items-center gap-1.5 text-xs text-white/40">
+            <span class="material-symbols-outlined text-[16px] text-primary" style="font-variation-settings: 'FILL' 0;">verified</span>
+            <span>Verified client via Upwork</span>
+          </div>
         </div>
 
         <!-- Testimonial 5 -->
         <div class="testimonial-card reveal-text">
           <div class="flex items-center gap-3 mb-6">
-            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-[#f59e0b] to-[#ff5e00] flex items-center justify-center text-white font-bold text-sm">RK</div>
+            <div class="w-10 h-10 rounded-full bg-[#ff5e00] flex items-center justify-center text-white font-bold text-sm">RK</div>
             <div>
               <p class="text-white font-semibold text-sm">Rajan Kumar</p>
               <p class="text-white/40 text-xs">Startup Founder — PayEase</p>
             </div>
           </div>
           <div class="flex gap-1 mb-4">
-            <span class="text-primary text-sm">★★★★★</span>
+            <span class="text-primary text-sm">★★★★☆</span>
           </div>
           <p class="text-white/60 text-sm leading-relaxed">Built our fintech payment system with impeccable security. His blockchain integration knowledge is genuine world-class. Zero downtime after launch.</p>
+          <hr class="border-t border-[#1A1A1A] mt-6 mb-4" />
+          <div class="flex items-center gap-1.5 text-xs text-white/40">
+            <span>Client review via email</span>
+          </div>
         </div>
 
         <!-- Testimonial 6 -->
         <div class="testimonial-card reveal-text">
           <div class="flex items-center gap-3 mb-6">
-            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-[#ec4899] to-[#8b5cf6] flex items-center justify-center text-white font-bold text-sm">LM</div>
+            <div class="w-10 h-10 rounded-full bg-[#ec4899] flex items-center justify-center text-white font-bold text-sm">WJ</div>
             <div>
-              <p class="text-white font-semibold text-sm">Leila Moreau</p>
+              <p class="text-white font-semibold text-sm">Williamson Jack</p>
               <p class="text-white/40 text-xs">Creative Director — Lumino Studio</p>
             </div>
           </div>
           <div class="flex gap-1 mb-4">
-            <span class="text-primary text-sm">★★★★★</span>
+            <span class="text-primary text-sm">★★★★☆</span>
           </div>
           <p class="text-white/60 text-sm leading-relaxed">The UI/UX work he delivered was breathtaking. Our conversion rate jumped 68% after the redesign. He understands brand as much as he understands code.</p>
+          <hr class="border-t border-[#1A1A1A] mt-6 mb-4" />
+          <div class="flex items-center gap-1.5 text-xs text-white/40">
+            <span>Client review via email</span>
+          </div>
         </div>
 
       </div>
@@ -1504,6 +1552,9 @@
           <h2 id="modal-title" class="font-display text-4xl md:text-5xl text-on-surface mb-6">Project Title</h2>
           <div class="flex flex-wrap gap-2 mb-8" id="modal-tags">
             <!-- Tags injected here -->
+          </div>
+          <div id="modal-gallery" class="grid grid-cols-2 gap-4 mb-8 hidden">
+            <!-- Screenshots injected here -->
           </div>
 
           <h3 class="font-headline-md text-2xl text-primary mb-3">The Challenge</h3>

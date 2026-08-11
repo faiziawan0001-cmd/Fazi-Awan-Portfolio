@@ -1635,19 +1635,89 @@
   </section>
 
   <!-- Footer -->
-  <footer class="bg-surface-container-lowest w-full py-20 border-t border-surface-border mt-auto">
-    <div
-      class="flex flex-col md:flex-row justify-between items-center px-margin-desktop max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop gap-6">
-      <div class="flex flex-col items-center md:items-start gap-2">
-        <span class="font-label-caps text-label-caps text-on-surface">Fazi Awan</span>
-        <span class="font-body-md text-body-md text-text-muted">© Fazi Awan. All rights reserved.</span>
+  <footer class="relative bg-surface-container-lowest w-full pt-14 overflow-hidden mt-auto">
+    <!-- Gradient top edge -->
+    <div class="absolute top-0 left-0 w-full h-[2px]"
+      style="background: linear-gradient(90deg, transparent, rgba(255,94,0,0.8) 35%, #ffb599 55%, transparent);">
+    </div>
+
+    <!-- Ambient glow orbs -->
+    <div class="absolute -top-20 -left-20 w-[500px] h-[500px] rounded-full pointer-events-none"
+      style="background: radial-gradient(circle, rgba(255,94,0,0.05) 0%, transparent 70%); filter: blur(90px);"></div>
+    <div class="absolute -bottom-20 -right-20 w-[450px] h-[450px] rounded-full pointer-events-none"
+      style="background: radial-gradient(circle, rgba(120,80,255,0.04) 0%, transparent 70%); filter: blur(80px);"></div>
+
+    <!-- Faint grid pattern -->
+    <div class="absolute inset-0 grid-pattern opacity-20 pointer-events-none"></div>
+
+    <div class="relative z-10 w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+      <!-- Main grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-10 lg:flex lg:items-start lg:justify-between lg:gap-gutter pb-12">
+
+        <!-- Brand block (left) -->
+        <div class="flex flex-col gap-4 reveal-text">
+          <div class="flex flex-col items-start gap-3">
+            <div class="flex items-center gap-2">
+              <span class="font-display text-3xl md:text-4xl font-extrabold tracking-tight text-on-surface">Fazi Awan</span>
+              <span class="material-symbols-outlined verified-badge">verified</span>
+            </div>
+            <span class="experience-tag">Founder of Nexus Labs</span>
+          </div>
+          <p class="font-body-md text-sm text-text-muted max-w-sm leading-relaxed">
+            Software developer crafting premium digital experiences — architecting high-performance infrastructure
+            from pixel-perfect UIs to scalable backends.
+          </p>
+        </div>
+
+        <!-- All Services (vertical column) -->
+        <div class="flex flex-col gap-5 reveal-text delay-100">
+          <span class="font-label-caps text-label-caps text-primary tracking-[0.2em] uppercase">All Services</span>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2">
+            <a class="footer-link" href="#expertise">Web Development</a>
+            <a class="footer-link" href="#expertise">App Development</a>
+            <a class="footer-link" href="#expertise">UI/UX Designs</a>
+            <a class="footer-link" href="#expertise">SEO Optimization</a>
+            <a class="footer-link" href="#expertise">AI Video Ads</a>
+            <a class="footer-link" href="#expertise">Web Maintenance</a>
+            <a class="footer-link" href="#expertise">3D Websites</a>
+            <a class="footer-link" href="#expertise">AI Designs</a>
+          </div>
+        </div>
+
+        <!-- Legal -->
+        <div class="flex flex-col gap-5 reveal-text delay-200">
+          <span class="font-label-caps text-label-caps text-primary tracking-[0.2em] uppercase">Legal</span>
+          <div class="flex flex-col gap-2">
+            <a class="footer-link" href="#">Privacy Policy</a>
+            <a class="footer-link" href="#">Terms of Use</a>
+            <a class="footer-link" href="#">Cookies Policy</a>
+            <a class="footer-link" href="#">Disclaimer</a>
+          </div>
+        </div>
+
+        <!-- Payment Options -->
+        <div class="flex flex-col gap-5 reveal-text delay-300">
+          <span class="font-label-caps text-label-caps text-primary tracking-[0.2em] uppercase">Payment Options</span>
+          <div class="flex flex-col gap-3">
+            <div class="footer-pay-item">
+              <img class="footer-pay-logo" src="assets/crypto.webp" alt="Crypto Payments" />
+              <span class="footer-pay-name">Crypto Payments</span>
+            </div>
+            <div class="footer-pay-item">
+              <img class="footer-pay-logo" src="assets/iban logo.jpg" alt="IBAN" />
+              <span class="footer-pay-name">IBAN</span>
+            </div>
+            <div class="footer-pay-item">
+              <img class="footer-pay-logo" src="assets/visa logo.png" alt="Visa" />
+              <span class="footer-pay-name">Visa</span>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="flex gap-8 font-label-caps text-label-caps">
-        <a class="font-body-md text-body-md text-text-muted hover:text-on-surface transition-colors" href="#">Github</a>
-        <a class="font-body-md text-body-md text-text-muted hover:text-on-surface transition-colors"
-          href="#">LinkedIn</a>
-        <a class="font-body-md text-body-md text-text-muted hover:text-on-surface transition-colors" href="#">Source
-          Code</a>
+
+      <!-- Bottom bar -->
+      <div class="border-t border-surface-border py-5 flex items-center justify-center gap-4">
+        <p class="font-label-caps text-label-caps text-text-muted text-xs">©2026 Built by Fazi Awan</p>
       </div>
     </div>
   </footer>

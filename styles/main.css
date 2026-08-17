@@ -408,13 +408,9 @@ a[href="#hero"].nav-link {
   padding-bottom: 2px;
 }
 
-/* ── Hero Background Slow Zoom ── */
-@keyframes heroBgZoom {
-  0% { transform: scale(1); }
-  100% { transform: scale(1.15); }
-}
+/* ── Hero Background (static zoom) ── */
 .hero-bg-zoom {
-  animation: heroBgZoom 30s ease-out forwards;
+  transform: scale(1.15);
 }
 
 /* =============================================================

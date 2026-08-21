@@ -252,7 +252,34 @@ document.addEventListener('DOMContentLoaded', () => {
       if (rect.top < window.innerHeight) el.classList.add('is-revealed');
     });
   }, 100);
+
+  // ── Jitu Navbar: scroll class + active link ──
+  const jituNav = document.getElementById('navbar');
+  const jituLinks = document.querySelectorAll('[data-nav]');
+  const sections = ['hero','expertise','work','experience','testimonials']
+    .map(id => document.getElementById(id))
+    .filter(Boolean);
+
+  function onNavScroll() {
+    if (!jituNav) return;
+    // Frosted glass after scrolling 60px
+    jituNav.classList.toggle('scrolled', window.scrollY > 60);
+
+    // Active link highlight
+    let current = 'hero';
+    sections.forEach(sec => {
+      if (window.scrollY >= sec.offsetTop - 140) current = sec.id;
+    });
+    jituLinks.forEach(link => {
+      const href = link.getAttribute('href')?.replace('#', '');
+      link.classList.toggle('active', href === current);
+    });
+  }
+
+  window.addEventListener('scroll', onNavScroll, { passive: true });
+  onNavScroll(); // run once on load
 });
+
 
 /* =================================================================
    LUXURY 6: MAGNETIC BUTTONS

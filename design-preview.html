@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Hero Stat Cards — Color Type Preview</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #131313;
+    --orange: #FF5E00;
+    --peach: #FFB599;
+    --cyan: #2DD4BF;
+    --violet: #7C5CFF;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background: #0c0c0c;
+    color: #fff;
+    min-height: 100vh;
+    padding: 48px 24px 80px;
+  }
+  .page-head { text-align: center; margin-bottom: 56px; }
+  .page-head h1 { font-size: 2rem; font-weight: 900; letter-spacing: -0.02em; }
+  .page-head p { color: #888; margin-top: 8px; font-size: 0.95rem; }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    gap: 40px;
+    max-width: 1180px;
+    margin: 0 auto;
+  }
+
+  .variant {
+    background: var(--bg);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 20px;
+    padding: 36px 28px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 28px;
+    position: relative;
+    overflow: hidden;
+  }
+  /* subtle hero bg behind each preview so the frost reads realistically */
+  .variant::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 30% 20%, rgba(255,94,0,0.12), transparent 40%),
+      radial-gradient(circle at 80% 90%, rgba(124,92,255,0.10), transparent 45%),
+      repeating-linear-gradient(135deg, rgba(255,255,255,0.015) 0 2px, transparent 2px 9px);
+    pointer-events: none;
+  }
+  .variant > * { position: relative; z-index: 1; }
+  .variant-tag {
+    align-self: flex-start;
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #888;
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 6px 12px;
+    border-radius: 999px;
+  }
+  .variant-name { font-weight: 800; font-size: 1.05rem; margin-bottom: 4px; }
+  .variant-desc { color: #777; font-size: 0.82rem; text-align: center; max-width: 280px; line-height: 1.5; }
+
+  .card-row { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
+
+  /* ============ BASE GLASS CARD (frost fix applied) ============ */
+  .glass-stat-card {
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 14px;
+    padding: 12px 14px;
+    width: 185px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    overflow: hidden;
+    box-shadow:
+      0 20px 40px rgba(0, 0, 0, 0.55),
+      inset 0 1px 0 rgba(255, 255, 255, 0.10),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+    transition: transform 0.4s cubic-bezier(0.23,1,0.32,1),
+      border-color 0.4s cubic-bezier(0.23,1,0.32,1),
+      box-shadow 0.4s cubic-bezier(0.23,1,0.32,1);
+  }
+  .glass-stat-card > * { position: relative; z-index: 1; }
+  .glass-stat-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    border-radius: inherit;
+    background-color: rgba(20, 20, 22, 0.72);
+    backdrop-filter: blur(10px) saturate(140%);
+    -webkit-backdrop-filter: blur(10px) saturate(140%);
+    background-image: linear-gradient(160deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0) 42%);
+    pointer-events: none;
+  }
+  .glass-stat-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    border-radius: inherit;
+    background: linear-gradient(180deg, rgba(255,255,255,0.10) 0%, rgba(255,255,255,0) 28%);
+    pointer-events: none;
+    opacity: 0.9;
+    transition: opacity 0.4s ease;
+  }
+  .glass-stat-card:hover {
+    transform: translateY(-5px) translateZ(0);
+    border-color: rgba(255, 94, 0, 0.4);
+    box-shadow:
+      0 30px 60px rgba(0,0,0,0.7),
+      0 0 24px rgba(255,94,0,0.18),
+      inset 0 1px 0 rgba(255,255,255,0.14);
+  }
+  .glass-stat-card:hover::after { opacity: 1; }
+
+  /* shared inner structure */
+  .card-inner { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+  .card-label { font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: #888; font-weight: 600; }
+  .card-value { font-size: 1.25rem; font-weight: 900; letter-spacing: -0.02em; margin-top: 2px; color: #fff; }
+  .card-icon {
+    width: 32px; height: 32px; border-radius: 999px; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center; font-size: 15px;
+    background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: #fff;
+  }
+
+  /* ============ VARIANT 1: Brand gradient ============ */
+  .v1 .card-value {
+    background: linear-gradient(90deg, var(--orange), var(--peach));
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .v1 .card-label { color: #E8A07A; }
+  .v1 .card-icon { background: rgba(255,94,0,0.1); border-color: rgba(255,94,0,0.35); color: var(--orange); }
+
+  /* ============ VARIANT 2: Per-card accents ============ */
+  .v2 .glass-stat-card { --accent: var(--orange); }
+  .v2 .glass-stat-card.alt { --accent: var(--cyan); }
+  .v2 .card-value { color: var(--accent); }
+  .v2 .card-label { color: var(--accent); opacity: 0.75; }
+  .v2 .card-icon {
+    background: color-mix(in srgb, var(--accent) 12%, transparent);
+    border-color: color-mix(in srgb, var(--accent) 35%, transparent);
+    color: var(--accent);
+  }
+  .v2 .glass-stat-card:hover { border-color: color-mix(in srgb, var(--accent) 45%, transparent);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.7), 0 0 24px color-mix(in srgb, var(--accent) 22%, transparent), inset 0 1px 0 rgba(255,255,255,0.14); }
+
+  /* ============ VARIANT 3: Vibrant multi-color ============ */
+  .v3 .card-value {
+    background: linear-gradient(90deg, var(--orange), var(--peach) 35%, var(--cyan) 70%, var(--violet));
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .v3 .card-label {
+    background: linear-gradient(90deg, var(--orange), var(--cyan));
+    -webkit-background-clip: text; background-clip: text; color: transparent; font-weight: 700;
+  }
+  .v3 .card-icon { background: rgba(124,92,255,0.12); border-color: rgba(124,92,255,0.4); color: var(--violet); }
+
+  /* ============ VARIANT 4: Color labels only ============ */
+  .v4 .card-value { color: #fff; }
+  .v4 .glass-stat-card { --lbl: var(--orange); }
+  .v4 .glass-stat-card.alt { --lbl: var(--cyan); }
+  .v4 .card-label { color: var(--lbl); font-weight: 700; }
+  .v4 .card-icon { background: color-mix(in srgb, var(--lbl) 10%, transparent); border-color: color-mix(in srgb, var(--lbl) 32%, transparent); color: var(--lbl); }
+
+  /* ===== Founder & CEO premium treatments ===== */
+  .founder-chip { display:inline-flex; align-items:center; gap:12px; }
+  .fc-badge {
+    display:inline-flex; align-items:center; gap:7px;
+    padding:7px 15px; border-radius:999px;
+    background:rgba(255,94,0,0.10); border:1px solid rgba(255,94,0,0.4);
+    color:#FF5E00; font-size:10px; font-weight:700;
+    letter-spacing:0.18em; text-transform:uppercase;
+    box-shadow:0 0 20px rgba(255,94,0,0.25);
+  }
+  .fc-badge .tick { font-size:11px; }
+  .fc-text { font-size:19px; font-weight:800; color:#fff; letter-spacing:-0.02em; }
+
+  .founder-editorial { text-align:left; }
+  .fe-name { font-size:26px; font-weight:800; letter-spacing:-0.02em; }
+  .fe-role { font-size:13px; color:#aaa; margin-top:2px; }
+  .fe-cred { display:inline-flex; align-items:center; gap:8px; margin-top:14px;
+    font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:#cfcfcf; }
+  .fe-dot { width:7px; height:7px; border-radius:50%; background:#FF5E00;
+    box-shadow:0 0 10px rgba(255,94,0,0.7); }
+  .fe-brand { color:#fff; font-weight:800; letter-spacing:0.04em; }
+
+  .founder-seal { display:inline-flex; align-items:center; gap:12px; }
+  .fs-emblem {
+    position:relative; width:50px; height:50px; border-radius:999px; padding:2px; flex-shrink:0;
+    background:linear-gradient(135deg, var(--orange) 0%, var(--peach) 100%);
+    box-shadow:0 10px 30px rgba(255,94,0,0.30), 0 0 0 1px rgba(255,255,255,0.06);
+  }
+  .fs-emblem img {
+    width:100%; height:100%; border-radius:999px; object-fit:cover;
+    border:2px solid #0e0e0e; display:block;
+  }
+  .fs-check {
+    position:absolute; right:-2px; bottom:-2px; width:18px; height:18px; border-radius:999px;
+    background:var(--orange); border:2px solid #0e0e0e; display:flex; align-items:center; justify-content:center;
+    box-shadow:0 4px 12px rgba(255,94,0,0.45);
+  }
+  .fs-check svg { width:12px; height:12px; color:#fff; }
+  .fs-label { font-size:10px; letter-spacing:0.22em; text-transform:uppercase; font-weight:700; color:#E8A07A; }
+  .fs-brand { font-size:16px; font-weight:800; color:#fff; letter-spacing:-0.02em; margin-top:2px; }
+
+  .foot { text-align: center; margin-top: 56px; color: #666; font-size: 0.85rem; }
+  .foot code { color: #aaa; background: rgba(255,255,255,0.06); padding: 2px 6px; border-radius: 6px; }
+</style>
+</head>
+<body>
+  <div class="page-head">
+    <h1>Hero Stat Cards — Color Type Preview</h1>
+    <p>Four treatments for the two floating glass cards. Hover any card to see the lift + glow.</p>
+  </div>
+
+  <div class="grid">
+
+    <!-- VARIANT 1 -->
+    <section class="variant v1">
+      <span class="variant-tag">Variant 1</span>
+      <div class="variant-name">Brand Gradient</div>
+      <p class="variant-desc">Values in an on-brand orange→peach gradient, labels soft amber. Cohesive &amp; premium.</p>
+      <div class="card-row">
+        <div class="glass-stat-card">
+          <div class="card-inner">
+            <div>
+              <div class="card-label">Founder &amp; CEO</div>
+              <div class="card-value">NEXUS LABS</div>
+            </div>
+            <div class="card-icon">●</div>
+          </div>
+        </div>
+        <div class="glass-stat-card">
+          <div class="card-inner">
+            <div>
+              <div class="card-label">Brands Trusted</div>
+              <div class="card-value">50+</div>
+            </div>
+            <div class="card-icon">🌐</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VARIANT 2 -->
+    <section class="variant v2">
+      <span class="variant-tag">Variant 2</span>
+      <div class="variant-name">Per-Card Accents</div>
+      <p class="variant-desc">Each card owns its hue — Card 1 amber, Card 2 cyan. Value, label &amp; icon share the accent.</p>
+      <div class="card-row">
+        <div class="glass-stat-card">
+          <div class="card-inner">
+            <div>
+              <div class="card-label">Founder &amp; CEO</div>
+              <div class="card-value">NEXUS LABS</div>
+            </div>
+            <div class="card-icon">●</div>
+          </div>
+        </div>
+        <div class="glass-stat-card alt">
+          <div class="card-inner">
+            <div>
+              <div class="card-label">Brands Trusted</div>
+              <div class="card-value">50+</div>
+            </div>
+            <div class="card-icon">🌐</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VARIANT 3 -->
+    <section class="variant v3">
+      <span class="variant-tag">Variant 3</span>
+      <div class="variant-name">Vibrant Multi-Color</div>
+      <p class="variant-desc">Loud 4-stop gradient across the type (orange→peach→cyan→violet). Energetic statement.</p>
+      <div class="card-row">
+        <div class="glass-stat-card">
+          <div class="card-inner">
+            <div>
+              <div class="card-label">Founder &amp; CEO</div>
+              <div class="card-value">NEXUS LABS</div>
+            </div>
+            <div class="card-icon">●</div>
+          </div>
+        </div>
+        <div class="glass-stat-card">
+          <div class="card-inner">
+            <div>
+              <div class="card-label">Brands Trusted</div>
+              <div class="card-value">50+</div>
+            </div>
+            <div class="card-icon">🌐</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VARIANT 4 -->
+    <section class="variant v4">
+      <span class="variant-tag">Variant 4</span>
+      <div class="variant-name">Color Labels Only</div>
+      <p class="variant-desc">Values stay crisp white; only the small-caps labels &amp; icons get accent tints. Subtle pop.</p>
+      <div class="card-row">
+        <div class="glass-stat-card">
+          <div class="card-inner">
+            <div>
+              <div class="card-label">Founder &amp; CEO</div>
+              <div class="card-value">NEXUS LABS</div>
+            </div>
+            <div class="card-icon">●</div>
+          </div>
+        </div>
+        <div class="glass-stat-card alt">
+          <div class="card-inner">
+            <div>
+              <div class="card-label">Brands Trusted</div>
+              <div class="card-value">50+</div>
+            </div>
+            <div class="card-icon">🌐</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- ===================== FOUNDER & CEO — PREMIUM TREATMENTS ===================== -->
+  <div class="page-head" style="margin-top:80px;">
+    <h1>Founder &amp; CEO — Premium Treatments</h1>
+    <p>Three card-free strategies for the single credential. Open in a browser and pick one.</p>
+  </div>
+
+  <div class="grid">
+
+    <!-- STRATEGY A: Verified Founder Chip -->
+    <section class="variant">
+      <span class="variant-tag">Strategy A</span>
+      <div class="variant-name">Verified Founder Chip</div>
+      <p class="variant-desc">A small glowing pill + brand wordmark. Floating, premium micro-element — not a box.</p>
+      <div style="width:100%; display:flex; flex-direction:column; gap:18px; margin-top:6px;">
+        <div style="font-size:1.6rem; font-weight:900; letter-spacing:-0.02em;">I'm a <span style="color:#FF5E00;">Coder.</span></div>
+        <div style="display:flex; justify-content:flex-end;">
+          <div class="founder-chip">
+            <span class="fc-badge"><span class="tick">✓</span> Founder &amp; CEO</span>
+            <span class="fc-text">NEXUS LABS</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STRATEGY B: Editorial Credential Line -->
+    <section class="variant">
+      <span class="variant-tag">Strategy B</span>
+      <div class="variant-name">Editorial Credential Line</div>
+      <p class="variant-desc">Integrated into the name block as a refined, tracked label with an accent dot. No border, no fill.</p>
+      <div class="founder-editorial" style="margin-top:8px;">
+        <div class="fe-name">Fazi Awan</div>
+        <div class="fe-role">Software Engineer</div>
+        <div class="fe-cred"><span class="fe-dot"></span> Founder &amp; CEO · <span class="fe-brand">NEXUS LABS</span></div>
+      </div>
+    </section>
+
+    <!-- STRATEGY C: Monogram Seal -->
+    <section class="variant">
+      <span class="variant-tag">Strategy C</span>
+      <div class="variant-name">Monogram Seal</div>
+      <p class="variant-desc">Circular CEO photo with a gradient ring + verified tick, paired with the credential text. Premium, luxe vibe.</p>
+      <div class="founder-seal">
+        <div class="fs-emblem">
+          <img src="assets/Ceo.png" alt="Founder & CEO" />
+          <span class="fs-check">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+          </span>
+        </div>
+        <div>
+          <div class="fs-label">Founder &amp; CEO</div>
+          <div class="fs-brand">NEXUS LABS</div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <p class="foot">Open this file in a browser, pick a treatment (A / B / C), and I'll apply it to <code>index.html</code> + <code>styles/main.css</code>.</p>
+</body>
+</html>

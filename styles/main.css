@@ -591,6 +591,18 @@ a[href="#hero"].nav-link {
   to { transform: rotateX(72deg) rotateZ(360deg); }
 }
 
+/* Dashed circular frame around the experience globe */
+.experience-globe-frame {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 22px;
+  border: 1px dashed rgba(255, 255, 255, 0.18);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.015);
+}
+
 /* =============================================================
    TESTIMONIAL SECTION
    ============================================================ */

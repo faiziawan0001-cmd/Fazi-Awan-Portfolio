@@ -1150,7 +1150,18 @@ a[href="#hero"].nav-link {
   font-weight: 400;
   color: rgba(255, 255, 255, 0.5);
   line-height: 1.65;
-  max-width: 260px;
+  max-width: 200px;
+}
+.tagline-last-word {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  justify-content: center;
+  width: 100%;
+}
+.quote-mark {
+  color: #ff5e00;
+  font-weight: 700;
 }
 
 

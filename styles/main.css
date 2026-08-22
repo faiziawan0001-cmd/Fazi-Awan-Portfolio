@@ -329,18 +329,6 @@ body::before {
   color: #ffb599;
 }
 
-/* --- Float animation --- */
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-12px); }
-}
-.animate-float {
-  animation: float 7s ease-in-out infinite;
-}
-.animate-float-delayed {
-  animation: float 9s ease-in-out infinite 1.5s;
-}
-
 /* --- Magnetic Element Transition --- */
 .magnetic {
   transition: transform 0.1s linear, background-color 0.3s, box-shadow 0.3s, border-color 0.3s;
@@ -1120,11 +1108,11 @@ a[href="#hero"].nav-link {
   align-items: flex-start;
   text-align: left;
   flex: 0 0 auto;
-  max-width: 38%;
+  max-width: 40%;
 }
 .jitu-name-first {
   font-family: 'Hanken Grotesk', sans-serif;
-  font-size: clamp(2.6rem, 4.5vw, 3.8rem);
+  font-size: clamp(3rem, 5.2vw, 4.4rem);
   font-weight: 900;
   color: #ffffff;
   letter-spacing: -0.04em;
@@ -1132,7 +1120,7 @@ a[href="#hero"].nav-link {
 }
 .jitu-name-last {
   font-family: 'Hanken Grotesk', sans-serif;
-  font-size: clamp(2.6rem, 4.5vw, 3.8rem);
+  font-size: clamp(3rem, 5.2vw, 4.4rem);
   font-weight: 900;
   color: #ffffff;
   letter-spacing: -0.04em;
@@ -1140,11 +1128,11 @@ a[href="#hero"].nav-link {
 }
 .jitu-name-role {
   font-family: 'Inter', sans-serif;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 500;
   color: rgba(255, 255, 255, 0.75);
   letter-spacing: 0.02em;
-  margin-top: 14px;
+  margin-top: 16px;
   margin-bottom: 10px;
   display: flex;
   align-items: center;
@@ -1158,11 +1146,11 @@ a[href="#hero"].nav-link {
 }
 .jitu-name-tagline {
   font-family: 'Inter', sans-serif;
-  font-size: 13px;
+  font-size: 14.5px;
   font-weight: 400;
   color: rgba(255, 255, 255, 0.5);
   line-height: 1.65;
-  max-width: 220px;
+  max-width: 260px;
 }
 
 
@@ -1287,25 +1275,78 @@ a[href="#hero"].nav-link {
 }
 
 /* =============================================================
-   GLASSMORPHIC STAT CARDS (Luxury Edition Upgrade)
+   FOUNDER SEAL — premium credential (image + brand)
    ============================================================= */
 
-.glass-stat-card {
-  background: rgba(18, 18, 18, 0.6);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 14px;
-  padding: 12px 14px;
+.founder-seal {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Circular CEO image with gradient ring + soft glow */
+.fs-emblem {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  border-radius: 999px;
+  padding: 2px;
+  background: linear-gradient(135deg, #FF5E00 0%, #FFB599 100%);
+  box-shadow:
+    0 10px 30px rgba(255, 94, 0, 0.30),
+    0 0 0 1px rgba(255, 255, 255, 0.06);
+  flex-shrink: 0;
+}
+.fs-emblem img {
+  width: 100%;
+  height: 100%;
+  border-radius: 999px;
+  object-fit: cover;
+  border: 2px solid #0e0e0e;
+  display: block;
+}
+
+/* Verified tick badge */
+.fs-check {
+  position: absolute;
+  right: -2px;
+  bottom: -2px;
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  background: #FF5E00;
+  border: 2px solid #0e0e0e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(255, 94, 0, 0.45);
+}
+.fs-check svg {
+  width: 12px;
+  height: 12px;
+  color: #fff;
+}
+
+/* Text column */
+.fs-text {
   display: flex;
   flex-direction: column;
-  gap: 4px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.04);
-  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  gap: 2px;
 }
-.glass-stat-card:hover {
-  transform: translateY(-5px);
-  border-color: rgba(255, 94, 0, 0.3);
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.7), 0 0 20px rgba(255, 94, 0, 0.15);
+.fs-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #E8A07A;
+}
+.fs-brand {
+  font-family: 'Hanken Grotesk', sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  line-height: 1;
 }
 

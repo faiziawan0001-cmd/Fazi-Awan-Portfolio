@@ -314,6 +314,22 @@ window.addEventListener('scroll', () => {
 }, { passive: true });
 
 /* =================================================================
+    7b. SCROLL TO TOP BUTTON
+================================================================== */
+(function initScrollTop() {
+  const btn = document.getElementById('scroll-top');
+  if (!btn) return;
+
+  window.addEventListener('scroll', () => {
+    btn.classList.toggle('is-visible', window.scrollY > 400);
+  }, { passive: true });
+
+  btn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+
+/* =================================================================
    8. ACTIVE NAV LINK (IntersectionObserver)
 ================================================================== */
 const sectionObserver = new IntersectionObserver((entries) => {

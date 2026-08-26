@@ -499,24 +499,56 @@ document.addEventListener('keydown', (e) => {
 /* =================================================================
    12. CONTACT FORM
 ================================================================== */
-contactForm.addEventListener('submit', (e) => {
+contactForm.addEventListener('submit', async (e) => {
   e.preventDefault();
   const btn = contactForm.querySelector('button[type="submit"]');
   const originalHTML = btn.innerHTML;
   btn.innerHTML = `Sending... <span class="material-symbols-outlined text-sm animate-spin">sync</span>`;
   btn.disabled = true;
-  setTimeout(() => {
-    btn.innerHTML = `Sent Successfully! <span class="material-symbols-outlined text-sm">check</span>`;
-    btn.classList.add('bg-green-600');
+
+  const payload = {
+    name: document.getElementById('contact-name').value.trim(),
+    email: document.getElementById('contact-email').value.trim(),
+    subject: document.getElementById('contact-subject').value.trim(),
+    message: document.getElementById('contact-message').value.trim()
+  };
+
+  try {
+    const response = await fetch('/api/contact', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(payload)
+    });
+
+    const result = await response.json().catch(() => ({}));
+
+    if (response.ok && result.ok) {
+      btn.innerHTML = `Sent Successfully! <span class="material-symbols-outlined text-sm">check</span>`;
+      btn.classList.add('bg-green-600');
+      btn.classList.remove('bg-primary-container');
+      contactForm.reset();
+      setTimeout(() => {
+        btn.innerHTML = originalHTML;
+        btn.disabled = false;
+        btn.classList.remove('bg-green-600');
+        btn.classList.add('bg-primary-container');
+      }, 3000);
+    } else {
+      throw new Error(result.message || 'Failed to send message.');
+    }
+  } catch (err) {
+    btn.innerHTML = `Error! ${err.message} <span class="material-symbols-outlined text-sm">error</span>`;
+    btn.classList.add('bg-red-600');
     btn.classList.remove('bg-primary-container');
-    contactForm.reset();
     setTimeout(() => {
       btn.innerHTML = originalHTML;
       btn.disabled = false;
-      btn.classList.remove('bg-green-600');
+      btn.classList.remove('bg-red-600');
       btn.classList.add('bg-primary-container');
-    }, 3000);
-  }, 1500);
+    }, 4000);
+  }
 });
 
 /* =================================================================

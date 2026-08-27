@@ -1372,17 +1372,24 @@ a[href="#hero"].nav-link {
   color: rgba(255, 255, 255, 0.6);
 }
 
-/* ── Mobile ── */
+/* ── Mobile ──
+   Everything is compressed so the full hero (headline + name + trusted +
+   CTA) fits inside the first viewport (100svh) — CTA stays on screen. */
 @media (max-width: 767px) {
+  .jitu-hero {
+    min-height: 100svh;
+  }
   .jitu-hero-content {
-    padding: 0 24px;
+    padding: 0 22px;
+    min-height: 100svh;
   }
   .jitu-hero-mid {
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
-    gap: 32px;
-    padding-top: 80px;
+    gap: 18px;
+    flex: 1 1 auto;
+    padding-top: 88px; /* clears the 68px navbar + breathing room */
   }
   .jitu-hero-left,
   .jitu-hero-right {
@@ -1392,41 +1399,118 @@ a[href="#hero"].nav-link {
     align-items: flex-start;
     text-align: left;
   }
-  .jitu-name-divider { margin: 12px 0 8px 0; }
+  .jitu-name-divider { margin: 8px 0 6px 0; }
   .jitu-name-tagline { max-width: 100%; }
-  .jitu-hire-cta-wrap {
-    justify-content: flex-start;
-    padding: 24px 0 60px;
-  }
+
+  /* Smaller HELLO pill */
+  .jitu-hello-pill { padding: 6px 13px; font-size: 10px; }
+
+  /* Compact headlines */
   .jitu-headline-im,
   .jitu-headline-role {
-    font-size: clamp(2.4rem, 11vw, 4rem);
+    font-size: clamp(2.1rem, 10.5vw, 3.4rem);
+    line-height: 1.02;
   }
+
+  /* Compact name */
+  .jitu-name-first,
+  .jitu-name-last {
+    font-size: clamp(2.2rem, 9vw, 3.2rem);
+    line-height: 1.04;
+  }
+  .jitu-name-role {
+    font-size: 13px;
+    margin-top: 5px;
+    margin-bottom: 2px;
+  }
+
+  /* Trusted-by — in-flow, above CTA, never overlapping, compact & tidy */
   .hero-trusted {
-    bottom: 50px;
-    left: 24px;
+    position: static;
+    align-self: flex-start;
+    left: auto;
+    bottom: auto;
+    margin: 4px 0 16px;
+    z-index: auto;
   }
   .hero-trusted-inner {
-    padding: 8px 14px 8px 10px;
-    gap: 12px;
+    justify-content: center;
+    padding: 6px 12px 6px 8px;
+    gap: 10px;
+    border-radius: 50px;
+  }
+  .hero-trusted-avatars {
+    gap: 0;
   }
   .hero-trusted-avatar {
-    width: 30px;
-    height: 30px;
-    margin-left: -8px;
+    width: 25px;
+    height: 25px;
+    margin-left: -7px;
+    border-width: 1.5px;
   }
-  .hero-trusted-avatar:first-child {
-    margin-left: 0;
-  }
+  .hero-trusted-avatar:first-child { margin-left: 0; }
   .hero-trusted-count {
-    width: 30px;
-    height: 30px;
-    margin-left: -8px;
-    font-size: 10px;
+    width: 25px;
+    height: 25px;
+    margin-left: -7px;
+    font-size: 9px;
+    border-width: 1.5px;
   }
   .hero-trusted-text {
-    font-size: 10.5px;
+    font-size: 10px;
+    line-height: 1.35;
+    letter-spacing: 0.01em;
   }
+
+  /* CTA group: stacked, full-width, sitting at the bottom of the hero */
+  .jitu-hire-cta-wrap {
+    justify-content: center;
+    padding: 22px 0 26px;
+  }
+  .jitu-hire-cta-wrap > div {
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+  }
+  .jitu-hire-cta-wrap > div a {
+    width: 100%;
+    justify-content: center;
+    padding: 13px 20px;
+    font-size: 13px;
+  }
+}
+
+/* ── Small phones ── */
+@media (max-width: 380px) {
+  .jitu-hero-content { padding: 0 18px; }
+  .jitu-hero-mid { padding-top: 80px; gap: 14px; }
+  .jitu-headline-im,
+  .jitu-headline-role { font-size: clamp(1.9rem, 11vw, 3rem); }
+  .jitu-name-first,
+  .jitu-name-last { font-size: clamp(2rem, 9.5vw, 2.8rem); }
+  .hero-trusted { margin: 3px 0 12px; }
+  .hero-trusted-inner { gap: 8px; padding: 5px 10px 5px 7px; }
+  .hero-trusted-avatar,
+  .hero-trusted-count { width: 22px; height: 22px; margin-left: -6px; }
+  .hero-trusted-text { font-size: 9.5px; }
+  .jitu-hire-cta-wrap { padding: 18px 0 22px; }
+  .jitu-hire-cta-wrap > div a { padding: 12px 18px; font-size: 12px; }
+}
+
+/* ── Very short viewports: squeeze further so CTA stays on screen ── */
+@media (max-width: 767px) and (max-height: 640px) {
+  .jitu-hero-mid { padding-top: 76px; gap: 12px; }
+  .jitu-headline-im,
+  .jitu-headline-role { font-size: clamp(1.8rem, 9vw, 2.8rem); }
+  .jitu-name-first,
+  .jitu-name-last { font-size: clamp(1.9rem, 8vw, 2.6rem); }
+  .jitu-name-role { font-size: 12px; margin-top: 3px; margin-bottom: 1px; }
+  .hero-trusted { margin: 2px 0 10px; }
+  .hero-trusted-avatar,
+  .hero-trusted-count { width: 22px; height: 22px; }
+  .hero-trusted-text { font-size: 9.5px; }
+  .jitu-hire-cta-wrap { padding: 14px 0 18px; }
+  .jitu-hire-cta-wrap > div a { padding: 11px 16px; }
 }
 
 /* =============================================================

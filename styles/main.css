@@ -1272,7 +1272,7 @@ a[href="#hero"].nav-link {
 /* ── Trusted By — Social Proof (compact premium, CTA-button sized) ── */
 .hero-trusted {
   position: absolute;
-  bottom: 72px;
+  bottom: 150px;
   left: 56px;
   z-index: 20;
   text-decoration: none;
@@ -1283,7 +1283,7 @@ a[href="#hero"].nav-link {
 /* ── Location — elegant, minimal line above the brand section ── */
 .hero-location {
   position: absolute;
-  bottom: 132px;
+  bottom: 210px;
   left: 68px;
   z-index: 20;
   display: inline-flex;

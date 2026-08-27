@@ -1269,7 +1269,7 @@ a[href="#hero"].nav-link {
   transform: translateX(4px);
 }
 
-/* ── Trusted By — Social Proof (compact premium) ── */
+/* ── Trusted By — Social Proof (compact premium, CTA-button sized) ── */
 .hero-trusted {
   position: absolute;
   bottom: 72px;
@@ -1279,11 +1279,40 @@ a[href="#hero"].nav-link {
   display: block;
   cursor: pointer !important;
 }
+
+/* ── Location — elegant, minimal line above the brand section ── */
+.hero-location {
+  position: absolute;
+  bottom: 132px;
+  left: 68px;
+  z-index: 20;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  text-decoration: none;
+}
+.hero-location-icon {
+  font-size: 15px;
+  color: #ff5e00;
+  flex-shrink: 0;
+  opacity: 0.92;
+}
+.hero-location-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  color: rgba(255, 255, 255, 0.6);
+}
+.hero-location-text .loc-place {
+  color: rgba(255, 255, 255, 0.92);
+  font-weight: 500;
+}
 .hero-trusted-inner {
   display: flex;
   align-items: center;
   gap: 16px;
-  padding: 10px 18px 10px 12px;
+  padding: 8px 16px 8px 10px;
   border-radius: 60px;
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -1303,8 +1332,8 @@ a[href="#hero"].nav-link {
   flex-shrink: 0;
 }
 .hero-trusted-avatar {
-  width: 34px;
-  height: 34px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
   border: 2px solid rgba(19, 19, 19, 0.9);
   object-fit: cover;
@@ -1331,8 +1360,8 @@ a[href="#hero"].nav-link {
   z-index: 10 !important;
 }
 .hero-trusted-count {
-  width: 34px;
-  height: 34px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -1361,7 +1390,7 @@ a[href="#hero"].nav-link {
 }
 .hero-trusted-text {
   font-family: 'Inter', sans-serif;
-  font-size: 11.5px;
+  font-size: 11px;
   font-weight: 400;
   color: rgba(255, 255, 255, 0.4);
   line-height: 1.45;
@@ -1424,7 +1453,7 @@ a[href="#hero"].nav-link {
     margin-bottom: 2px;
   }
 
-  /* Trusted-by — in-flow, above CTA, never overlapping, compact & tidy */
+  /* Brand — mobile: in-flow above CTA, left-aligned */
   .hero-trusted {
     position: static;
     align-self: flex-start;
@@ -1433,6 +1462,18 @@ a[href="#hero"].nav-link {
     margin: 4px 0 16px;
     z-index: auto;
   }
+
+  /* Location — mobile: in-flow above the brand, left-aligned */
+  .hero-location {
+    position: static;
+    align-self: flex-start;
+    left: auto;
+    bottom: auto;
+    margin: 0 0 10px 12px;
+    gap: 8px;
+  }
+  .hero-location-icon { font-size: 13px; }
+  .hero-location-text { font-size: 10px; letter-spacing: 0.05em; }
   .hero-trusted-inner {
     justify-content: center;
     padding: 6px 12px 6px 8px;
@@ -1493,6 +1534,9 @@ a[href="#hero"].nav-link {
   .hero-trusted-avatar,
   .hero-trusted-count { width: 22px; height: 22px; margin-left: -6px; }
   .hero-trusted-text { font-size: 9.5px; }
+  .hero-location { margin: 0 0 10px 12px; gap: 6px; }
+  .hero-location-icon { font-size: 12px; }
+  .hero-location-text { font-size: 9px; letter-spacing: 0.04em; }
   .jitu-hire-cta-wrap { padding: 18px 0 22px; }
   .jitu-hire-cta-wrap > div a { padding: 12px 18px; font-size: 12px; }
 }
@@ -1509,6 +1553,9 @@ a[href="#hero"].nav-link {
   .hero-trusted-avatar,
   .hero-trusted-count { width: 22px; height: 22px; }
   .hero-trusted-text { font-size: 9.5px; }
+  .hero-location { margin: 0 0 8px 12px; gap: 6px; }
+  .hero-location-icon { font-size: 12px; }
+  .hero-location-text { font-size: 9px; letter-spacing: 0.04em; }
   .jitu-hire-cta-wrap { padding: 14px 0 18px; }
   .jitu-hire-cta-wrap > div a { padding: 11px 16px; }
 }

@@ -1148,8 +1148,8 @@ a[href="#hero"].nav-link {
   font-weight: 500;
   color: rgba(255, 255, 255, 0.75);
   letter-spacing: 0.02em;
-  margin-top: 16px;
-  margin-bottom: 10px;
+  margin-top: 8px;
+  margin-bottom: 4px;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -1269,6 +1269,109 @@ a[href="#hero"].nav-link {
   transform: translateX(4px);
 }
 
+/* ── Trusted By — Social Proof (compact premium) ── */
+.hero-trusted {
+  position: absolute;
+  bottom: 72px;
+  left: 56px;
+  z-index: 20;
+  text-decoration: none;
+  display: block;
+  cursor: pointer !important;
+}
+.hero-trusted-inner {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 10px 18px 10px 12px;
+  border-radius: 60px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transition: background 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease, transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.hero-trusted:hover .hero-trusted-inner {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(255, 94, 0, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 94, 0, 0.06);
+  transform: translateY(-2px);
+}
+.hero-trusted-avatars {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+.hero-trusted-avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 2px solid rgba(19, 19, 19, 0.9);
+  object-fit: cover;
+  margin-left: -9px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+  transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+.hero-trusted-avatar:first-child {
+  margin-left: 0;
+}
+.hero-trusted-avatar:nth-child(1) { z-index: 5; }
+.hero-trusted-avatar:nth-child(2) { z-index: 4; }
+.hero-trusted-avatar:nth-child(3) { z-index: 3; }
+.hero-trusted-avatar:nth-child(4) { z-index: 2; }
+.hero-trusted:hover .hero-trusted-avatar {
+  transform: translateY(-2px);
+}
+.hero-trusted-avatar:hover {
+  transform: translateY(-8px) scale(1.18) !important;
+  border-color: #ff5e00 !important;
+  box-shadow: 0 6px 16px rgba(255, 94, 0, 0.35) !important;
+  z-index: 10 !important;
+}
+.hero-trusted-count {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: -9px;
+  background: rgba(255, 94, 0, 0.1);
+  border: 1.5px solid rgba(255, 94, 0, 0.3);
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  color: #ff5e00;
+  letter-spacing: -0.02em;
+  z-index: 1;
+  transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1), border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+.hero-trusted:hover .hero-trusted-count {
+  transform: translateY(-2px);
+  box-shadow: 0 0 14px rgba(255, 94, 0, 0.2);
+}
+.hero-trusted-count:hover {
+  transform: translateY(-8px) scale(1.18) !important;
+  border-color: #ff5e00 !important;
+  background: rgba(255, 94, 0, 0.2) !important;
+  box-shadow: 0 6px 16px rgba(255, 94, 0, 0.4) !important;
+  z-index: 10 !important;
+}
+.hero-trusted-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 11.5px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.4);
+  line-height: 1.45;
+  letter-spacing: 0.01em;
+  transition: color 0.4s ease;
+}
+.hero-trusted:hover .hero-trusted-text {
+  color: rgba(255, 255, 255, 0.6);
+}
+
 /* ── Mobile ── */
 @media (max-width: 767px) {
   .jitu-hero-content {
@@ -1298,6 +1401,31 @@ a[href="#hero"].nav-link {
   .jitu-headline-im,
   .jitu-headline-role {
     font-size: clamp(2.4rem, 11vw, 4rem);
+  }
+  .hero-trusted {
+    bottom: 50px;
+    left: 24px;
+  }
+  .hero-trusted-inner {
+    padding: 8px 14px 8px 10px;
+    gap: 12px;
+  }
+  .hero-trusted-avatar {
+    width: 30px;
+    height: 30px;
+    margin-left: -8px;
+  }
+  .hero-trusted-avatar:first-child {
+    margin-left: 0;
+  }
+  .hero-trusted-count {
+    width: 30px;
+    height: 30px;
+    margin-left: -8px;
+    font-size: 10px;
+  }
+  .hero-trusted-text {
+    font-size: 10.5px;
   }
 }
 

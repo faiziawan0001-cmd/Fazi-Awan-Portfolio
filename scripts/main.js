@@ -314,7 +314,7 @@ window.addEventListener('scroll', () => {
 }, { passive: true });
 
 /* =================================================================
-    7b. SCROLL TO TOP BUTTON
+   7b. SCROLL TO TOP BUTTON
 ================================================================== */
 (function initScrollTop() {
   const btn = document.getElementById('scroll-top');

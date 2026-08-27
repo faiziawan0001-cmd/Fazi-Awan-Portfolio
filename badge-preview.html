@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Badge Preview — A (Uppercase) vs B (Title Case)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    min-height: 100vh;
+    font-family: 'Inter', sans-serif;
+    background:
+      radial-gradient(1000px 500px at 20% 10%, rgba(255,94,0,0.12), transparent 60%),
+      linear-gradient(180deg, #131313 0%, #0c0c0c 100%);
+    color: #fff;
+    display: flex; flex-direction: column; align-items: center; gap: 64px;
+    padding: 90px 20px;
+  }
+  .mock-hero-name {
+    font-size: clamp(44px, 9vw, 96px);
+    font-weight: 800; letter-spacing: -0.03em; opacity: 0.95;
+  }
+  .verified-badge {
+    font-size: 18px; line-height: 1;
+    font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    color: #ff5e00;
+    filter: drop-shadow(0 0 6px rgba(255,94,0,0.45));
+    flex-shrink: 0;
+  }
+  .badge { display: inline-flex; align-items: center; gap: 9px; text-decoration: none; }
+  .badge .label {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px; font-weight: 500;
+    color: rgba(255,255,255,0.7);
+  }
+  /* Variant A — uppercase + tracked */
+  .variant-a .label {
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-weight: 600;
+    color: rgba(255,255,255,0.85);
+  }
+  /* Variant B — title case (current) */
+  .variant-b .label {
+    letter-spacing: 0.05em;
+    text-transform: none;
+  }
+  .tag {
+    display: inline-block;
+    font-size: 11px; letter-spacing: 0.25em; text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    border: 1px solid rgba(255,255,255,0.12);
+    padding: 6px 14px; border-radius: 999px;
+  }
+  h2 { font-weight: 700; margin: 0 0 6px; font-size: 20px; }
+  p.sub { color: rgba(255,255,255,0.45); font-size: 13px; margin: 0 0 18px; }
+</style>
+</head>
+<body>
+
+  <div style="text-align:center">
+    <span class="tag">Portfolio Hero</span>
+    <div class="mock-hero-name">Fazi Awan</div>
+  </div>
+
+  <div style="text-align:center">
+    <span class="tag">Variant A</span>
+    <h2>Uppercase + tracked</h2>
+    <p class="sub">FOUNDER &amp; CEO OF NEXUS LABS — luxe eyebrow credential</p>
+    <span class="badge variant-a">
+      <span class="material-symbols-outlined verified-badge">verified</span>
+      <span class="label">Founder &amp; CEO of Nexus Labs</span>
+    </span>
+  </div>
+
+  <div style="text-align:center">
+    <span class="tag">Variant B</span>
+    <h2>Title Case (current)</h2>
+    <p class="sub">Founder &amp; CEO of Nexus Labs — readable, conventional</p>
+    <span class="badge variant-b">
+      <span class="material-symbols-outlined verified-badge">verified</span>
+      <span class="label">Founder &amp; CEO of Nexus Labs</span>
+    </span>
+  </div>
+
+</body>
+</html>

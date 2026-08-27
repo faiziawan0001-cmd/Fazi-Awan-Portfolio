@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Navbar Preview — A (Orange) vs B (Gold)</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;600;700;800&family=Inter:wght@300;400;500;600&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg: #0b0b0d;
+      --surface-1: rgba(12, 12, 14, 0.55);
+      --surface-2: rgba(10, 10, 10, 0.82);
+      --hairline: rgba(255, 255, 255, 0.08);
+      --text: #ffffff;
+      --text-dim: rgba(255, 255, 255, 0.62);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Mock hero backdrop so the glass reads correctly */
+    .mock-hero {
+      position: relative;
+      min-height: 100vh;
+      padding: 0 0 80px;
+      overflow: hidden;
+      background:
+        radial-gradient(1200px 600px at 20% 10%, rgba(255, 106, 0, 0.10), transparent 60%),
+        radial-gradient(1000px 500px at 85% 30%, rgba(120, 80, 255, 0.08), transparent 60%),
+        linear-gradient(180deg, #0c0c0e 0%, #0a0a0c 100%);
+    }
+    .mock-hero::after {
+      content: "Fazi Awan";
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Hanken Grotesk', sans-serif;
+      font-weight: 800;
+      font-size: clamp(60px, 14vw, 200px);
+      letter-spacing: -0.04em;
+      color: rgba(255, 255, 255, 0.035);
+      pointer-events: none;
+    }
+
+    .preview-label {
+      position: relative;
+      z-index: 30;
+      text-align: center;
+      padding: 40px 16px 18px;
+    }
+    .preview-label .tag {
+      display: inline-block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.4);
+      border: 1px solid var(--hairline);
+      border-radius: 999px;
+      padding: 6px 14px;
+    }
+    .preview-label h2 {
+      font-family: 'Hanken Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 26px;
+      margin-top: 14px;
+    }
+    .preview-label p {
+      color: var(--text-dim);
+      font-size: 13px;
+      margin-top: 6px;
+    }
+
+    /* ============ FLOATING GLASS NAVBAR (shared) ============ */
+    .floating-nav {
+      position: relative;
+      z-index: 20;
+      margin: 22px auto 0;
+      max-width: 1180px;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 14px 0 20px;
+      border-radius: 18px;
+      background: var(--surface-1);
+      backdrop-filter: blur(20px) saturate(1.6);
+      -webkit-backdrop-filter: blur(20px) saturate(1.6);
+      border: 1px solid var(--hairline);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
+    }
+    /* accent hairline at the bottom edge */
+    .floating-nav::after {
+      content: "";
+      position: absolute;
+      left: 18px; right: 18px; bottom: 0;
+      height: 1px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, transparent, var(--accent), var(--accent-2), transparent);
+      opacity: 0.5;
+    }
+
+    .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .monogram {
+      width: 38px; height: 38px;
+      border-radius: 11px;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Hanken Grotesk', sans-serif;
+      font-weight: 800; font-size: 14px; letter-spacing: 0.02em;
+      color: #fff;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25), 0 4px 14px var(--glow);
+    }
+    .brand-name {
+      font-family: 'Hanken Grotesk', sans-serif;
+      font-weight: 700; font-size: 17px;
+      letter-spacing: -0.02em; color: var(--text);
+      transition: color 0.25s ease;
+    }
+    .brand:hover .brand-name { color: var(--accent-2); }
+
+    .nav-links { display: flex; align-items: center; gap: 30px; }
+    .nav-link {
+      position: relative;
+      font-size: 13px; font-weight: 500; letter-spacing: 0.01em;
+      color: var(--text-dim); text-decoration: none;
+      padding-bottom: 4px;
+      transition: color 0.25s ease;
+    }
+    .nav-link::after {
+      content: "";
+      position: absolute; left: 0; bottom: 0;
+      width: 100%; height: 1.5px; border-radius: 999px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      transform: scaleX(0); transform-origin: left;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .nav-link:hover, .nav-link.active { color: var(--text); }
+    .nav-link:hover::after, .nav-link.active::after { transform: scaleX(1); }
+    .nav-link.active { color: var(--accent-2); }
+
+    .hire-btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 9px 9px 9px 18px;
+      border-radius: 999px;
+      font-size: 12px; font-weight: 600; letter-spacing: 0.08em;
+      text-transform: uppercase; text-decoration: none;
+      color: var(--btn-text);
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.22), var(--glow);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .hire-btn .arrow {
+      width: 26px; height: 26px; border-radius: 999px;
+      background: rgba(255, 255, 255, 0.18);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .hire-btn:hover { transform: translateY(-1px); box-shadow: inset 0 0 0 1px rgba(255,255,255,0.3), 0 0 26px var(--glow); }
+
+    .hamburger { display: none; color: rgba(255,255,255,0.7); }
+
+    /* ===== VARIANT A : REFINED ORANGE ===== */
+    .variant-a {
+      --accent: #ff6a00;
+      --accent-2: #ffb070;
+      --glow: rgba(255, 106, 0, 0.40);
+      --btn-text: #ffffff;
+    }
+
+    /* ===== VARIANT B : CHAMPAGNE GOLD ===== */
+    .variant-b {
+      --accent: #e8c07d;
+      --accent-2: #d9a441;
+      --glow: rgba(232, 192, 125, 0.38);
+      --btn-text: #1a1407;
+    }
+    .variant-b .monogram { color: #1a1407; }
+
+    @media (max-width: 720px) {
+      .nav-links { display: none; }
+      .hamburger { display: block; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="mock-hero">
+
+    <!-- ============ VARIANT A ============ -->
+    <div class="preview-label">
+      <span class="tag">Variant A</span>
+      <h2>Refined Orange</h2>
+      <p>Your existing identity, polished. Accent gradient #ff6a00 → #ffb070.</p>
+    </div>
+
+    <nav class="floating-nav variant-a">
+      <a href="#" class="brand">
+        <span class="monogram">FA</span>
+        <span class="brand-name">Fazi Awan</span>
+      </a>
+      <div class="nav-links">
+        <a href="#" class="nav-link active">Home</a>
+        <a href="#" class="nav-link">Expertise</a>
+        <a href="#" class="nav-link">Work</a>
+        <a href="#" class="nav-link">Experience</a>
+        <a href="#" class="nav-link">Testimonials</a>
+      </div>
+      <a href="#" class="hire-btn">
+        Hire Me
+        <span class="arrow">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </a>
+      <span class="material-symbols-outlined hamburger">menu</span>
+    </nav>
+
+    <!-- ============ VARIANT B ============ -->
+    <div class="preview-label">
+      <span class="tag">Variant B</span>
+      <h2>Champagne Gold</h2>
+      <p>Most "luxury / class". Accent gradient #e8c07d → #d9a441, dark button text.</p>
+    </div>
+
+    <nav class="floating-nav variant-b">
+      <a href="#" class="brand">
+        <span class="monogram">FA</span>
+        <span class="brand-name">Fazi Awan</span>
+      </a>
+      <div class="nav-links">
+        <a href="#" class="nav-link active">Home</a>
+        <a href="#" class="nav-link">Expertise</a>
+        <a href="#" class="nav-link">Work</a>
+        <a href="#" class="nav-link">Experience</a>
+        <a href="#" class="nav-link">Testimonials</a>
+      </div>
+      <a href="#" class="hire-btn">
+        Hire Me
+        <span class="arrow">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </a>
+      <span class="material-symbols-outlined hamburger">menu</span>
+    </nav>
+
+  </div>
+</body>
+</html>

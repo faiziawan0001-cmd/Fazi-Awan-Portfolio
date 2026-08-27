@@ -953,17 +953,23 @@ a[href="#hero"].nav-link {
 .jitu-brand-icon {
   width: 34px;
   height: 34px;
-  background: #ff5e00;
-  border-radius: 8px;
+  border-radius: 9px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: 'Hanken Grotesk', sans-serif;
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 800;
   color: #ffffff;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.02em;
+  background: #ff5e00;
+  box-shadow: 0 3px 12px rgba(255, 94, 0, 0.30);
   flex-shrink: 0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.jitu-brand:hover .jitu-brand-icon {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 16px rgba(255, 94, 0, 0.45);
 }
 .jitu-brand-name {
   font-family: 'Hanken Grotesk', sans-serif;
@@ -972,8 +978,9 @@ a[href="#hero"].nav-link {
   color: #ffffff;
   letter-spacing: -0.02em;
   white-space: nowrap;
+  transition: color 0.25s ease;
 }
-.jitu-brand:hover .jitu-brand-name { color: rgba(255,255,255,0.8); }
+.jitu-brand:hover .jitu-brand-name { color: #ffb070; }
 
 /* Nav links */
 .jitu-nav-link {

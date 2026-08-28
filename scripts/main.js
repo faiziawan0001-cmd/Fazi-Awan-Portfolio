@@ -320,9 +320,17 @@ window.addEventListener('scroll', () => {
   const btn = document.getElementById('scroll-top');
   if (!btn) return;
 
+  function updateProgress() {
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    const p = max > 0 ? Math.min(window.scrollY / max, 1) : 0;
+    btn.style.setProperty('--p', p.toFixed(3));
+  }
+
   window.addEventListener('scroll', () => {
     btn.classList.toggle('is-visible', window.scrollY > 400);
+    updateProgress();
   }, { passive: true });
+  updateProgress();
 
   btn.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });

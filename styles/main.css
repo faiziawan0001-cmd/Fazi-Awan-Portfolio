@@ -427,7 +427,6 @@ a[href="#hero"].nav-link {
 .expertise-reveal.is-revealed {
   opacity: 1;
   transform: translateY(0);
-  filter: blur(0);
   transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1),
               box-shadow 0.4s ease,
               border-color 0.4s ease;
@@ -437,9 +436,7 @@ a[href="#hero"].nav-link {
 .expertise-glass-card.expertise-reveal {
   transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1),
               box-shadow 0.4s ease,
-              border-color 0.4s ease,
-              opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
-              filter 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+              border-color 0.4s ease;
 }
 .expertise-glass-card:hover {
   transform: translateY(-10px);
@@ -448,14 +445,10 @@ a[href="#hero"].nav-link {
     0 0 50px rgba(255, 170, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.12);
 }
 
-/* ── Entrance reveal (matches preview A1: blur-in, no stagger) ── */
+/* ── Entrance reveal disabled: cards render visible on load ── */
 .expertise-reveal {
-  opacity: 0;
-  transform: translateY(30px);
-  filter: blur(8px);
-  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.9s cubic-bezier(0.16, 1, 0.3, 1),
-              filter 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* ── Mono index number (// 01) ── */

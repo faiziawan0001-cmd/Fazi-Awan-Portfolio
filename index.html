@@ -283,10 +283,10 @@
             class="magnetic bg-primary-container text-white px-8 py-4 rounded font-label-caps text-label-caps hover:bg-primary hover:opacity-90 hover:shadow-[0_0_30px_rgba(255,94,0,0.4)] transition-all">
             Got a project?
           </a>
-          <a href="assets/resume.pdf" download="Fazi_Awan_Resume.pdf"
+          <button onclick="openResumeModal()"
             class="magnetic border border-white/20 bg-surface-container/70 text-on-surface px-8 py-4 rounded font-label-caps text-label-caps hover:bg-surface-container hover:border-primary/50 transition-all">
             My resume
-          </a>
+          </button>
           </div>
 
         </div>
@@ -1615,6 +1615,88 @@
   </div>
 
   <!-- ============================================================
+       RESUME ACCESS MODAL (NEW FEATURE)
+  ============================================================ -->
+  <div id="resume-modal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4 transition-all duration-300 opacity-0">
+    <!-- Backdrop -->
+    <div class="absolute inset-0 bg-black/80 backdrop-blur-md" onclick="closeResumeModal()"></div>
+    
+    <!-- Modal Card -->
+    <div class="relative w-full max-w-[420px] bg-[#111010] border border-white/10 rounded-2xl p-6 md:p-8 shadow-[0_0_50px_rgba(255,94,0,0.12)] overflow-hidden transform scale-95 transition-all duration-300" id="resume-modal-panel">
+      <!-- Subtle top highlight line -->
+      <div class="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-primary-container to-transparent"></div>
+
+      <!-- Header -->
+      <div class="flex justify-between items-center mb-6">
+        <div class="flex items-center gap-3">
+          <span class="material-symbols-outlined text-[#ff7b47] text-2xl" style="font-variation-settings: 'FILL' 1;">lock</span>
+          <h3 class="text-xl font-headline font-bold text-white tracking-wide">Resume Access</h3>
+        </div>
+        <button onclick="closeResumeModal()" class="w-8 h-8 rounded-full bg-white/5 hover:bg-white/10 text-white/40 hover:text-white flex items-center justify-center transition-colors">
+          <span class="material-symbols-outlined text-lg">close</span>
+        </button>
+      </div>
+
+      <!-- Description -->
+      <p class="text-white/60 text-sm md:text-[15px] leading-relaxed mb-6 font-body" id="resume-description">
+        My resume is available by request. Leave your details and I'll send it straight to your inbox.
+      </p>
+
+      <!-- Form -->
+      <form id="resume-form" class="flex flex-col gap-4">
+        <!-- Honeypot -->
+        <input type="text" id="resume-website" class="hidden" name="website" tabindex="-1" autocomplete="off" />
+        
+        <!-- Name -->
+        <div class="flex flex-col">
+          <input type="text" id="resume-name" placeholder="Your name" required
+            class="w-full bg-[#181717] border border-white/10 hover:border-white/20 focus:border-primary-container focus:ring-0 rounded-lg px-4 py-3 text-white placeholder:text-white/30 text-sm transition-all" />
+        </div>
+
+        <!-- Email -->
+        <div class="flex flex-col">
+          <input type="email" id="resume-email" placeholder="Your email" required
+            class="w-full bg-[#181717] border border-white/10 hover:border-white/20 focus:border-primary-container focus:ring-0 rounded-lg px-4 py-3 text-white placeholder:text-white/30 text-sm transition-all" />
+        </div>
+
+        <!-- Message -->
+        <div class="flex flex-col">
+          <textarea id="resume-message" placeholder="Optional note..." rows="3"
+            class="w-full bg-[#181717] border border-white/10 hover:border-white/20 focus:border-primary-container focus:ring-0 rounded-lg px-4 py-3 text-white placeholder:text-white/30 text-sm resize-none transition-all"></textarea>
+        </div>
+
+        <!-- Submit button -->
+        <button type="submit" id="resume-submit-btn"
+          class="w-full bg-[#ff5e00] hover:bg-[#e05300] active:scale-[0.98] text-white font-bold py-3.5 rounded-xl flex items-center justify-center gap-2 transition-all font-label-caps text-label-caps text-xs tracking-widest mt-2">
+          <span>Request CV</span>
+          <span class="material-symbols-outlined text-sm">arrow_forward</span>
+        </button>
+      </form>
+
+      <!-- Success State (hidden by default) -->
+      <div id="resume-success" class="hidden flex flex-col items-center text-center gap-5 mt-4">
+        <div class="w-12 h-12 rounded-full bg-green-500/10 border border-green-500/20 flex items-center justify-center text-green-500">
+          <span class="material-symbols-outlined text-2xl">check_circle</span>
+        </div>
+        <div>
+          <h4 class="text-base font-headline font-bold text-white mb-1">Details Submitted!</h4>
+          <p class="text-white/60 text-xs leading-relaxed font-body">Thank you. Click below to download the resume immediately.</p>
+        </div>
+        <a href="assets/resume.pdf" download="Fazi_Awan_Resume.pdf" onclick="closeResumeModal()"
+          class="w-full bg-green-600 hover:bg-green-500 active:scale-[0.98] text-white font-bold py-3.5 rounded-xl flex items-center justify-center gap-2 transition-all font-label-caps text-label-caps text-xs tracking-widest">
+          <span>Download Resume</span>
+          <span class="material-symbols-outlined text-sm">download</span>
+        </a>
+      </div>
+
+      <!-- Footer -->
+      <div class="text-center mt-6 font-label-caps text-[9px] tracking-[0.12em] text-white/40" id="resume-footer">
+        PREFER EMAIL? <a href="mailto:faiziawan.0001@gmail.com" class="text-[#ffb599] hover:text-[#ff5e00] transition-colors font-semibold lowercase">faiziawan.0001@gmail.com</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
        SECTION 7: CONTACT (Stitch Design)
   ============================================================ -->
   <section id="contact" class="py-section-gap relative overflow-hidden bg-background"
@@ -1643,23 +1725,27 @@
         <div class="flex flex-col gap-6 mt-auto">
           <!-- WhatsApp Detail Card -->
           <a href="https://wa.me/923296659172" target="_blank" rel="noopener noreferrer"
-            class="glass-panel p-6 rounded-lg group hover:border-primary-container transition-colors duration-300 flex items-start gap-4 cursor-pointer">
+            class="glass-panel p-6 rounded-lg group hover:border-primary-container transition-colors duration-300 flex items-center gap-4 cursor-pointer">
             <span
               class="material-symbols-outlined text-text-muted group-hover:text-primary-container transition-colors">chat</span>
             <div>
               <p class="font-label-caps text-label-caps text-text-muted mb-1">WhatsApp</p>
               <p class="font-body-md text-body-md text-on-surface">🇵🇰 +92-3296659172</p>
             </div>
+            <span
+              class="material-symbols-outlined text-text-muted group-hover:text-primary-container group-hover:translate-x-1 transition-transform ml-auto">arrow_outward</span>
           </a>
           <!-- Direct Email Card -->
           <a href="mailto:faiziawan.0001@gmail.com"
-            class="glass-panel p-6 rounded-lg group hover:border-primary-container transition-colors duration-300 flex items-start gap-4 cursor-pointer">
+            class="glass-panel p-6 rounded-lg group hover:border-primary-container transition-colors duration-300 flex items-center gap-4 cursor-pointer">
             <span
               class="material-symbols-outlined text-text-muted group-hover:text-primary-container transition-colors">mail</span>
             <div>
               <p class="font-label-caps text-label-caps text-text-muted mb-1">Direct Email</p>
               <p class="font-body-md text-body-md text-on-surface">faiziawan.0001@gmail.com</p>
             </div>
+            <span
+              class="material-symbols-outlined text-text-muted group-hover:text-primary-container group-hover:translate-x-1 transition-transform ml-auto">arrow_outward</span>
           </a>
           <!-- Location Detail Card -->
           <div

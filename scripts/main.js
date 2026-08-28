@@ -794,3 +794,112 @@ window.togglePillar = function(index) {
     });
   });
 })();
+
+/* =================================================================
+   LUXURY: RESUME ACCESS MODAL (NEW FEATURE)
+================================================================== */
+(function initResumeModal() {
+  const resumeModal = document.getElementById('resume-modal');
+  const resumeModalPanel = document.getElementById('resume-modal-panel');
+  const resumeForm = document.getElementById('resume-form');
+  const resumeSuccess = document.getElementById('resume-success');
+  const resumeDescription = document.getElementById('resume-description');
+  const resumeFooter = document.getElementById('resume-footer');
+
+  window.openResumeModal = function() {
+    // Reset state before showing
+    resumeForm.classList.remove('hidden');
+    resumeSuccess.classList.add('hidden');
+    resumeDescription.classList.remove('hidden');
+    resumeFooter.classList.remove('hidden');
+    resumeForm.reset();
+
+    // Show modal container
+    resumeModal.classList.remove('hidden');
+    resumeModal.classList.add('flex');
+    document.body.classList.add('modal-open');
+
+    // Trigger opening transition
+    setTimeout(() => {
+      resumeModal.classList.remove('opacity-0');
+      resumeModal.classList.add('opacity-100');
+      resumeModalPanel.classList.remove('scale-95');
+      resumeModalPanel.classList.add('scale-100');
+    }, 10);
+
+    // Fire-and-forget background alert about the touch/click
+    fetch('/api/resume', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ action: 'click' })
+    }).catch(err => console.warn('Silent click alert failed:', err));
+  };
+
+  window.closeResumeModal = function() {
+    resumeModal.classList.remove('opacity-100');
+    resumeModal.classList.add('opacity-0');
+    resumeModalPanel.classList.remove('scale-100');
+    resumeModalPanel.classList.add('scale-95');
+    document.body.classList.remove('modal-open');
+
+    setTimeout(() => {
+      resumeModal.classList.remove('flex');
+      resumeModal.classList.add('hidden');
+    }, 300);
+  };
+
+  // Close modal on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !resumeModal.classList.contains('hidden')) {
+      closeResumeModal();
+    }
+  });
+
+  // Handle Form Submission
+  resumeForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn = document.getElementById('resume-submit-btn');
+    const originalText = btn.innerHTML;
+    btn.innerHTML = `Sending... <span class="material-symbols-outlined text-sm animate-spin">sync</span>`;
+    btn.disabled = true;
+
+    const payload = {
+      action: 'submit',
+      website: document.getElementById('resume-website').value.trim(),
+      name: document.getElementById('resume-name').value.trim(),
+      email: document.getElementById('resume-email').value.trim(),
+      message: document.getElementById('resume-message').value.trim()
+    };
+
+    try {
+      const response = await fetch('/api/resume', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+
+      const result = await response.json().catch(() => ({}));
+
+      if (response.ok && result.ok) {
+        // Form submitted successfully, hide form and show download button
+        resumeForm.classList.add('hidden');
+        resumeDescription.classList.add('hidden');
+        resumeFooter.classList.add('hidden');
+        resumeSuccess.classList.remove('hidden');
+      } else {
+        throw new Error(result.message || 'Failed to send request.');
+      }
+    } catch (err) {
+      btn.innerHTML = `Error! ${err.message} <span class="material-symbols-outlined text-sm">error</span>`;
+      btn.classList.add('bg-red-600');
+      btn.classList.remove('bg-[#ff5e00]');
+      setTimeout(() => {
+        btn.innerHTML = originalText;
+        btn.disabled = false;
+        btn.classList.remove('bg-red-600');
+        btn.classList.add('bg-[#ff5e00]');
+      }, 4000);
+    }
+  });
+})();
+

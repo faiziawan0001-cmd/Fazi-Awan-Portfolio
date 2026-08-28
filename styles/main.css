@@ -110,54 +110,6 @@ body::before {
 }
 
 /* =============================================================
-   LUXURY UPGRADE 3: GRADIENT BORDER BEAM ON CARDS
-   ============================================================= */
-.beam-card {
-  position: relative;
-  isolation: isolate;
-}
-.beam-card::before {
-  content: '';
-  position: absolute;
-  inset: -1px;
-  border-radius: inherit;
-  background: conic-gradient(
-    from var(--beam-angle, 0deg),
-    transparent 0%,
-    transparent 40%,
-    rgba(255, 94, 0, 0.7) 50%,
-    transparent 60%,
-    transparent 100%
-  );
-  z-index: -1;
-  opacity: 0;
-  transition: opacity 0.4s ease;
-}
-.beam-card:hover::before {
-  opacity: 1;
-  animation: beamSpin 2.5s linear infinite;
-}
-.beam-card::after {
-  content: '';
-  position: absolute;
-  inset: 1px;
-  border-radius: inherit;
-  background: #111111;
-  z-index: -1;
-}
-
-@keyframes beamSpin {
-  from { --beam-angle: 0deg; }
-  to   { --beam-angle: 360deg; }
-}
-
-@property --beam-angle {
-  syntax: '<angle>';
-  initial-value: 0deg;
-  inherits: false;
-}
-
-/* =============================================================
    LUXURY UPGRADE 4: SCROLL-DRIVEN TEXT REVEAL
    ============================================================= */
 .reveal-text {
@@ -169,22 +121,6 @@ body::before {
 .reveal-text.is-revealed {
   opacity: 1;
   transform: translateY(0);
-}
-
-/* Clip reveal — text emerges from beneath a mask */
-.clip-reveal {
-  overflow: hidden;
-}
-.clip-reveal span {
-  display: inline-block;
-  transform: translateY(110%);
-  opacity: 0;
-  transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1),
-              opacity 0.6s ease;
-}
-.clip-reveal.is-revealed span {
-  transform: translateY(0);
-  opacity: 1;
 }
 
 .delay-100 { transition-delay: 100ms; }
@@ -304,31 +240,6 @@ body::before {
   -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 80%);
 }
 
-/* --- Nav link hover underline --- */
-.nav-link {
-  position: relative;
-}
-.nav-link::after {
-  content: '';
-  position: absolute;
-  width: 100%;
-  transform: scaleX(0);
-  height: 1px;
-  bottom: -2px;
-  left: 0;
-  background: linear-gradient(90deg, transparent, #ffb599, transparent);
-  transform-origin: bottom right;
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.nav-link:hover::after,
-.nav-link.active::after {
-  transform: scaleX(1);
-  transform-origin: bottom left;
-}
-.nav-link.active {
-  color: #ffb599;
-}
-
 /* --- Magnetic Element Transition --- */
 .magnetic {
   transition: transform 0.1s linear, background-color 0.3s, box-shadow 0.3s, border-color 0.3s;
@@ -380,22 +291,6 @@ body.modal-open {
   border-bottom: 1px solid #ff5e00;
 }
 
-/* Typewriter Cursor Blinking */
-.typewriter-text {
-  animation: blink 1s step-end infinite;
-}
-@keyframes blink {
-  0%, 100% { border-color: transparent; }
-  50% { border-color: #ff5e00; }
-}
-
-/* ── Hero nav active underline ── */
-a[href="#hero"].nav-link {
-  color: #e5e2e1;
-  border-bottom: 1px solid #e5e2e1;
-  padding-bottom: 2px;
-}
-
 /* ── Hero Background (static zoom) ── */
 .hero-bg-zoom {
   transform: scale(1.15);
@@ -410,15 +305,6 @@ a[href="#hero"].nav-link {
   pointer-events: none;
   z-index: 1;
   opacity: 0.35;
-}
-
-/* --- 3D Tilt Card --- */
-.tilt-card {
-  transform-style: preserve-3d;
-  transition: transform 0.2s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.3s, border-color 0.3s;
-}
-.tilt-card > * {
-  transform-style: preserve-3d;
 }
 
 /* =============================================================

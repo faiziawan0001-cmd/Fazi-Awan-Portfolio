@@ -1,5 +1,6 @@
 {
   "version": 2,
+  "buildCommand": "npm run build",
   "cleanUrls": true,
   "trailingSlash": false,
   "headers": [
@@ -33,6 +34,6 @@
     }
   ],
   "rewrites": [
-    { "source": "/((?!api/).*)", "destination": "/index.html" }
+    {       "source": "/((?!api/|sitemap\\.xml|robots\\.txt|favicon\\.svg).*)", "destination": "/index.html" }
   ]
 }

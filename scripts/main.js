@@ -8,8 +8,6 @@ const navbar       = document.getElementById('navbar');
 const mobileMenuBtn = document.getElementById('mobile-menu-btn');
 const mobileMenu   = document.getElementById('mobile-menu');
 const contactForm  = document.getElementById('contact-form');
-const navLinks     = document.querySelectorAll('.nav-link');
-const sections     = document.querySelectorAll('section[id]');
 const filterBtns   = document.querySelectorAll('.filter-btn');
 const projectCards = document.querySelectorAll('.project-card');
 const caseStudyModal = document.getElementById('case-study-modal');
@@ -29,6 +27,7 @@ const modalGallery = document.getElementById('modal-gallery');
    - Decorative ambient background layer for the portfolio
 ================================================================== */
 (function initParticleCanvas() {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   const canvas = document.createElement('canvas');
   canvas.id = 'portfolio-canvas';
   document.body.prepend(canvas);
@@ -116,6 +115,7 @@ const modalGallery = document.getElementById('modal-gallery');
   }
 
   function loop() {
+    if (document.hidden) { requestAnimationFrame(loop); return; }
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     particles.forEach(p => { p.update(); p.draw(); });
     drawConnections();
@@ -128,6 +128,7 @@ const modalGallery = document.getElementById('modal-gallery');
    LUXURY 2: MAGNETIC CUSTOM CURSOR WITH BLEND RING
 ================================================================== */
 (function initCursor() {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   if (window.innerWidth < 768) return;
 
   const dot  = document.createElement('div');
@@ -154,7 +155,7 @@ const modalGallery = document.getElementById('modal-gallery');
 
   // Hover states — expand ring on interactive elements
   const hoverTargets = document.querySelectorAll(
-    'a, button, .magnetic, .project-card, .beam-card, .glow-card'
+    'a, button, .magnetic, .project-card, .glow-card'
   );
   hoverTargets.forEach(el => {
     el.addEventListener('mouseenter', () => {
@@ -192,7 +193,7 @@ const modalGallery = document.getElementById('modal-gallery');
    LUXURY 4: SCROLL-DRIVEN TEXT REVEAL (IntersectionObserver)
 ================================================================== */
 (function initScrollReveal() {
-  const revealEls = document.querySelectorAll('.reveal-text, .clip-reveal, .expertise-reveal');
+  const revealEls = document.querySelectorAll('.reveal-text, .expertise-reveal');
   if (!revealEls.length) return;
 
   const observer = new IntersectionObserver((entries) => {
@@ -220,30 +221,6 @@ document.addEventListener('DOMContentLoaded', () => {
       el.style.transition = `opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1) ${existingDelay}, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) ${existingDelay}`;
     });
   }, 200);
-
-  // Typewriter Effect
-  const roles = ['Software Developer', 'UI/UX Specialist', 'AI Engineer'];
-  let roleIndex = 0, charIndex = 0, isDeleting = false;
-  const typeEl = document.querySelector('.typewriter-text');
-
-  function typeEffect() {
-    if (!typeEl) return;
-    const current = roles[roleIndex];
-    typeEl.innerText = isDeleting
-      ? current.substring(0, charIndex - 1)
-      : current.substring(0, charIndex + 1);
-    isDeleting ? charIndex-- : charIndex++;
-
-    let speed = isDeleting ? 50 : 100;
-    if (!isDeleting && charIndex === current.length) { speed = 2000; isDeleting = true; }
-    else if (isDeleting && charIndex === 0) {
-      isDeleting = false;
-      roleIndex = (roleIndex + 1) % roles.length;
-      speed = 500;
-    }
-    setTimeout(typeEffect, speed);
-  }
-  if (typeEl) setTimeout(typeEffect, 1800);
 
   // Initial reveal for static reveal-text elements already in viewport
   setTimeout(() => {
@@ -336,22 +313,6 @@ window.addEventListener('scroll', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 })();
-
-/* =================================================================
-   8. ACTIVE NAV LINK (IntersectionObserver)
-================================================================== */
-const sectionObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const id = entry.target.id;
-      navLinks.forEach(link => {
-        const href = link.getAttribute('href').replace('#', '');
-        link.classList.toggle('active', href === id);
-      });
-    }
-  });
-}, { rootMargin: '-30% 0px -60% 0px', threshold: 0 });
-sections.forEach(s => sectionObserver.observe(s));
 
 /* =================================================================
    9. MOBILE MENU TOGGLE
@@ -558,242 +519,6 @@ contactForm.addEventListener('submit', async (e) => {
     }, 4000);
   }
 });
-
-/* =================================================================
-   LUXURY: THREE.JS METHODOLOGY 3D SCENE
-================================================================== */
-(function initMethodologyCanvas() {
-  const canvas = document.getElementById('methodology-canvas');
-  if (!canvas || typeof THREE === 'undefined') return;
-
-  const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-  renderer.setClearColor(0x000000, 0);
-
-  const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(50, 1, 0.1, 100);
-  camera.position.set(0, 0, 5);
-
-  function resizeCanvas() {
-    const w = canvas.clientWidth;
-    const h = canvas.clientHeight;
-    renderer.setSize(w, h, false);
-    camera.aspect = w / h;
-    camera.updateProjectionMatrix();
-  }
-  resizeCanvas();
-  window.addEventListener('resize', resizeCanvas, { passive: true });
-
-  const outerMat = new THREE.MeshBasicMaterial({ color: 0xff5e00, wireframe: true, transparent: true, opacity: 0.18 });
-  const outerMesh = new THREE.Mesh(new THREE.IcosahedronGeometry(1.8, 1), outerMat);
-  scene.add(outerMesh);
-
-  const innerMat = new THREE.MeshStandardMaterial({ color: 0x1a0800, emissive: 0xff3800, emissiveIntensity: 0.3, roughness: 0.4, metalness: 0.8, transparent: true, opacity: 0.9 });
-  const innerMesh = new THREE.Mesh(new THREE.IcosahedronGeometry(1.0, 1), innerMat);
-  scene.add(innerMesh);
-
-  const torusMesh = new THREE.Mesh(new THREE.TorusGeometry(2.2, 0.012, 8, 100), new THREE.MeshBasicMaterial({ color: 0xffb599, transparent: true, opacity: 0.5 }));
-  torusMesh.rotation.x = Math.PI / 3;
-  scene.add(torusMesh);
-
-  const torusMesh2 = new THREE.Mesh(new THREE.TorusGeometry(2.6, 0.008, 8, 100), new THREE.MeshBasicMaterial({ color: 0xff5e00, transparent: true, opacity: 0.25 }));
-  torusMesh2.rotation.x = Math.PI / 6;
-  torusMesh2.rotation.y = Math.PI / 4;
-  scene.add(torusMesh2);
-
-  const particleCount = 60;
-  const positions = new Float32Array(particleCount * 3);
-  for (let i = 0; i < particleCount; i++) {
-    const theta = Math.random() * Math.PI * 2;
-    const phi = Math.acos(2 * Math.random() - 1);
-    const r = 2.5 + Math.random() * 1.5;
-    positions[i * 3]     = r * Math.sin(phi) * Math.cos(theta);
-    positions[i * 3 + 1] = r * Math.sin(phi) * Math.sin(theta);
-    positions[i * 3 + 2] = r * Math.cos(phi);
-  }
-  const particleGeo = new THREE.BufferGeometry();
-  particleGeo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-  const particleMesh = new THREE.Points(particleGeo, new THREE.PointsMaterial({ color: 0xffb599, size: 0.04, transparent: true, opacity: 0.7 }));
-  scene.add(particleMesh);
-
-  scene.add(new THREE.AmbientLight(0xffffff, 0.3));
-  const pLight1 = new THREE.PointLight(0xff5e00, 3, 10);
-  pLight1.position.set(2, 2, 3);
-  scene.add(pLight1);
-  const pLight2 = new THREE.PointLight(0xffb599, 1.5, 8);
-  pLight2.position.set(-2, -1, 2);
-  scene.add(pLight2);
-
-  let isDragging = false, prevMouse = { x: 0, y: 0 };
-  let targetRot = { x: 0, y: 0 }, currentRot = { x: 0, y: 0 };
-  canvas.addEventListener('mousedown', function(e) { isDragging = true; prevMouse = { x: e.clientX, y: e.clientY }; });
-  window.addEventListener('mouseup', function() { isDragging = false; });
-  canvas.addEventListener('mousemove', function(e) {
-    if (!isDragging) return;
-    targetRot.y += (e.clientX - prevMouse.x) * 0.008;
-    targetRot.x += (e.clientY - prevMouse.y) * 0.008;
-    prevMouse = { x: e.clientX, y: e.clientY };
-  });
-
-  let time = 0;
-  (function animate() {
-    requestAnimationFrame(animate);
-    time += 0.008;
-    currentRot.x += (targetRot.x - currentRot.x) * 0.06;
-    currentRot.y += (targetRot.y - currentRot.y) * 0.06;
-    if (!isDragging) { targetRot.y += 0.003; targetRot.x = Math.sin(time * 0.3) * 0.2; }
-    outerMesh.rotation.set(currentRot.x, currentRot.y, 0);
-    innerMesh.rotation.set(currentRot.x * 0.8, currentRot.y * 0.8 + time * 0.2, 0);
-    torusMesh.rotation.z  = time * 0.4;
-    torusMesh2.rotation.z = -time * 0.25;
-    particleMesh.rotation.y = time * 0.05;
-    particleMesh.rotation.x = time * 0.03;
-    innerMat.emissiveIntensity = 0.2 + Math.sin(time * 1.5) * 0.15;
-    pLight1.intensity = 2.5 + Math.sin(time * 2) * 0.8;
-    outerMat.opacity  = 0.13 + Math.sin(time) * 0.05;
-    renderer.render(scene, camera);
-  })();
-})();
-
-/* =================================================================
-   LUXURY: 3D CARD TILT (Methodology Cards)
-================================================================== */
-(function initMethodCardTilt() {
-  document.querySelectorAll('.method-card').forEach(function(wrapper) {
-    var card = wrapper.querySelector('.method-card-inner');
-    if (!card) return;
-    wrapper.addEventListener('mousemove', function(e) {
-      var rect = card.getBoundingClientRect();
-      var x = e.clientX - rect.left;
-      var y = e.clientY - rect.top;
-      var rx = ((y - rect.height / 2) / (rect.height / 2)) * -8;
-      var ry = ((x - rect.width  / 2) / (rect.width  / 2)) *  8;
-      card.style.transform = 'perspective(1000px) rotateX(' + rx + 'deg) rotateY(' + ry + 'deg) translateZ(10px)';
-      card.style.setProperty('--mx', x + 'px');
-      card.style.setProperty('--my', y + 'px');
-    });
-    wrapper.addEventListener('mouseleave', function() {
-      card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0px)';
-    });
-  });
-})();
-
-/* =================================================================
-   LUXURY: DYNAMIC METRICS COUNTER
-================================================================== */
-(function initMetricsCounter() {
-  const counters = document.querySelectorAll('.count-up');
-  if (!counters.length) return;
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const target = entry.target;
-        const countTo = parseInt(target.getAttribute('data-target'), 10);
-        const suffix = target.getAttribute('data-suffix') || '';
-        
-        const duration = 2000; // 2 seconds animation
-        const startTime = performance.now();
-
-        function updateCounter(currentTime) {
-          const elapsed = currentTime - startTime;
-          const progress = Math.min(elapsed / duration, 1);
-          
-          // Easing out cubic: progress = 1 - (1 - progress)^3
-          const easeProgress = 1 - Math.pow(1 - progress, 3);
-          const currentCount = Math.floor(easeProgress * countTo);
-          
-          target.innerText = currentCount + suffix;
-
-          if (progress < 1) {
-            requestAnimationFrame(updateCounter);
-          } else {
-            target.innerText = countTo + suffix;
-          }
-        }
-
-        requestAnimationFrame(updateCounter);
-        observer.unobserve(target); // Only animate once
-      }
-    });
-  }, { threshold: 0.3 });
-
-  counters.forEach(counter => observer.observe(counter));
-})();
-
-/* =================================================================
-   LUXURY: 3D CARD TILT FOR ABOUT CARD & EXPERTISE
-================================================================== */
-(function initTiltCards() {
-  const tiltCards = document.querySelectorAll('.tilt-card');
-  if (window.innerWidth < 768) return; // Disable on mobile for performance
-
-  tiltCards.forEach(card => {
-    card.addEventListener('mousemove', (e) => {
-      const rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left; 
-      const y = e.clientY - rect.top;  
-      
-      const width = rect.width;
-      const height = rect.height;
-      
-      // Calculate rotation angles relative to card center (Max: ~12 degrees)
-      const rotateX = ((y / height) - 0.5) * -12; 
-      const rotateY = ((x / width) - 0.5) * 12;
-      
-      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.01, 1.01, 1.01)`;
-      
-      // Update mouse variables for internal glow matching
-      card.style.setProperty('--mx', `${x}px`);
-      card.style.setProperty('--my', `${y}px`);
-    });
-    
-    card.addEventListener('mouseleave', () => {
-      card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
-    });
-  });
-})();
-
-
-/* =================================================================
-   NEW: EXPERTISE PILLAR ACCORDION
-================================================================== */
-window.togglePillar = function(index) {
-  var pillars = document.querySelectorAll('.expertise-pillar');
-  var target = pillars[index];
-  if (!target) return;
-  var body = target.querySelector('.pillar-body');
-  var isOpen = target.classList.contains('is-open');
-  pillars.forEach(function(p) {
-    p.classList.remove('is-open');
-    var b = p.querySelector('.pillar-body');
-    if (b) b.style.maxHeight = '0';
-  });
-  if (!isOpen && body) {
-    target.classList.add('is-open');
-    body.style.maxHeight = body.scrollHeight + 'px';
-  }
-};
-
-/* =================================================================
-   EXTEND: Cursor hover to new interactive elements
-================================================================== */
-(function extendCursorTargets() {
-  var dot  = document.getElementById('custom-cursor');
-  var ring = document.getElementById('custom-cursor-ring');
-  if (!dot || !ring) return;
-  var newTargets = document.querySelectorAll('.expertise-pillar, .about-stat-card, .tech-chip');
-  newTargets.forEach(function(el) {
-    el.addEventListener('mouseenter', function() {
-      dot.classList.add('cursor-hover');
-      ring.classList.add('cursor-hover');
-    });
-    el.addEventListener('mouseleave', function() {
-      dot.classList.remove('cursor-hover');
-      ring.classList.remove('cursor-hover');
-    });
-  });
-})();
 
 /* =================================================================
    LUXURY: RESUME ACCESS MODAL (NEW FEATURE)

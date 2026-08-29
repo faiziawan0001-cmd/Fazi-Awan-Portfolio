@@ -1401,8 +1401,9 @@ body.modal-open {
   }
   .jitu-hire-cta-wrap > div a,
   .jitu-hire-cta-wrap > div button {
+    display: block;
     width: 100%;
-    justify-content: center;
+    text-align: left;
     padding: 13px 20px;
     font-size: 13px;
   }

@@ -1399,7 +1399,8 @@ body.modal-open {
     width: 100%;
     gap: 12px;
   }
-  .jitu-hire-cta-wrap > div a {
+  .jitu-hire-cta-wrap > div a,
+  .jitu-hire-cta-wrap > div button {
     width: 100%;
     justify-content: center;
     padding: 13px 20px;
@@ -1424,7 +1425,8 @@ body.modal-open {
   .hero-location-icon { font-size: 12px; }
   .hero-location-text { font-size: 9px; letter-spacing: 0.04em; }
   .jitu-hire-cta-wrap { padding: 18px 0 22px; }
-  .jitu-hire-cta-wrap > div a { padding: 12px 18px; font-size: 12px; }
+  .jitu-hire-cta-wrap > div a,
+  .jitu-hire-cta-wrap > div button { padding: 12px 18px; font-size: 12px; }
 }
 
 /* ── Very short viewports: squeeze further so CTA stays on screen ── */
@@ -1443,7 +1445,8 @@ body.modal-open {
   .hero-location-icon { font-size: 12px; }
   .hero-location-text { font-size: 9px; letter-spacing: 0.04em; }
   .jitu-hire-cta-wrap { padding: 14px 0 18px; }
-  .jitu-hire-cta-wrap > div a { padding: 11px 16px; }
+  .jitu-hire-cta-wrap > div a,
+  .jitu-hire-cta-wrap > div button { padding: 11px 16px; }
 }
 
 /* =============================================================

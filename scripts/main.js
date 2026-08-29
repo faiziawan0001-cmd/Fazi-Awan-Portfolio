@@ -494,7 +494,7 @@ contactForm.addEventListener('submit', async (e) => {
     const result = await response.json().catch(() => ({}));
 
     if (response.ok && result.ok) {
-      btn.innerHTML = `Sent Successfully! <span class="material-symbols-outlined text-sm">check</span>`;
+      btn.innerHTML = `Thank you, I'll reply in 24 hours. <span class="material-symbols-outlined text-sm">check</span>`;
       btn.classList.add('bg-green-600');
       btn.classList.remove('bg-primary-container');
       contactForm.reset();
@@ -503,7 +503,7 @@ contactForm.addEventListener('submit', async (e) => {
         btn.disabled = false;
         btn.classList.remove('bg-green-600');
         btn.classList.add('bg-primary-container');
-      }, 3000);
+      }, 10000);
     } else {
       throw new Error(result.message || 'Failed to send message.');
     }
@@ -607,6 +607,11 @@ contactForm.addEventListener('submit', async (e) => {
 
       if (response.ok && result.ok) {
         // Form submitted successfully, hide form and show download button
+        const rRaw = payload.name.trim();
+        const rFirstName = rRaw
+          ? rRaw.split(' ')[0][0].toUpperCase() + rRaw.split(' ')[0].slice(1)
+          : 'there';
+        document.getElementById('resume-success-title').textContent = `Details submitted ${rFirstName}!`;
         resumeForm.classList.add('hidden');
         resumeDescription.classList.add('hidden');
         resumeFooter.classList.add('hidden');

@@ -30,3 +30,4 @@ dist/
 out/
 .next/
 styles/tailwind-output.css
+.env*
